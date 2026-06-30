@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/cta-banner",
+  "title": "CTA Banner",
+  "category": "balefire",
+  "icon": "megaphone",
+  "description": "Call-to-action banner with tone variants, eyebrow/title/content, and dual buttons.",
+  "keywords": ["cta", "banner", "marketing", "balefire"],
+  "textdomain": "balefire",
+  "version": "1.0.0",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "tone": {
+      "type": "string",
+      "default": "primary"
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryStyle": {
+      "type": "string",
+      "default": "solid"
+    },
+    "secondaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "balefire-cta-banner-editor"
+}

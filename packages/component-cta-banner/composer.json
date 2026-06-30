@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-cta-banner",
+    "description": "Call-to-action banner — Tailwind + Blade component with Gutenberg block. Dual buttons, tone variants, eyebrow/title/content.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\CtaBanner\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "cta-banner",
+            "block_name": "balefire/cta-banner",
+            "blade_component": "bma::components.cta-banner",
+            "shortcode": "bma_cta_banner",
+            "owns_css": false
+        }
+    }
+}

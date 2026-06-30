@@ -1,0 +1,28 @@
+{
+    "name": "balefire/sage-components",
+    "description": "Balefire Agency — Sage 10 + Tailwind component monorepo. Reusable Blade + Gutenberg blocks distributed via Composer sub-packages.",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./packages/*",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "require": {
+        "php": ">=8.2"
+    },
+    "require-dev": {
+        "balefireict/component-cta-banner": "dev-main"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
