@@ -23,7 +23,7 @@ foundation of the library.
 
 We evaluated two paths for the new stack.
 
-### Sage 10 — Selected
+### Sage 10
 
 Sage is an open-source WordPress theme framework by Roots (MIT licensed,
 10+ years of development, large community). It uses Blade templates,
