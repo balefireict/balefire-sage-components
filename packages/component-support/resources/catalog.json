@@ -1,6 +1,20 @@
 {
   "blocks": [
     {
+      "slug": "hero-headline",
+      "active": true,
+      "title": "Hero Headline",
+      "description": "Full-bleed image hero with eyebrow flourish, highlighted headline words, supporting text, and dual buttons. From the Project B&T homepage Figma ('Hero Blocks' frame, kit instance 'Energy').",
+      "category": "design",
+      "type": "headers",
+      "icon": "cover-image",
+      "keywords": [
+        "hero",
+        "headline",
+        "banner"
+      ]
+    },
+    {
       "slug": "section-heading",
       "active": true,
       "title": "Section Heading",
@@ -471,7 +485,7 @@
       "slug": "simple-icon-stacked-cards",
       "active": true,
       "title": "Simple Icon Stacked Cards",
-      "description": "A white card with a 40×40px icon (SVG or image) aligned flex-start with an optional link, plus innerBlocks for content.",
+      "description": "A white card with a 40\u00d740px icon (SVG or image) aligned flex-start with an optional link, plus innerBlocks for content.",
       "category": "design",
       "type": "single-block",
       "icon": "columns",
@@ -486,7 +500,7 @@
       "slug": "simple-steps-card",
       "active": true,
       "title": "Simple Steps Card",
-      "description": "A centered card with a 96×96px icon (SVG or image), white/20 background, 3px white border, and centered text via innerBlocks.",
+      "description": "A centered card with a 96\u00d796px icon (SVG or image), white/20 background, 3px white border, and centered text via innerBlocks.",
       "category": "design",
       "type": "single-block",
       "icon": "index-card",
