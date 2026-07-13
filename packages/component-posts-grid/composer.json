@@ -1,0 +1,27 @@
+{
+    "name": "balefireict/component-posts-grid",
+    "description": "Posts Grid \u2014 A dynamic posts grid that respects Balefire tokens and plugin defaults.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\PostsGrid\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "posts-grid",
+            "block_name": "balefire/posts-grid",
+            "blade_component": "bma::components.posts-grid",
+            "shortcode": "bma_posts_grid",
+            "owns_css": true
+        }
+    }
+}

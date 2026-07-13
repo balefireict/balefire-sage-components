@@ -1,0 +1,74 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/posts-grid",
+  "title": "Posts Grid",
+  "category": "balefire",
+  "icon": "screenoptions",
+  "description": "A dynamic posts grid that respects Balefire tokens and plugin defaults.",
+  "keywords": [
+    "posts",
+    "grid",
+    "query",
+    "balefire"
+  ],
+  "textdomain": "balefire",
+  "editorScript": "balefire-posts-grid-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "wide"
+    },
+    "intro": {
+      "type": "string",
+      "default": ""
+    },
+    "postsPerPage": {
+      "type": "number",
+      "default": 0
+    },
+    "columns": {
+      "type": "number",
+      "default": 3
+    },
+    "showExcerpt": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDate": {
+      "type": "boolean",
+      "default": true
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "maxWidth": {
+      "type": "string",
+      "default": "wide"
+    },
+    "showAuthor": {
+      "type": "boolean",
+      "default": true
+    },
+    "backgroundTone": {
+      "type": "string",
+      "default": "transparent"
+    }
+  },
+  "version": "1.0.0",
+  "style": "file:./style.css"
+}

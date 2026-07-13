@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-cta-centered-text-ra",
+    "description": "CTA Centered Text RA \u2014 Centered CTA section with preheader, title, body text, and dual button group. All fields optional.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\CtaCenteredTextRa\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "cta-centered-text-ra",
+            "block_name": "balefire/cta-centered-text-ra",
+            "blade_component": "bma::components.cta-centered-text-ra",
+            "shortcode": "bma_cta_centered_text_ra",
+            "owns_css": false
+        }
+    }
+}

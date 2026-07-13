@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-faq-no-borders",
+    "description": "FAQ Item (No Borders) \u2014 A single FAQ accordion item with a question and answer, using pure CSS details/summary.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\FaqNoBorders\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "faq-no-borders",
+            "block_name": "balefire/faq-no-borders",
+            "blade_component": "bma::components.faq-no-borders",
+            "shortcode": "bma_faq_no_borders",
+            "owns_css": false
+        }
+    }
+}

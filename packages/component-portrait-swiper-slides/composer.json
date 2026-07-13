@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-portrait-swiper-slides",
+    "description": "Portrait Swiper Slides \u2014 A Swiper.js slider with portrait-oriented slides featuring images, titles, links, and overlays.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\PortraitSwiperSlides\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "portrait-swiper-slides",
+            "block_name": "balefire/portrait-swiper-slides",
+            "blade_component": "bma::components.portrait-swiper-slides",
+            "owns_css": false
+        }
+    }
+}
