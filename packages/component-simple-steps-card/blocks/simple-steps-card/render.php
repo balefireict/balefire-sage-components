@@ -18,4 +18,4 @@ echo Renderer::render( [
 	'iconAlt' => $attributes['iconAlt'] ?? '',
 	'iconSvg' => $attributes['iconSvg'] ?? '',
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

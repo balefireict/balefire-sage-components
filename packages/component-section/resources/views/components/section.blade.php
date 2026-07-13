@@ -16,7 +16,7 @@ $htmlId = sanitize_key($htmlId);
 <section
     {{ $attributes->class(['bma-section', $surface['section']]) }}
     data-has-bg="{{ $hasBg ? 'true' : 'false' }}"
-    @if ($htmlId !== '') id="{{ $htmlId }}" @endif
+    @if ($htmlId !== '' && ! $attributes->has('id')) id="{{ $htmlId }}" @endif
 >
     {!! $content !!}
 </section>

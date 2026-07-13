@@ -15,4 +15,4 @@ use BalefireInc\Sage\FeaturedImageHeader\Renderer;
 echo Renderer::render( [
 	'intro' => $attributes['intro'] ?? '',
 	'showOnFrontPage' => $attributes['showOnFrontPage'] ?? false,
-] );
+], get_block_wrapper_attributes() );

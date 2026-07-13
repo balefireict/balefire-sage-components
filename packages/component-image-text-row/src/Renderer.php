@@ -18,11 +18,23 @@ class Renderer {
 	/**
 	 * Render the component from the given props.
 	 *
-	 * @param array $props Component props (matches Blade @props).
+	 * When called from the block render callback, $wrapper_attributes is
+	 * the get_block_wrapper_attributes() string; it becomes the view's
+	 * $attributes bag so anchor/spacing/className supports reach the markup.
+	 *
+	 * @param array  $props              Component props (matches Blade @props).
+	 * @param string $wrapper_attributes Optional block wrapper attribute string.
 	 * @return string HTML output.
 	 */
-	public static function render( array $props ): string {
+	public static function render( array $props, string $wrapper_attributes = '' ): string {
 		$props = self::defaults( $props );
+
+		if ( $wrapper_attributes !== '' ) {
+			$bag = \BalefireInc\Sage\Support\BlockAttributes::bag( $wrapper_attributes );
+			if ( $bag !== null ) {
+				$props['attributes'] = $bag;
+			}
+		}
 
 		// Sage 10 / Acorn — use the Roots\view() helper.
 		if ( function_exists( '\Roots\view' ) ) {

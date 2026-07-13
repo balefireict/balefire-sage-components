@@ -1,4 +1,49 @@
-import metadata from '../../../blocks/section/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/section",
+    "title": "Section",
+    "category": "balefire",
+    "icon": "layout",
+    "description": "Full-width layout section with background color.",
+    "keywords": [
+        "section",
+        "layout",
+        "background",
+        "wrapper",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-section-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "className": true,
+        "align": [
+            "none",
+            "wide",
+            "full"
+        ]
+    },
+    "providesContext": {
+        "balefire/sectionTone": "backgroundColor"
+    },
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "transparent"
+        },
+        "htmlId": {
+            "type": "string",
+            "default": ""
+        },
+        "align": {
+            "type": "string",
+            "default": "wide"
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

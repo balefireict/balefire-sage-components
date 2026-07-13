@@ -1,4 +1,42 @@
-import metadata from '../../../blocks/faq-no-borders/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/faq-no-borders",
+    "title": "FAQ Item (No Borders)",
+    "category": "balefire",
+    "icon": "editor-help",
+    "description": "A single FAQ accordion item with a question and answer, using pure CSS details/summary.",
+    "keywords": [
+        "faq",
+        "accordion",
+        "question",
+        "answer",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-faq-no-borders-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true
+    },
+    "attributes": {
+        "question": {
+            "type": "string",
+            "default": ""
+        },
+        "answer": {
+            "type": "string",
+            "default": ""
+        },
+        "openByDefault": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

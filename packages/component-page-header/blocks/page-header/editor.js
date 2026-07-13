@@ -1,4 +1,70 @@
-import metadata from '../../../blocks/page-header/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/page-header",
+    "title": "Page Header",
+    "category": "balefire",
+    "icon": "heading",
+    "description": "Full-width page header with background image, gradient overlay, contextual title, subtitle, and button group.",
+    "keywords": [
+        "header",
+        "hero",
+        "title",
+        "page",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-page-header-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "spacing": {
+            "margin": false,
+            "padding": false
+        }
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "minHeight": {
+            "type": "string",
+            "default": "auto"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": ""
+        },
+        "primaryLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "primaryUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "secondaryLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "secondaryUrl": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

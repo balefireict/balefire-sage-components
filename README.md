@@ -23,10 +23,12 @@ provides the InspectorControls UI and a lightweight preview placeholder.
 All 36 blocks from the `balefire-blocks` plugin live here as
 `balefireict/component-<slug>` packages, plus one shared package:
 
-- **`component-support`** — `SectionStyles` token-to-class maps
-  (`BalefireInc\Sage\Support`) and the shared frontend CSS
-  (`resources/css/{view,layout,swiper}.css`). Packages that render
-  surface tones require it; consumer themes import its CSS (see below).
+- **`component-support`** — the base package every component requires:
+  `SectionStyles` token-to-class maps, `BlockAttributes` (parses
+  `get_block_wrapper_attributes()` into the Blade `$attributes` bag so
+  anchor/spacing/className supports reach the markup), the shared
+  "Balefire" block category, and the shared frontend CSS
+  (`resources/css/{view,layout,swiper}.css`) consumer themes import.
 - **Layout** — container, section, grid-row, grid-cell, auto-grid,
   layout-grid, sections-flexible-widths, split-35-65, two-col-three-col
 - **Cards** — card-icon-break, card-media, card-stat, simple-card,
@@ -142,12 +144,19 @@ Import it into the theme stylesheet so it rides the theme build:
 @import '../../vendor/balefireict/component-support/resources/css/view.css';
 ```
 
-(`view.css` pulls in `layout.css` and `swiper.css`.) Ten blocks also
-carry a block-scoped `style.css` referenced from their `block.json` —
-WordPress enqueues those automatically wherever `vendor/` is
-web-accessible (WPE committed-vendor sites). On Bedrock/Trellis sites,
-where `vendor/` sits outside the webroot, import those files into the
-theme build the same way.
+(`view.css` pulls in `layout.css` and `swiper.css`.) That import is the
+only asset step. Everything else is self-registering with **no URL
+assumptions** — packages live in `vendor/`, which Bedrock keeps outside
+the webroot, so nothing may ever build a URL to a package file (see
+[WordPress plugins that assume your directory structure](https://roots.io/wordpress-plugins-that-assume-your-directory-structure/)):
+
+- **Editor scripts** are plain browser-ready JS (`wp.*` globals, no
+  imports, no build step). Each bootstrap registers an src-less handle
+  and attaches the file's contents via `wp_add_inline_script()`.
+- **Block styles** (the ten blocks with a `style.css`) work the same
+  way: `block.json` points at a handle, the bootstrap inlines the CSS
+  with `wp_add_inline_style()`, and WordPress prints it only where the
+  block renders.
 
 ### 6. Build and go
 

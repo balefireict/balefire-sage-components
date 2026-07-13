@@ -1,4 +1,51 @@
-import metadata from '../../../blocks/featured-image-header/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/featured-image-header",
+    "title": "Featured Image Header",
+    "category": "balefire",
+    "icon": "format-image",
+    "description": "Context-aware page header that uses the featured image as background. Shows contextual titles on archive, search, 404, and singular pages. Designed to replace the PHP page-heading template.",
+    "keywords": [
+        "header",
+        "hero",
+        "title",
+        "featured image",
+        "page",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-featured-image-header-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "spacing": {
+            "margin": false,
+            "padding": false
+        }
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        },
+        "intro": {
+            "type": "string",
+            "default": ""
+        },
+        "showOnFrontPage": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

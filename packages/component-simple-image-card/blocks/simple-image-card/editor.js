@@ -1,4 +1,58 @@
-import metadata from '../../../blocks/simple-image-card/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/simple-image-card",
+    "title": "Simple Image Card",
+    "category": "balefire",
+    "icon": "format-image",
+    "description": "A card with a flush-top image, white background, rounded corners, and an h3 title. Optional anchor wrapper.",
+    "keywords": [
+        "card",
+        "image",
+        "simple",
+        "photo",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-simple-image-card-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true
+    },
+    "attributes": {
+        "imageId": {
+            "type": "number",
+            "default": 0
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "linkType": {
+            "type": "string",
+            "default": "none"
+        },
+        "pageId": {
+            "type": "number",
+            "default": 0
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

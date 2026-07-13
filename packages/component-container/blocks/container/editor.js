@@ -1,4 +1,44 @@
-import metadata from '../../../blocks/container/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/container",
+    "title": "Container",
+    "category": "balefire",
+    "icon": "align-wide",
+    "description": "Max-width constrained, centered container with horizontal padding.",
+    "keywords": [
+        "container",
+        "wrapper",
+        "max-width",
+        "center",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-container-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true
+    },
+    "parent": [
+        "balefire/section"
+    ],
+    "usesContext": [
+        "balefire/sectionTone"
+    ],
+    "attributes": {
+        "maxWidth": {
+            "type": "string",
+            "default": "wide"
+        },
+        "paddingInline": {
+            "type": "string",
+            "default": "md"
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

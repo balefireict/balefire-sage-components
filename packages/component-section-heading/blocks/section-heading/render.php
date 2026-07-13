@@ -19,4 +19,4 @@ echo Renderer::render( [
 	'contentAlign' => $attributes['contentAlign'] ?? 'left',
 	'maxWidth' => $attributes['maxWidth'] ?? '',
 	'backgroundTone' => $attributes['backgroundTone'] ?? 'transparent',
-] );
+], get_block_wrapper_attributes() );

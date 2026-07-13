@@ -1,4 +1,47 @@
-import metadata from '../../../blocks/simple-steps-card/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/simple-steps-card",
+    "title": "Simple Steps Card",
+    "category": "balefire",
+    "icon": "index-card",
+    "description": "A centered card with a 96\u00d796px icon (SVG or image), white/20 background, 3px white border, and centered text via innerBlocks.",
+    "keywords": [
+        "card",
+        "icon",
+        "steps",
+        "centered",
+        "feature",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-simple-steps-card-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true
+    },
+    "attributes": {
+        "iconId": {
+            "type": "number",
+            "default": 0
+        },
+        "iconUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "iconAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "iconSvg": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

@@ -17,4 +17,4 @@ echo Renderer::render( [
 	'columnsTablet' => $attributes['columnsTablet'] ?? '',
 	'gap' => $attributes['gap'] ?? '6',
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

@@ -16,4 +16,4 @@ echo Renderer::render( [
 	'question' => $attributes['question'] ?? '',
 	'answer' => $attributes['answer'] ?? '',
 	'openByDefault' => $attributes['openByDefault'] ?? false,
-] );
+], get_block_wrapper_attributes() );

@@ -22,4 +22,4 @@ echo Renderer::render( [
 	'primaryStyle'   => $attributes['primaryStyle'] ?? 'solid',
 	'secondaryLabel' => $attributes['secondaryLabel'] ?? '',
 	'secondaryUrl'   => isset( $attributes['secondaryUrl'] ) ? esc_url( $attributes['secondaryUrl'] ) : '',
-] );
+], get_block_wrapper_attributes() );

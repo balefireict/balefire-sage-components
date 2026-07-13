@@ -19,4 +19,4 @@ echo Renderer::render( [
 	'url' => isset( $attributes['url'] ) ? esc_url( $attributes['url'] ) : '',
 	'openInNewTab' => $attributes['openInNewTab'] ?? false,
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

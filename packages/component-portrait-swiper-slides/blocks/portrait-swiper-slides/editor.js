@@ -1,4 +1,68 @@
-import metadata from '../../../blocks/portrait-swiper-slides/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/portrait-swiper-slides",
+    "title": "Portrait Swiper Slides",
+    "category": "balefire",
+    "icon": "slides",
+    "description": "A Swiper.js slider with portrait-oriented slides featuring images, titles, links, and overlays.",
+    "keywords": [
+        "swiper",
+        "slider",
+        "carousel",
+        "slides",
+        "portrait",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-portrait-swiper-slides-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "align": [
+            "none",
+            "wide",
+            "full"
+        ],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "slides": {
+            "type": "array",
+            "default": []
+        },
+        "slidesPerView": {
+            "type": "number",
+            "default": 4
+        },
+        "spaceBetween": {
+            "type": "number",
+            "default": 16
+        },
+        "showPagination": {
+            "type": "boolean",
+            "default": true
+        },
+        "showNavigation": {
+            "type": "boolean",
+            "default": true
+        },
+        "overlayColor": {
+            "type": "string",
+            "default": ""
+        },
+        "align": {
+            "type": "string",
+            "default": "wide"
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

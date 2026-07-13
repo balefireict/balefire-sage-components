@@ -23,4 +23,4 @@ echo Renderer::render( [
 	'statLeftLabel' => $attributes['statLeftLabel'] ?? '',
 	'statRightValue' => $attributes['statRightValue'] ?? '',
 	'statRightLabel' => $attributes['statRightLabel'] ?? '',
-] );
+], get_block_wrapper_attributes() );

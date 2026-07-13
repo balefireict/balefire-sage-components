@@ -1,4 +1,50 @@
-import metadata from '../../../blocks/card-icon-break/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/card-icon-break",
+    "title": "Card Icon Break",
+    "category": "balefire",
+    "icon": "format-image",
+    "description": "A skeleton card with an absolutely-positioned icon and inner blocks for content. Optional anchor wrapper.",
+    "keywords": [
+        "card",
+        "icon",
+        "feature",
+        "service",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-card-icon-break-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true
+    },
+    "attributes": {
+        "iconId": {
+            "type": "number",
+            "default": 0
+        },
+        "iconUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "iconAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "openInNewTab": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

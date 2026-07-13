@@ -1,4 +1,75 @@
-import metadata from '../../../blocks/feature-row/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/feature-row",
+    "title": "Feature Row",
+    "category": "balefire",
+    "icon": "align-pull-left",
+    "description": "A 30/70 flex row with an image on the left and vertically centered text on the right.",
+    "keywords": [
+        "feature",
+        "image",
+        "text",
+        "row",
+        "split",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-feature-row-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "align": [
+            "wide",
+            "full"
+        ]
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "body": {
+            "type": "string",
+            "default": ""
+        },
+        "mediaId": {
+            "type": "number",
+            "default": 0
+        },
+        "mediaUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "mediaAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "imageClass": {
+            "type": "string",
+            "default": ""
+        },
+        "linkType": {
+            "type": "string",
+            "default": "none"
+        },
+        "pageId": {
+            "type": "number",
+            "default": 0
+        },
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "linkText": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

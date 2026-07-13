@@ -42,10 +42,13 @@ $minHeightStyle = ($minHeight !== 'auto' && $minHeight !== '')
     : null;
 @endphp
 
-<header
-    {{ $attributes->class(['bma-page-header', 'isolate', 'overflow-hidden', 'relative']) }}
-    @if ($minHeightStyle) style="{{ $minHeightStyle }}" @endif
->
+@php
+$rootAttributes = $attributes->class(['bma-page-header', 'isolate', 'overflow-hidden', 'relative']);
+if ($minHeightStyle) {
+    $rootAttributes = $rootAttributes->style([$minHeightStyle]);
+}
+@endphp
+<header {{ $rootAttributes }}>
     @if ($backgroundImage !== '')
         <img
             src="{{ esc_url($backgroundImage) }}"

@@ -21,4 +21,4 @@ echo Renderer::render( [
 	'imageAlt' => $attributes['imageAlt'] ?? '',
 	'imageClass' => $attributes['imageClass'] ?? '',
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

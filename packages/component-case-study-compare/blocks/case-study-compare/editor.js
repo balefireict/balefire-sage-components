@@ -1,4 +1,79 @@
-import metadata from '../../../blocks/case-study-compare/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/case-study-compare",
+    "title": "Case Study Compare",
+    "category": "balefire",
+    "icon": "analytics",
+    "description": "Before/after comparison with two cards and a directional arrow between them.",
+    "keywords": [
+        "case study",
+        "compare",
+        "before",
+        "after",
+        "results",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-case-study-compare-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "align": [
+            "wide",
+            "full"
+        ]
+    },
+    "attributes": {
+        "leftIconId": {
+            "type": "number",
+            "default": 0
+        },
+        "leftIconUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "leftIconAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "leftTitle": {
+            "type": "string",
+            "default": ""
+        },
+        "leftBody": {
+            "type": "string",
+            "default": ""
+        },
+        "rightIconId": {
+            "type": "number",
+            "default": 0
+        },
+        "rightIconUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "rightIconAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "rightTitle": {
+            "type": "string",
+            "default": ""
+        },
+        "rightBody": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

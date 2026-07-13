@@ -16,4 +16,4 @@ echo Renderer::render( [
 	'gap' => $attributes['gap'] ?? '6',
 	'minColumnWidth' => $attributes['minColumnWidth'] ?? '',
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

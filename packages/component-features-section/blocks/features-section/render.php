@@ -17,4 +17,4 @@ echo Renderer::render( [
 	'intro' => $attributes['intro'] ?? '',
 	'maxWidth' => $attributes['maxWidth'] ?? 'wide',
 	'backgroundTone' => $attributes['backgroundTone'] ?? 'white',
-] );
+], get_block_wrapper_attributes() );

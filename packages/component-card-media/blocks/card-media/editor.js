@@ -1,4 +1,100 @@
-import metadata from '../../../blocks/card-media/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/card-media",
+    "title": "Card Media",
+    "category": "balefire",
+    "icon": "format-image",
+    "description": "A skeleton card with an image, logo, title, body text, and learn-more link.",
+    "keywords": [
+        "card",
+        "media",
+        "image",
+        "feature",
+        "service",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-card-media-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true
+    },
+    "attributes": {
+        "logoType": {
+            "type": "string",
+            "default": "image"
+        },
+        "logoSvgCode": {
+            "type": "string",
+            "default": ""
+        },
+        "mediaType": {
+            "type": "string",
+            "default": "image"
+        },
+        "svgCode": {
+            "type": "string",
+            "default": ""
+        },
+        "logoId": {
+            "type": "number",
+            "default": 0
+        },
+        "logoUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "logoAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "imageId": {
+            "type": "number",
+            "default": 0
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "text": {
+            "type": "string",
+            "default": ""
+        },
+        "linkText": {
+            "type": "string",
+            "default": ""
+        },
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "linkType": {
+            "type": "string",
+            "default": "none"
+        },
+        "pageId": {
+            "type": "number",
+            "default": 0
+        },
+        "openInNewTab": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "version": "1.0.0",
+    "style": "balefire-card-media"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

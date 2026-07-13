@@ -20,4 +20,4 @@ echo Renderer::render( [
 	'gap' => $attributes['gap'] ?? '6',
 	'verticalAlign' => $attributes['verticalAlign'] ?? 'start',
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

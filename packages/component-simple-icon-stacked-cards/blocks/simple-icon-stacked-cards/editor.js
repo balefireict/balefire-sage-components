@@ -1,4 +1,62 @@
-import metadata from '../../../blocks/simple-icon-stacked-cards/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/simple-icon-stacked-cards",
+    "title": "Simple Icon Stacked Cards",
+    "category": "balefire",
+    "icon": "columns",
+    "description": "A white card with a 40\u00d740px icon (SVG or image) aligned flex-start with an optional link, plus innerBlocks for content.",
+    "keywords": [
+        "card",
+        "icon",
+        "stacked",
+        "feature",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-simple-icon-stacked-cards-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true
+    },
+    "attributes": {
+        "iconId": {
+            "type": "number",
+            "default": 0
+        },
+        "iconUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "iconAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "iconSvg": {
+            "type": "string",
+            "default": ""
+        },
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "linkType": {
+            "type": "string",
+            "default": "none"
+        },
+        "pageId": {
+            "type": "number",
+            "default": 0
+        },
+        "openInNewTab": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

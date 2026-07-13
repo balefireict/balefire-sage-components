@@ -1,4 +1,48 @@
-import metadata from '../../../blocks/layout-grid/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/layout-grid",
+    "title": "Layout Grid",
+    "category": "balefire",
+    "icon": "grid-view",
+    "description": "Responsive grid layout with column count and gap controls.",
+    "keywords": [
+        "grid",
+        "columns",
+        "layout",
+        "responsive",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-layout-grid-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true
+    },
+    "parent": [
+        "balefire/container"
+    ],
+    "usesContext": [
+        "balefire/sectionTone"
+    ],
+    "attributes": {
+        "columns": {
+            "type": "string",
+            "default": "3"
+        },
+        "columnsTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "gap": {
+            "type": "string",
+            "default": "6"
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

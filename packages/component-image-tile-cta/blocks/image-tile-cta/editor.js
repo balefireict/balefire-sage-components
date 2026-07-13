@@ -1,4 +1,79 @@
-import metadata from '../../../blocks/image-tile-cta/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/image-tile-cta",
+    "title": "Image Tile CTA",
+    "category": "balefire",
+    "icon": "format-gallery",
+    "description": "A two-column section with text content on the left and a four-image tile gallery on the right.",
+    "keywords": [
+        "image",
+        "gallery",
+        "cta",
+        "tile",
+        "feature",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-image-tile-cta-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true
+    },
+    "attributes": {
+        "heroImageId": {
+            "type": "number",
+            "default": 0
+        },
+        "heroImageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "heroImageAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "image1Id": {
+            "type": "number",
+            "default": 0
+        },
+        "image1Url": {
+            "type": "string",
+            "default": ""
+        },
+        "image1Alt": {
+            "type": "string",
+            "default": ""
+        },
+        "image2Id": {
+            "type": "number",
+            "default": 0
+        },
+        "image2Url": {
+            "type": "string",
+            "default": ""
+        },
+        "image2Alt": {
+            "type": "string",
+            "default": ""
+        },
+        "image3Id": {
+            "type": "number",
+            "default": 0
+        },
+        "image3Url": {
+            "type": "string",
+            "default": ""
+        },
+        "image3Alt": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

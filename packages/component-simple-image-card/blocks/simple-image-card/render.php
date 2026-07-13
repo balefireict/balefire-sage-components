@@ -20,4 +20,4 @@ echo Renderer::render( [
 	'url' => isset( $attributes['url'] ) ? esc_url( $attributes['url'] ) : '',
 	'linkType' => $attributes['linkType'] ?? 'none',
 	'pageId' => $attributes['pageId'] ?? 0,
-] );
+], get_block_wrapper_attributes() );

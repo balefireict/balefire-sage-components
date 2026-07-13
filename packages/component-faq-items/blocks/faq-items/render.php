@@ -14,4 +14,4 @@ use BalefireInc\Sage\FaqItems\Renderer;
 
 echo Renderer::render( [
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

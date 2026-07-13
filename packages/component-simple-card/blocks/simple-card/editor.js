@@ -1,4 +1,58 @@
-import metadata from '../../../blocks/simple-card/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/simple-card",
+    "title": "Simple Card",
+    "category": "balefire",
+    "icon": "index-card",
+    "description": "A simple card wrapper with optional border and padding, accepting any inner blocks.",
+    "keywords": [
+        "card",
+        "simple",
+        "wrapper",
+        "border",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-simple-card-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true
+    },
+    "attributes": {
+        "showBorder": {
+            "type": "boolean",
+            "default": true
+        },
+        "borderRadius": {
+            "type": "string",
+            "default": "rounded-lg"
+        },
+        "paddingSize": {
+            "type": "string",
+            "default": "md"
+        },
+        "imageId": {
+            "type": "number",
+            "default": 0
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "imageClass": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

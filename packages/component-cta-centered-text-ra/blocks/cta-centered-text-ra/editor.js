@@ -1,4 +1,75 @@
-import metadata from '../../../blocks/cta-centered-text-ra/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/cta-centered-text-ra",
+    "title": "CTA Centered Text RA",
+    "category": "balefire",
+    "icon": "editor-aligncenter",
+    "description": "Centered CTA section with preheader, title, body text, and dual button group. All fields optional.",
+    "keywords": [
+        "cta",
+        "centered",
+        "text",
+        "buttons",
+        "hero",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-cta-centered-text-ra-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "align": [
+            "wide",
+            "full"
+        ]
+    },
+    "attributes": {
+        "preheader": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "ctaText": {
+            "type": "string",
+            "default": ""
+        },
+        "content": {
+            "type": "string",
+            "default": ""
+        },
+        "primaryLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "primaryUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "secondaryLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "secondaryUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "align": {
+            "type": "string",
+            "default": "wide"
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

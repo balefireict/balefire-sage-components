@@ -19,4 +19,4 @@ echo Renderer::render( [
 	'showPagination' => $attributes['showPagination'] ?? true,
 	'showNavigation' => $attributes['showNavigation'] ?? true,
 	'overlayColor' => $attributes['overlayColor'] ?? '',
-] );
+], get_block_wrapper_attributes() );

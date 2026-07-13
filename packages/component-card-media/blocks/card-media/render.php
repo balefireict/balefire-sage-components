@@ -30,4 +30,4 @@ echo Renderer::render( [
 	'linkType' => $attributes['linkType'] ?? 'none',
 	'pageId' => $attributes['pageId'] ?? 0,
 	'openInNewTab' => $attributes['openInNewTab'] ?? false,
-] );
+], get_block_wrapper_attributes() );

@@ -17,4 +17,4 @@ echo Renderer::render( [
 	'backgroundColor' => $attributes['backgroundColor'] ?? 'transparent',
 	'htmlId' => $attributes['htmlId'] ?? '',
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

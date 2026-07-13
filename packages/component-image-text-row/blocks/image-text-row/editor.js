@@ -1,4 +1,111 @@
-import metadata from '../../../blocks/image-text-row/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/image-text-row",
+    "title": "Image Text Row",
+    "category": "balefire",
+    "icon": "align-pull-left",
+    "description": "A single image and text row used inside Image Text Rows.",
+    "keywords": [
+        "image",
+        "text",
+        "row",
+        "media",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-image-text-row-editor",
+    "render": "file:./render.php",
+    "parent": [
+        "balefire/image-text-rows"
+    ],
+    "supports": {
+        "reusable": false,
+        "className": true,
+        "html": false
+    },
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "body": {
+            "type": "string",
+            "default": ""
+        },
+        "mediaId": {
+            "type": "number",
+            "default": 0
+        },
+        "mediaUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "mediaAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "layout": {
+            "type": "string",
+            "default": "inherit"
+        },
+        "preheader": {
+            "type": "string",
+            "default": ""
+        },
+        "subhead": {
+            "type": "string",
+            "default": ""
+        },
+        "showArrow": {
+            "type": "boolean",
+            "default": false
+        },
+        "imageCrop": {
+            "type": "string",
+            "default": "default"
+        },
+        "imageAspectRatio": {
+            "type": "string",
+            "default": "default"
+        },
+        "imageRounded": {
+            "type": "boolean",
+            "default": false
+        },
+        "imagePosition": {
+            "type": "string",
+            "default": "object-center"
+        },
+        "columnGap": {
+            "type": "string",
+            "default": "gap-4"
+        },
+        "columnGapCustom": {
+            "type": "string",
+            "default": ""
+        },
+        "imageMode": {
+            "type": "string",
+            "default": "single"
+        },
+        "images": {
+            "type": "array",
+            "default": []
+        },
+        "imageStackGap": {
+            "type": "string",
+            "default": "gap-4"
+        },
+        "imageStackGapCustom": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "version": "1.0.0",
+    "style": "balefire-image-text-row"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

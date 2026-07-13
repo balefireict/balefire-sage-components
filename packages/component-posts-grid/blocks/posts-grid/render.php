@@ -22,4 +22,4 @@ echo Renderer::render( [
 	'maxWidth' => $attributes['maxWidth'] ?? 'wide',
 	'showAuthor' => $attributes['showAuthor'] ?? true,
 	'backgroundTone' => $attributes['backgroundTone'] ?? 'transparent',
-] );
+], get_block_wrapper_attributes() );

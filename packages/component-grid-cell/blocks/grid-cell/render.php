@@ -19,4 +19,4 @@ echo Renderer::render( [
 	'rowSpan' => $attributes['rowSpan'] ?? '',
 	'vAlign' => $attributes['vAlign'] ?? '',
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

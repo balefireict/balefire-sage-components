@@ -1,4 +1,70 @@
-import metadata from '../../../blocks/auto-grid/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/auto-grid",
+    "title": "Auto Grid",
+    "category": "balefire",
+    "icon": "grid-view",
+    "description": "Flex-wrap grid with centered last row, responsive column counts (desktop/tablet/mobile), gap control, and div/section tag.",
+    "keywords": [
+        "grid",
+        "flex",
+        "columns",
+        "auto",
+        "center",
+        "responsive",
+        "div",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-auto-grid-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "align": [
+            "full",
+            "wide"
+        ],
+        "spacing": {
+            "margin": true,
+            "padding": true,
+            "blockGap": false
+        }
+    },
+    "attributes": {
+        "tagName": {
+            "type": "string",
+            "default": "div"
+        },
+        "columnsMobile": {
+            "type": "string",
+            "default": "1"
+        },
+        "columnsTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "columnsDesktop": {
+            "type": "string",
+            "default": "3"
+        },
+        "gap": {
+            "type": "string",
+            "default": "6"
+        },
+        "verticalAlign": {
+            "type": "string",
+            "default": "start"
+        },
+        "align": {
+            "type": "string",
+            "default": "wide"
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

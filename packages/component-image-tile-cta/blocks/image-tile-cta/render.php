@@ -26,4 +26,4 @@ echo Renderer::render( [
 	'image3Url' => isset( $attributes['image3Url'] ) ? esc_url( $attributes['image3Url'] ) : '',
 	'image3Alt' => $attributes['image3Alt'] ?? '',
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

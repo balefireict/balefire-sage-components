@@ -1,4 +1,70 @@
-import metadata from '../../../blocks/hero-video-header/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/hero-video-header",
+    "title": "Hero Video Header",
+    "category": "balefire",
+    "icon": "video-alt3",
+    "description": "Full-width hero with looping background video, gradient overlay, title, subtitle, and button group.",
+    "keywords": [
+        "hero",
+        "video",
+        "header",
+        "banner",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-hero-video-header-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "spacing": {
+            "margin": false,
+            "padding": false
+        }
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        },
+        "videoUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "fallbackImage": {
+            "type": "string",
+            "default": ""
+        },
+        "subtitle": {
+            "type": "string",
+            "default": ""
+        },
+        "primaryLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "primaryUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "secondaryLabel": {
+            "type": "string",
+            "default": ""
+        },
+        "secondaryUrl": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

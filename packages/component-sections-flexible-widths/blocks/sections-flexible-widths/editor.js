@@ -1,4 +1,51 @@
-import metadata from '../../../blocks/sections-flexible-widths/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/sections-flexible-widths",
+    "title": "Section (Flexible Width)",
+    "category": "balefire",
+    "icon": "layout",
+    "description": "Full-width section with a Tailwind-powered max-width container inside.",
+    "keywords": [
+        "section",
+        "flexible",
+        "width",
+        "container",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-sections-flexible-widths-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "align": [
+            "wide",
+            "full"
+        ]
+    },
+    "attributes": {
+        "containerWidth": {
+            "type": "string",
+            "default": "max-w-7xl"
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "transparent"
+        },
+        "htmlId": {
+            "type": "string",
+            "default": ""
+        },
+        "align": {
+            "type": "string",
+            "default": "wide"
+        }
+    },
+    "version": "1.0.0",
+    "style": "balefire-sections-flexible-widths"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

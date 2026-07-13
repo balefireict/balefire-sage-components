@@ -1,4 +1,59 @@
-import metadata from '../../../blocks/image-text-rows/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/image-text-rows",
+    "title": "Image Text Rows",
+    "category": "balefire",
+    "icon": "columns",
+    "description": "A repeatable image and text rows section with alternating layouts.",
+    "keywords": [
+        "image",
+        "text",
+        "rows",
+        "media",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-image-text-rows-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "providesContext": {},
+    "allowedBlocks": [
+        "balefire/image-text-row"
+    ],
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "wide"
+        },
+        "gapSize": {
+            "type": "string",
+            "default": "gap-4"
+        },
+        "gapCustom": {
+            "type": "string",
+            "default": ""
+        },
+        "alternateEvenRows": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "version": "1.0.0",
+    "style": "balefire-image-text-rows"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

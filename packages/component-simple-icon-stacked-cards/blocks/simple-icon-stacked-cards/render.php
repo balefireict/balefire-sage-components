@@ -22,4 +22,4 @@ echo Renderer::render( [
 	'pageId' => $attributes['pageId'] ?? 0,
 	'openInNewTab' => $attributes['openInNewTab'] ?? false,
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

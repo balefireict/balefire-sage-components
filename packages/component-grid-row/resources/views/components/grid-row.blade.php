@@ -13,9 +13,12 @@ $style = ($minColumnWidth !== '' && is_numeric($minColumnWidth))
 @endphp
 
 {{-- tailwind-safelist: gap-0 gap-1 gap-2 gap-3 gap-4 gap-5 gap-6 gap-8 gap-10 gap-12 gap-16 --}}
-<div
-    {{ $attributes->class(['bma-grid-row', 'grid', 'grid-cols-12', 'gap-' . $gap]) }}
-    @if ($style) style="{{ $style }}" @endif
->
+@php
+$rootAttributes = $attributes->class(['bma-grid-row', 'grid', 'grid-cols-12', 'gap-' . $gap]);
+if ($style) {
+    $rootAttributes = $rootAttributes->style([$style]);
+}
+@endphp
+<div {{ $rootAttributes }}>
     {!! $content !!}
 </div>

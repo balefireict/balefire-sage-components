@@ -27,4 +27,4 @@ echo Renderer::render( [
 	'iconId' => $attributes['iconId'] ?? 0,
 	'iconUrl' => isset( $attributes['iconUrl'] ) ? esc_url( $attributes['iconUrl'] ) : '',
 	'iconAlt' => $attributes['iconAlt'] ?? '',
-] );
+], get_block_wrapper_attributes() );

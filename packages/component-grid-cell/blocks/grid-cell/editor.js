@@ -1,4 +1,54 @@
-import metadata from '../../../blocks/grid-cell/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/grid-cell",
+    "title": "Grid Cell",
+    "category": "balefire",
+    "icon": "table-col-before",
+    "description": "A cell inside a 12-column grid row. Set span (e.g. 6/12 = half width) and add any blocks inside.",
+    "keywords": [
+        "grid",
+        "cell",
+        "column",
+        "span",
+        "layout",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-grid-cell-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true
+    },
+    "parent": [
+        "balefire/grid-row"
+    ],
+    "attributes": {
+        "colSpan": {
+            "type": "string",
+            "default": "6"
+        },
+        "colSpanTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "colSpanMobile": {
+            "type": "string",
+            "default": "12"
+        },
+        "rowSpan": {
+            "type": "string",
+            "default": ""
+        },
+        "vAlign": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

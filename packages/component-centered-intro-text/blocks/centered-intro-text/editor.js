@@ -1,4 +1,54 @@
-import metadata from '../../../blocks/centered-intro-text/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/centered-intro-text",
+    "title": "Centered Intro Text",
+    "category": "balefire",
+    "icon": "editor-aligncenter",
+    "description": "A centered intro text section with full-width surface support.",
+    "keywords": [
+        "intro",
+        "centered",
+        "text",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-centered-intro-text-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        },
+        "content": {
+            "type": "string",
+            "default": ""
+        },
+        "maxWidth": {
+            "type": "string",
+            "default": "narrow"
+        },
+        "backgroundTone": {
+            "type": "string",
+            "default": "light"
+        }
+    },
+    "version": "1.0.0",
+    "style": "balefire-centered-intro-text"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

@@ -1,4 +1,58 @@
-import metadata from '../../../blocks/features-section/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/features-section",
+    "title": "Features Section",
+    "category": "balefire",
+    "icon": "grid-view",
+    "description": "A light-theme business features section with a responsive grid.",
+    "keywords": [
+        "features",
+        "services",
+        "business",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-features-section-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "wide"
+        },
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "intro": {
+            "type": "string",
+            "default": ""
+        },
+        "maxWidth": {
+            "type": "string",
+            "default": "wide"
+        },
+        "backgroundTone": {
+            "type": "string",
+            "default": "white"
+        }
+    },
+    "version": "1.0.0",
+    "style": "balefire-features-section"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

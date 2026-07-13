@@ -9,7 +9,10 @@
     "autoload": {
         "psr-4": {
             "BalefireInc\\Sage\\Support\\": "src/"
-        }
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
     },
     "extra": {
         "balefire-sage-component": {

@@ -43,5 +43,5 @@
     }
   },
   "version": "1.0.0",
-  "style": "file:./style.css"
+  "style": "balefire-sections-flexible-widths"
 }

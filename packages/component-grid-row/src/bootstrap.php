@@ -19,6 +19,25 @@ defined( 'ABSPATH' ) || exit;
  */
 $bma_grid_row_boot = static function (): void {
 
+	// --- Editor script -----------------------------------------------------
+	// Registered as an inline script on an src-less handle: vendor/ may sit
+	// outside the webroot (Bedrock), so no asset URL is ever assumed.
+	// See https://roots.io/wordpress-plugins-that-assume-your-directory-structure/
+	if ( is_admin() && function_exists( 'wp_register_script' ) ) {
+		wp_register_script(
+			'balefire-grid-row-editor',
+			false,
+			[ 'wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n', 'wp-data' ],
+			null,
+			true
+		);
+
+		$editor_js = file_get_contents( __DIR__ . '/../blocks/grid-row/editor.js' );
+		if ( $editor_js !== false ) {
+			wp_add_inline_script( 'balefire-grid-row-editor', $editor_js );
+		}
+	}
+
 	// --- Gutenberg block ---------------------------------------------------
 	if ( function_exists( 'register_block_type' ) ) {
 		register_block_type( __DIR__ . '/../blocks/grid-row' );

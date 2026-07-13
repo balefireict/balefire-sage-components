@@ -1,4 +1,48 @@
-import metadata from '../../../blocks/grid-row/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/grid-row",
+    "title": "Grid Row",
+    "category": "balefire",
+    "icon": "table-row-before",
+    "description": "A 12-column grid row. Add Grid Cell children to build fractional layouts.",
+    "keywords": [
+        "grid",
+        "row",
+        "12-column",
+        "columns",
+        "layout",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-grid-row-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "align": [
+            "full",
+            "wide"
+        ]
+    },
+    "parent": [
+        "balefire/container",
+        "balefire/section",
+        "balefire/sections-flexible-widths"
+    ],
+    "attributes": {
+        "gap": {
+            "type": "string",
+            "default": "6"
+        },
+        "minColumnWidth": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

@@ -23,4 +23,4 @@ echo Renderer::render( [
 	'rightIconAlt' => $attributes['rightIconAlt'] ?? '',
 	'rightTitle' => $attributes['rightTitle'] ?? '',
 	'rightBody' => $attributes['rightBody'] ?? '',
-] );
+], get_block_wrapper_attributes() );

@@ -17,4 +17,4 @@ echo Renderer::render( [
 	'gapCustom' => $attributes['gapCustom'] ?? '',
 	'alternateEvenRows' => $attributes['alternateEvenRows'] ?? false,
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

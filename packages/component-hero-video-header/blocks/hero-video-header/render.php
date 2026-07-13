@@ -20,4 +20,4 @@ echo Renderer::render( [
 	'primaryUrl' => isset( $attributes['primaryUrl'] ) ? esc_url( $attributes['primaryUrl'] ) : '',
 	'secondaryLabel' => $attributes['secondaryLabel'] ?? '',
 	'secondaryUrl' => isset( $attributes['secondaryUrl'] ) ? esc_url( $attributes['secondaryUrl'] ) : '',
-] );
+], get_block_wrapper_attributes() );

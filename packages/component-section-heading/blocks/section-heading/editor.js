@@ -1,4 +1,66 @@
-import metadata from '../../../blocks/section-heading/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/section-heading",
+    "title": "Section Heading",
+    "category": "balefire",
+    "icon": "heading",
+    "description": "A compact heading block with eyebrow, title, and supporting copy.",
+    "keywords": [
+        "heading",
+        "eyebrow",
+        "intro",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-section-heading-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "content": {
+            "type": "string",
+            "default": ""
+        },
+        "contentAlign": {
+            "type": "string",
+            "default": "left"
+        },
+        "maxWidth": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundTone": {
+            "type": "string",
+            "default": "transparent"
+        },
+        "align": {
+            "type": "string",
+            "default": "wide"
+        }
+    },
+    "version": "1.0.0",
+    "style": "balefire-section-heading"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

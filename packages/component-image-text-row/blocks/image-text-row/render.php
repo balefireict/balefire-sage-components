@@ -33,4 +33,4 @@ echo Renderer::render( [
 	'imageStackGap' => $attributes['imageStackGap'] ?? 'gap-4',
 	'imageStackGapCustom' => $attributes['imageStackGapCustom'] ?? '',
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

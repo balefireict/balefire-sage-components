@@ -1,4 +1,36 @@
-import metadata from '../../../blocks/two-col-three-col/block.json';
+// Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
+const metadata = {
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "balefire/two-col-three-col",
+    "title": "2-col-3-col Cards",
+    "category": "balefire",
+    "icon": "grid-view",
+    "description": "A card grid with 2 cards on the first row and 3 on the second. Flush-top images, padded text areas.",
+    "keywords": [
+        "cards",
+        "grid",
+        "2-col",
+        "3-col",
+        "industry",
+        "bundle",
+        "balefire"
+    ],
+    "textdomain": "balefire",
+    "editorScript": "balefire-two-col-three-col-editor",
+    "render": "file:./render.php",
+    "supports": {
+        "anchor": true,
+        "className": true
+    },
+    "attributes": {
+        "cards": {
+            "type": "array",
+            "default": []
+        }
+    },
+    "version": "1.0.0"
+};
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;

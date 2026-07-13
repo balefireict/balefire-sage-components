@@ -16,4 +16,4 @@ echo Renderer::render( [
 	'maxWidth' => $attributes['maxWidth'] ?? 'wide',
 	'paddingInline' => $attributes['paddingInline'] ?? 'md',
 	'content' => $content,
-] );
+], get_block_wrapper_attributes() );

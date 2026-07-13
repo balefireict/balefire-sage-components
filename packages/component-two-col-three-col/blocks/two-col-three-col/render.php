@@ -14,4 +14,4 @@ use BalefireInc\Sage\TwoColThreeCol\Renderer;
 
 echo Renderer::render( [
 	'cards' => $attributes['cards'] ?? [],
-] );
+], get_block_wrapper_attributes() );

@@ -16,4 +16,4 @@ echo Renderer::render( [
 	'preheader' => $attributes['preheader'] ?? 'Preheader',
 	'title' => $attributes['title'] ?? 'Title',
 	'textAlign' => $attributes['textAlign'] ?? 'center',
-] );
+], get_block_wrapper_attributes() );
