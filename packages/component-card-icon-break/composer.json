@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-card-icon-break",
+    "description": "Card Icon Break \u2014 A skeleton card with an absolutely-positioned icon and inner blocks for content. Optional anchor wrapper.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\CardIconBreak\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "card-icon-break",
+            "block_name": "balefire/card-icon-break",
+            "blade_component": "bma::components.card-icon-break",
+            "owns_css": false
+        }
+    }
+}

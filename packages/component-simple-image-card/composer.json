@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-simple-image-card",
+    "description": "Simple Image Card \u2014 A card with a flush-top image, white background, rounded corners, and an h3 title. Optional anchor wrapper.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\SimpleImageCard\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "simple-image-card",
+            "block_name": "balefire/simple-image-card",
+            "blade_component": "bma::components.simple-image-card",
+            "shortcode": "bma_simple_image_card",
+            "owns_css": false
+        }
+    }
+}

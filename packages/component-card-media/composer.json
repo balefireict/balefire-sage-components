@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-card-media",
+    "description": "Card Media \u2014 A skeleton card with an image, logo, title, body text, and learn-more link.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\CardMedia\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "card-media",
+            "block_name": "balefire/card-media",
+            "blade_component": "bma::components.card-media",
+            "shortcode": "bma_card_media",
+            "owns_css": true
+        }
+    }
+}

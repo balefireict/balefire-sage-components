@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-simple-steps-card",
+    "description": "Simple Steps Card \u2014 A centered card with a 96\u00d796px icon (SVG or image), white/20 background, 3px white border, and centered text via innerBlocks.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\SimpleStepsCard\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "simple-steps-card",
+            "block_name": "balefire/simple-steps-card",
+            "blade_component": "bma::components.simple-steps-card",
+            "owns_css": false
+        }
+    }
+}

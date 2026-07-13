@@ -1,0 +1,68 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/card-stat",
+  "title": "Card Stat",
+  "category": "balefire",
+  "icon": "chart-line",
+  "description": "A stat card with title and icon on the same row, followed by key metrics.",
+  "keywords": [
+    "card",
+    "stat",
+    "metric",
+    "data",
+    "info",
+    "balefire"
+  ],
+  "textdomain": "balefire",
+  "editorScript": "balefire-card-stat-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "iconType": {
+      "type": "string",
+      "default": "svg"
+    },
+    "iconSvgCode": {
+      "type": "string",
+      "default": ""
+    },
+    "iconId": {
+      "type": "number",
+      "default": 0
+    },
+    "iconUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "iconAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "statLeftValue": {
+      "type": "string",
+      "default": ""
+    },
+    "statLeftLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "statRightValue": {
+      "type": "string",
+      "default": ""
+    },
+    "statRightLabel": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "version": "1.0.0",
+  "style": "file:./style.css"
+}

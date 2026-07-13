@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-simple-icon-stacked-cards",
+    "description": "Simple Icon Stacked Cards \u2014 A white card with a 40\u00d740px icon (SVG or image) aligned flex-start with an optional link, plus innerBlocks for content.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\SimpleIconStackedCards\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "simple-icon-stacked-cards",
+            "block_name": "balefire/simple-icon-stacked-cards",
+            "blade_component": "bma::components.simple-icon-stacked-cards",
+            "owns_css": false
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-logo-grid-item",
+    "description": "Logo Grid Item \u2014 A single logo image constrained to a uniform size for logo grid layouts.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\LogoGridItem\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "logo-grid-item",
+            "block_name": "balefire/logo-grid-item",
+            "blade_component": "bma::components.logo-grid-item",
+            "shortcode": "bma_logo_grid_item",
+            "owns_css": false
+        }
+    }
+}

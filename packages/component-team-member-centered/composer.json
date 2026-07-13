@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-team-member-centered",
+    "description": "Team Member (Centered) \u2014 A centered team member card with image, name, and title. Optional link wrapper.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\TeamMemberCentered\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "team-member-centered",
+            "block_name": "balefire/team-member-centered",
+            "blade_component": "bma::components.team-member-centered",
+            "shortcode": "bma_team_member_centered",
+            "owns_css": false
+        }
+    }
+}

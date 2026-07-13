@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-card-stat",
+    "description": "Card Stat \u2014 A stat card with title and icon on the same row, followed by key metrics.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\CardStat\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "card-stat",
+            "block_name": "balefire/card-stat",
+            "blade_component": "bma::components.card-stat",
+            "shortcode": "bma_card_stat",
+            "owns_css": true
+        }
+    }
+}

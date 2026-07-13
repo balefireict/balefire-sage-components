@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-simple-card",
+    "description": "Simple Card \u2014 A simple card wrapper with optional border and padding, accepting any inner blocks.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\SimpleCard\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "simple-card",
+            "block_name": "balefire/simple-card",
+            "blade_component": "bma::components.simple-card",
+            "owns_css": false
+        }
+    }
+}

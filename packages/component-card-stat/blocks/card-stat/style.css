@@ -1,0 +1,62 @@
+/* ---------------------------------------------------------------
+   Card Stat — Skeleton block
+   Theme provides all visual styling via BEM selectors.
+   --------------------------------------------------------------- */
+
+.bma-card-stat {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-card, 0.5rem);
+    border: 1px solid var(--color-12, #99dbbd);
+    background-color: var(--white, #fff);
+    padding: 1.5rem;
+}
+
+.bma-card-stat__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: auto;
+}
+
+.bma-card-stat__title {
+    font-family: var(--font-1);
+    font-weight: 700;
+    font-size: var(--text-lg, 1.125rem);
+    color: var(--color-1, #6dbe45);
+    margin: 0;
+}
+
+.bma-card-stat__icon {
+    flex-shrink: 0;
+}
+
+.bma-card-stat__icon svg,
+.bma-card-stat__icon img {
+    width: auto;
+    height: 2rem;
+    color: var(--color-1, #6dbe45);
+}
+
+.bma-card-stat__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.bma-card-stat__value {
+    font-family: var(--font-1);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--black, #000);
+    line-height: 1.2;
+}
+
+.bma-card-stat__label {
+    color: var(--color-gray-500, #6b7280);
+    font-size: var(--text-sm, 0.875rem);
+    margin-top: 0.25rem;
+}

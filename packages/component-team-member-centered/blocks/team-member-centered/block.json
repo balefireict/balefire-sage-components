@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/team-member-centered",
+  "title": "Team Member (Centered)",
+  "category": "balefire",
+  "icon": "admin-users",
+  "description": "A centered team member card with image, name, and title. Optional link wrapper.",
+  "keywords": [
+    "team",
+    "member",
+    "profile",
+    "person",
+    "card",
+    "balefire"
+  ],
+  "textdomain": "balefire",
+  "editorScript": "balefire-team-member-centered-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true
+  },
+  "attributes": {
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "url": {
+      "type": "string",
+      "default": ""
+    },
+    "linkType": {
+      "type": "string",
+      "default": "none"
+    },
+    "pageId": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "version": "1.0.0"
+}
