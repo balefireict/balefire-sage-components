@@ -18,6 +18,33 @@ The Blade file is the only place markup lives. The block's `render.php`
 maps attributes to Blade props and echoes the rendered view. The editor.js
 provides the InspectorControls UI and a lightweight preview placeholder.
 
+## Component catalog
+
+All 36 blocks from the `balefire-blocks` plugin live here as
+`balefireict/component-<slug>` packages, plus one shared package:
+
+- **`component-support`** — `SectionStyles` token-to-class maps
+  (`BalefireInc\Sage\Support`) and the shared frontend CSS
+  (`resources/css/{view,layout,swiper}.css`). Packages that render
+  surface tones require it; consumer themes import its CSS (see below).
+- **Layout** — container, section, grid-row, grid-cell, auto-grid,
+  layout-grid, sections-flexible-widths, split-35-65, two-col-three-col
+- **Cards** — card-icon-break, card-media, card-stat, simple-card,
+  simple-icon-stacked-cards, simple-image-card, simple-steps-card,
+  team-member-centered, logo-grid-item
+- **Headers/heroes** — featured-image-header, hero-video-header,
+  page-header, preheader-and-title, section-heading, centered-intro-text
+- **Content rows** — feature-row, features-section, image-text-row,
+  image-text-rows, image-tile-cta, case-study-compare
+- **CTAs & misc** — cta-banner, cta-centered-text-ra, faq-items,
+  faq-no-borders, portrait-swiper-slides, posts-grid
+
+InnerBlocks-based blocks (container, section, grids, cards that wrap
+arbitrary content) pass the rendered children through as a `content`
+prop and ship no shortcode layer; the same goes for blocks whose
+attributes are arrays (image-text-row, portrait-swiper-slides,
+two-col-three-col), which shortcodes can't express.
+
 ## Requirements
 
 - PHP 8.2+
@@ -90,7 +117,9 @@ full token contract and setup instructions.
 
 ### 4. Tailwind content config
 
-Scan vendor paths so Tailwind's JIT picks up the component classes:
+Scan vendor paths so Tailwind's JIT picks up the component classes.
+`src/**/*.php` matters too — `component-support`'s SectionStyles maps
+hold the tone classes:
 
 ```js
 // tailwind.config.js (or app.css @content for Tailwind v4)
@@ -98,10 +127,29 @@ content: [
     './resources/views/**/*.blade.php',
     './vendor/balefireict/*/resources/views/**/*.blade.php',
     './vendor/balefireict/*/blocks/**/*.php',
+    './vendor/balefireict/*/src/**/*.php',
 ]
 ```
 
-### 5. Build and go
+### 5. Import the shared component CSS
+
+`component-support` ships the plain-CSS layer the blocks rely on
+(section padding/stacking rules, hero overlays and buttons, Swiper).
+Import it into the theme stylesheet so it rides the theme build:
+
+```css
+/* app.css */
+@import '../../vendor/balefireict/component-support/resources/css/view.css';
+```
+
+(`view.css` pulls in `layout.css` and `swiper.css`.) Ten blocks also
+carry a block-scoped `style.css` referenced from their `block.json` —
+WordPress enqueues those automatically wherever `vendor/` is
+web-accessible (WPE committed-vendor sites). On Bedrock/Trellis sites,
+where `vendor/` sits outside the webroot, import those files into the
+theme build the same way.
+
+### 6. Build and go
 
 ```bash
 npm run build     # Bud compiles the theme + scans vendor Blade files
