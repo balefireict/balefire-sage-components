@@ -22,6 +22,10 @@ $toneClasses = [
 
 $tone = array_key_exists($tone, $toneClasses) ? $tone : 'primary';
 
+if ($primaryStyle === '') {
+    $primaryStyle = sanitize_key((string) \BalefireInc\Sage\Support\Settings::defaultFor('buttonStyle', 'solid'));
+}
+
 $primaryBtnClass = ($primaryStyle === 'outline')
     ? 'border border-white bg-transparent text-white hover:bg-white/10'
     : 'bg-white text-dark hover:bg-white/90';

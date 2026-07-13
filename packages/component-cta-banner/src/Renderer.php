@@ -70,7 +70,7 @@ class Renderer {
 			'tone'           => 'primary',
 			'primaryLabel'   => '',
 			'primaryUrl'     => '',
-			'primaryStyle'   => 'solid',
+			'primaryStyle'   => '',
 			'secondaryLabel' => '',
 			'secondaryUrl'   => '',
 		] );

@@ -1,0 +1,91 @@
+/* Balefire Blocks settings screen. */
+.bma-admin-title {
+    margin-bottom: 16px;
+}
+
+.bma-admin-defaults {
+    margin-bottom: 20px;
+    max-width: 900px;
+}
+
+.bma-admin-defaults__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    align-items: end;
+}
+
+.bma-admin-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0 12px;
+    max-width: 900px;
+}
+
+.bma-admin-toolbar__search {
+    flex: 1;
+}
+
+.bma-admin-toolbar .components-base-control__field {
+    margin-bottom: 0;
+}
+
+.bma-admin-toolbar__count {
+    color: #646970;
+    white-space: nowrap;
+}
+
+.bma-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    max-width: 1200px;
+}
+
+.bma-admin-card__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.bma-admin-card__head h3 {
+    margin: 0 0 4px;
+}
+
+.bma-admin-card__head code {
+    font-size: 11px;
+    color: #646970;
+    background: none;
+    padding: 0;
+}
+
+.bma-admin-card__desc {
+    color: #50575e;
+    margin: 4px 0 8px;
+}
+
+.bma-admin-card__meta {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.bma-admin-card__type {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: #f0f0f1;
+    border-radius: 3px;
+    padding: 2px 6px;
+}
+
+.bma-admin-card__deps {
+    font-size: 11px;
+    color: #996800;
+}
+
+.bma-admin-save {
+    margin: 20px 0;
+}

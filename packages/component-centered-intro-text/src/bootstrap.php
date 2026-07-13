@@ -22,6 +22,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 $bma_centered_intro_text_boot = static function (): void {
 
+	// Honor the wp-admin "Balefire Blocks" toggle for this block.
+	if ( ! \BalefireInc\Sage\Support\Settings::isBlockEnabled( 'centered-intro-text' ) ) {
+		return;
+	}
+
 	// --- Editor script -----------------------------------------------------
 	// Registered as an inline script on an src-less handle: vendor/ may sit
 	// outside the webroot (Bedrock), so no asset URL is ever assumed.

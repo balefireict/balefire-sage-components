@@ -13,8 +13,14 @@
 @php
 use BalefireInc\Sage\Support\SectionStyles;
 
-$postsPerPage = (int) $postsPerPage > 0 ? (int) $postsPerPage : 3;
+$postsPerPage = (int) $postsPerPage > 0
+    ? (int) $postsPerPage
+    : max(1, (int) \BalefireInc\Sage\Support\Settings::defaultFor('postsPerPage', 3));
 $columns = max(1, min(3, (int) $columns));
+
+// WP hands titles/term names/display names back pre-encoded; Blade's {{ }}
+// escapes again, rendering literal entities. Decode once, escape once.
+$decode = static fn ($value) => html_entity_decode((string) $value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
 $query = new WP_Query([
     'post_type'           => 'post',
@@ -72,11 +78,11 @@ $innerStyle = SectionStyles::innerStyle(sanitize_key($maxWidth));
                     <article <?php post_class('group flex min-w-full flex-col overflow-hidden rounded-md border border-[2.5px] border-neutral-400/20 bg-white transition duration-200 hover:-translate-y-1 hover:shadow-[var(--shadow-card)]'); ?>>
                         <div class="relative aspect-video w-full overflow-hidden bg-[var(--color-surface-muted)]">
                             @if (has_post_thumbnail())
-                                <a href="{{ get_permalink() }}" title="{{ the_title_attribute(['echo' => false]) }}" aria-hidden="true" tabindex="-1" class="block h-full w-full">
+                                <a href="{{ get_permalink() }}" title="{{ $decode(get_the_title()) }}" aria-hidden="true" tabindex="-1" class="block h-full w-full">
                                     {!! get_the_post_thumbnail(null, 'large', ['class' => 'h-full w-full object-cover transition duration-300 group-hover:scale-105']) !!}
                                 </a>
                             @else
-                                <a class="block h-full w-full bg-[var(--color-surface-muted)]" href="{{ get_permalink() }}" title="{{ the_title_attribute(['echo' => false]) }}" aria-hidden="true" tabindex="-1"></a>
+                                <a class="block h-full w-full bg-[var(--color-surface-muted)]" href="{{ get_permalink() }}" title="{{ $decode(get_the_title()) }}" aria-hidden="true" tabindex="-1"></a>
                             @endif
 
                             <div class="pointer-events-none absolute inset-0 ring-1 ring-inset {{ $surface['ring'] }}"></div>
@@ -90,8 +96,8 @@ $innerStyle = SectionStyles::innerStyle(sanitize_key($maxWidth));
                                     </time>
 
                                     @if ($category)
-                                        <a href="{{ get_category_link($category->term_id) }}" title="{{ $category->name }}" class="relative z-10 px-3 py-1.5 font-medium no-underline rounded-full transition {{ $surface['chipBg'] }} {{ $surface['chipText'] }} {{ $surface['chipBgHover'] }}">
-                                            {{ $category->name }}
+                                        <a href="{{ get_category_link($category->term_id) }}" title="{{ $decode($category->name) }}" class="relative z-10 px-3 py-1.5 font-medium no-underline rounded-full transition {{ $surface['chipBg'] }} {{ $surface['chipText'] }} {{ $surface['chipBgHover'] }}">
+                                            {{ $decode($category->name) }}
                                         </a>
                                     @endif
                                 </div>
@@ -99,15 +105,15 @@ $innerStyle = SectionStyles::innerStyle(sanitize_key($maxWidth));
 
                             <div class="relative group grow">
                                 <h3 class="mt-3 font-bold transition color-inherit leading-tight text-[20px] group-hover:{{ $surface['metaSoft'] }}">
-                                    <a class="no-underline text-inherit" href="{{ get_permalink() }}" title="{{ the_title_attribute(['echo' => false]) }}">
+                                    <a class="no-underline text-inherit" href="{{ get_permalink() }}" title="{{ $decode(get_the_title()) }}">
                                         <span class="absolute inset-0"></span>
-                                        {{ get_the_title() }}
+                                        {{ $decode(get_the_title()) }}
                                     </a>
                                 </h3>
 
                                 @if ($showExcerpt)
                                     <p class="mt-2 line-clamp-3 text-base/6 {{ $surface['body'] }}">
-                                        {{ wp_trim_words(get_the_excerpt(), 28, '...') }}
+                                        {{ $decode(wp_trim_words(get_the_excerpt(), 28, '...')) }}
                                     </p>
                                 @endif
 
@@ -126,8 +132,8 @@ $innerStyle = SectionStyles::innerStyle(sanitize_key($maxWidth));
                                     {!! get_avatar($authorId, 40, '', $authorName, ['class' => 'size-10 rounded-full bg-light']) !!}
                                     <div class="text-sm/6">
                                         <p class="font-semibold {{ $surface['heading'] }}">
-                                            <a class="no-underline text-inherit" href="{{ get_author_posts_url($authorId) }}" title="{{ $authorName }}">
-                                                {{ $authorName }}
+                                            <a class="no-underline text-inherit" href="{{ get_author_posts_url($authorId) }}" title="{{ $decode($authorName) }}">
+                                                {{ $decode($authorName) }}
                                             </a>
                                         </p>
                                         @if ($authorRole !== '')

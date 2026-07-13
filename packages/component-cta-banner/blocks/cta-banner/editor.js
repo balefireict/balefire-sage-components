@@ -1,3 +1,4 @@
+(() => {
 // Mirrors block.json — both must stay in sync; edit block.json first.
 const metadata = {
     "$schema": "https://schemas.wp.org/trunk/block.json",
@@ -26,7 +27,7 @@ const metadata = {
         "tone": { "type": "string", "default": "primary" },
         "primaryLabel": { "type": "string", "default": "" },
         "primaryUrl": { "type": "string", "default": "" },
-        "primaryStyle": { "type": "string", "default": "solid" },
+        "primaryStyle": { "type": "string", "default": "" },
         "secondaryLabel": { "type": "string", "default": "" },
         "secondaryUrl": { "type": "string", "default": "" }
     },
@@ -89,8 +90,9 @@ registerBlockType(metadata.name, {
                     }),
                     el(SelectControl, {
                         label: __('Style', 'balefire'),
-                        value: attributes.primaryStyle || 'solid',
+                        value: attributes.primaryStyle || '',
                         options: [
+                            { label: __('Site default', 'balefire'), value: '' },
                             { label: __('Solid', 'balefire'), value: 'solid' },
                             { label: __('Outline', 'balefire'), value: 'outline' },
                         ],
@@ -134,3 +136,5 @@ registerBlockType(metadata.name, {
     // PHP render callback handles the frontend. No React save.
     save: () => null,
 });
+
+})();

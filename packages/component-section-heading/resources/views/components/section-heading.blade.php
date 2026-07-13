@@ -11,7 +11,9 @@
 use BalefireInc\Sage\Support\SectionStyles;
 
 $contentAlign = sanitize_key($contentAlign);
-$maxWidth = $maxWidth !== '' ? sanitize_key($maxWidth) : 'wide';
+$maxWidth = $maxWidth !== ''
+    ? sanitize_key($maxWidth)
+    : sanitize_key((string) \BalefireInc\Sage\Support\Settings::defaultFor('sectionMaxWidth', 'wide'));
 
 $alignmentClasses = [
     'left'   => 'items-start text-left',

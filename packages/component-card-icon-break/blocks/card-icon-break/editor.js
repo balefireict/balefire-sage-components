@@ -1,3 +1,4 @@
+(() => {
 // Mirrors block.json — both are generated together; edit block.json and regenerate rather than hand-editing this literal.
 const metadata = {
     "$schema": "https://schemas.wp.org/trunk/block.json",
@@ -165,3 +166,5 @@ registerBlockType(metadata.name, {
         return el(InnerBlocks.Content, null);
     },
 });
+
+})();

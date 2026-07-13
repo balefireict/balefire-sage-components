@@ -45,7 +45,7 @@
     },
     "primaryStyle": {
       "type": "string",
-      "default": "solid"
+      "default": ""
     },
     "secondaryLabel": {
       "type": "string",
