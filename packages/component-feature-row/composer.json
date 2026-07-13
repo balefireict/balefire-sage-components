@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-feature-row",
+    "description": "Feature Row \u2014 A 30/70 flex row with an image on the left and vertically centered text on the right.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\FeatureRow\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "feature-row",
+            "block_name": "balefire/feature-row",
+            "blade_component": "bma::components.feature-row",
+            "shortcode": "bma_feature_row",
+            "owns_css": false
+        }
+    }
+}

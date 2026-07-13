@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-image-tile-cta",
+    "description": "Image Tile CTA \u2014 A two-column section with text content on the left and a four-image tile gallery on the right.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\ImageTileCta\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "image-tile-cta",
+            "block_name": "balefire/image-tile-cta",
+            "blade_component": "bma::components.image-tile-cta",
+            "owns_css": false
+        }
+    }
+}

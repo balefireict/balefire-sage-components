@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-image-text-row",
+    "description": "Image Text Row \u2014 A single image and text row used inside Image Text Rows.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\ImageTextRow\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "image-text-row",
+            "block_name": "balefire/image-text-row",
+            "blade_component": "bma::components.image-text-row",
+            "owns_css": true
+        }
+    }
+}

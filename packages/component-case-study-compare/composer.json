@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-case-study-compare",
+    "description": "Case Study Compare \u2014 Before/after comparison with two cards and a directional arrow between them.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\CaseStudyCompare\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "case-study-compare",
+            "block_name": "balefire/case-study-compare",
+            "blade_component": "bma::components.case-study-compare",
+            "shortcode": "bma_case_study_compare",
+            "owns_css": false
+        }
+    }
+}

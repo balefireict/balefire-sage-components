@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-image-text-rows",
+    "description": "Image Text Rows \u2014 A repeatable image and text rows section with alternating layouts.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\ImageTextRows\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "image-text-rows",
+            "block_name": "balefire/image-text-rows",
+            "blade_component": "bma::components.image-text-rows",
+            "owns_css": true
+        }
+    }
+}

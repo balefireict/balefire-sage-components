@@ -1,0 +1,27 @@
+{
+    "name": "balefireict/component-features-section",
+    "description": "Features Section \u2014 A light-theme business features section with a responsive grid.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\FeaturesSection\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "features-section",
+            "block_name": "balefire/features-section",
+            "blade_component": "bma::components.features-section",
+            "shortcode": "bma_features_section",
+            "owns_css": true
+        }
+    }
+}

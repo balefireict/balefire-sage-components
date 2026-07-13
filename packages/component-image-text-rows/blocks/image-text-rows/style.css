@@ -1,0 +1,56 @@
+@source '../../../blocks/image-text-rows/render.php';
+@source './editor.js';
+
+@layer components {
+    .image-text-row,
+    .image-text-row .row-media,
+    .image-text-row .row-media figure {
+        margin: 0;
+    }
+
+    .image-text-row .row-copy > :first-child,
+    .image-text-row .row-buttons > :first-child {
+        margin-top: 0;
+    }
+
+    .image-text-row .row-copy > :last-child,
+    .image-text-row .row-buttons > :last-child {
+        margin-bottom: 0;
+    }
+
+    .image-text-row .row-buttons .wp-block-buttons {
+        margin: 0;
+    }
+
+    .image-text-row .row-image {
+        aspect-ratio: 4 / 3;
+    }
+
+    @media (width < 960px) {
+        .image-text-rows .image-text-row.has-image .row-text {
+            order: 2;
+        }
+
+        .image-text-rows .image-text-row.has-image .row-media {
+            order: 1;
+        }
+    }
+
+    @media (width >= 960px) {
+        .image-text-row.layout-image-text .row-text {
+            order: 2;
+        }
+
+        .image-text-row.layout-image-text .row-media {
+            order: 1;
+        }
+
+        .image-text-rows.rows-alternate-even > .rows-list > .image-text-row:nth-child(even).layout-inherit .row-text {
+            order: 2;
+        }
+
+        .image-text-rows.rows-alternate-even > .rows-list > .image-text-row:nth-child(even).layout-inherit .row-media {
+            order: 1;
+        }
+    }
+}
