@@ -1,0 +1,152 @@
+/* ---------------------------------------------------------------
+   Balefire Blocks — Frontend view styles
+   Plain CSS only. No Tailwind directives.
+   The theme already loads Tailwind; this file provides
+   block-specific rules that need to survive in the
+   compiled output without a Tailwind build step.
+   --------------------------------------------------------------- */
+
+@import './layout.css';
+@import './swiper.css';
+
+/* ---------------------------------------------------------------
+   Section vertical padding
+   Single global value applied to every Section block. Uses theme
+   token with a generous fallback (replaces the old 8-step scale).
+   --------------------------------------------------------------- */
+.bma-section {
+    padding-block: var(--spacing-section, clamp(4rem, 7vw, 7rem));
+}
+
+/* Deprecation shim: legacy markup may still carry .bma-section--padding-*
+   modifier classes. They are now no-ops — the global rule wins. */
+.bma-section--padding-none,
+.bma-section--padding-3xs,
+.bma-section--padding-2xs,
+.bma-section--padding-xs,
+.bma-section--padding-sm,
+.bma-section--padding-md,
+.bma-section--padding-lg,
+.bma-section--padding-xl {
+    padding-block: var(--spacing-section, clamp(4rem, 7vw, 7rem));
+}
+
+/* Font fallback — uses theme token when available */
+.wp-block-balefire-section-heading,
+.wp-block-balefire-cta-banner,
+.wp-block-balefire-centered-intro-text,
+.wp-block-balefire-posts-grid,
+.wp-block-balefire-features-section,
+.wp-block-balefire-page-header,
+.wp-block-balefire-hero-video-header,
+.wp-block-balefire-featured-image-header,
+.wp-block-balefire-section {
+    font-family: var(--font-primary, 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif);
+}
+
+/* ---------------------------------------------------------------
+   Overlay — default is a simple dark scrim.
+   Theme overrides this with custom gradients/animations.
+   --------------------------------------------------------------- */
+.bma-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* ---------------------------------------------------------------
+   Hero button group
+   --------------------------------------------------------------- */
+.bma-hero-btn-primary {
+    min-height: 56px;
+}
+
+.bma-hero-btn-primary .bma-hero-btn-arrow {
+    opacity: 0.7;
+    transition: transform 0.2s ease;
+}
+
+.bma-hero-btn-primary:hover .bma-hero-btn-arrow {
+    transform: translateX(3px);
+    opacity: 1;
+}
+
+.bma-hero-btn-secondary {
+    position: relative;
+    min-height: 56px;
+}
+
+.bma-hero-btn-secondary::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+}
+
+.bma-hero-btn-secondary:hover::after {
+    opacity: 0.8;
+}
+
+/* ---------------------------------------------------------------
+   Auto Grid — flex-wrap with centered last row.
+   Child width is calculated from column count and the gap
+   value passed via auto-grid-gap-* class.
+   --------------------------------------------------------------- */
+.bma-auto-grid {
+    overflow: visible;
+}
+
+.bma-auto-grid:has(.bma-card-icon-break) {
+    padding-top: 3rem;
+}
+
+.auto-grid-gap-0  { --auto-grid-gap: 0; }
+.auto-grid-gap-1  { --auto-grid-gap: 0.25rem; }
+.auto-grid-gap-2  { --auto-grid-gap: 0.5rem; }
+.auto-grid-gap-3  { --auto-grid-gap: 0.75rem; }
+.auto-grid-gap-4  { --auto-grid-gap: 1rem; }
+.auto-grid-gap-5  { --auto-grid-gap: 1.25rem; }
+.auto-grid-gap-6  { --auto-grid-gap: 1.5rem; }
+.auto-grid-gap-8  { --auto-grid-gap: 2rem; }
+.auto-grid-gap-10 { --auto-grid-gap: 2.5rem; }
+.auto-grid-gap-12 { --auto-grid-gap: 3rem; }
+.auto-grid-gap-16 { --auto-grid-gap: 4rem; }
+
+.auto-grid-cols-1 > :where(*)
+    { width: 100%; }
+.auto-grid-cols-2 > :where(*)
+    { width: calc((100% - var(--auto-grid-gap, 1.5rem)) / 2); }
+.auto-grid-cols-3 > :where(*)
+    { width: calc((100% - var(--auto-grid-gap, 1.5rem) * 2) / 3); }
+.auto-grid-cols-4 > :where(*)
+    { width: calc((100% - var(--auto-grid-gap, 1.5rem) * 3) / 4); }
+.auto-grid-cols-5 > :where(*)
+    { width: calc((100% - var(--auto-grid-gap, 1.5rem) * 4) / 5); }
+.auto-grid-cols-6 > :where(*)
+    { width: calc((100% - var(--auto-grid-gap, 1.5rem) * 5) / 6); }
+
+/* Responsive: md (782px) */
+@media (min-width: 782px) {
+    .md\:auto-grid-cols-1 > :where(*) { width: 100%; }
+    .md\:auto-grid-cols-2 > :where(*) { width: calc((100% - var(--auto-grid-gap, 1.5rem)) / 2); }
+    .md\:auto-grid-cols-3 > :where(*) { width: calc((100% - var(--auto-grid-gap, 1.5rem) * 2) / 3); }
+    .md\:auto-grid-cols-4 > :where(*) { width: calc((100% - var(--auto-grid-gap, 1.5rem) * 3) / 4); }
+    .md\:auto-grid-cols-5 > :where(*) { width: calc((100% - var(--auto-grid-gap, 1.5rem) * 4) / 5); }
+    .md\:auto-grid-cols-6 > :where(*) { width: calc((100% - var(--auto-grid-gap, 1.5rem) * 5) / 6); }
+}
+
+/* Responsive: lg (960px) */
+@media (min-width: 960px) {
+    .lg\:auto-grid-cols-1 > :where(*) { width: 100%; }
+    .lg\:auto-grid-cols-2 > :where(*) { width: calc((100% - var(--auto-grid-gap, 1.5rem)) / 2); }
+    .lg\:auto-grid-cols-3 > :where(*) { width: calc((100% - var(--auto-grid-gap, 1.5rem) * 2) / 3); }
+    .lg\:auto-grid-cols-4 > :where(*) { width: calc((100% - var(--auto-grid-gap, 1.5rem) * 3) / 4); }
+    .lg\:auto-grid-cols-5 > :where(*) { width: calc((100% - var(--auto-grid-gap, 1.5rem) * 4) / 5); }
+    .lg\:auto-grid-cols-6 > :where(*) { width: calc((100% - var(--auto-grid-gap, 1.5rem) * 5) / 6); }
+}
+

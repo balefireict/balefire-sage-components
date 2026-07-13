@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-section",
+    "description": "Section \u2014 Full-width layout section with background color.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\Section\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "section",
+            "block_name": "balefire/section",
+            "blade_component": "bma::components.section",
+            "owns_css": false
+        }
+    }
+}

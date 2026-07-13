@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/section",
+  "title": "Section",
+  "category": "balefire",
+  "icon": "layout",
+  "description": "Full-width layout section with background color.",
+  "keywords": [
+    "section",
+    "layout",
+    "background",
+    "wrapper",
+    "balefire"
+  ],
+  "textdomain": "balefire",
+  "editorScript": "balefire-section-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "className": true,
+    "align": [
+      "none",
+      "wide",
+      "full"
+    ]
+  },
+  "providesContext": {
+    "balefire/sectionTone": "backgroundColor"
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "transparent"
+    },
+    "htmlId": {
+      "type": "string",
+      "default": ""
+    },
+    "align": {
+      "type": "string",
+      "default": "wide"
+    }
+  },
+  "version": "1.0.0"
+}

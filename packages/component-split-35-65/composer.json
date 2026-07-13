@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-split-35-65",
+    "description": "Split 35/65 \u2014 A 35/65 two-column layout with text + button on the left (vertically centered) and image or video on the right.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\Split3565\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "split-35-65",
+            "block_name": "balefire/split-35-65",
+            "blade_component": "bma::components.split-35-65",
+            "shortcode": "bma_split_35_65",
+            "owns_css": false
+        }
+    }
+}

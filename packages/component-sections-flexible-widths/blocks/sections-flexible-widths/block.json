@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/sections-flexible-widths",
+  "title": "Section (Flexible Width)",
+  "category": "balefire",
+  "icon": "layout",
+  "description": "Full-width section with a Tailwind-powered max-width container inside.",
+  "keywords": [
+    "section",
+    "flexible",
+    "width",
+    "container",
+    "balefire"
+  ],
+  "textdomain": "balefire",
+  "editorScript": "balefire-sections-flexible-widths-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "containerWidth": {
+      "type": "string",
+      "default": "max-w-7xl"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "transparent"
+    },
+    "htmlId": {
+      "type": "string",
+      "default": ""
+    },
+    "align": {
+      "type": "string",
+      "default": "wide"
+    }
+  },
+  "version": "1.0.0",
+  "style": "file:./style.css"
+}

@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-sections-flexible-widths",
+    "description": "Section (Flexible Width) \u2014 Full-width section with a Tailwind-powered max-width container inside.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\SectionsFlexibleWidths\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "sections-flexible-widths",
+            "block_name": "balefire/sections-flexible-widths",
+            "blade_component": "bma::components.sections-flexible-widths",
+            "owns_css": true
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-grid-cell",
+    "description": "Grid Cell \u2014 A cell inside a 12-column grid row. Set span (e.g. 6/12 = half width) and add any blocks inside.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\GridCell\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "grid-cell",
+            "block_name": "balefire/grid-cell",
+            "blade_component": "bma::components.grid-cell",
+            "owns_css": false
+        }
+    }
+}

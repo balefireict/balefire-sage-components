@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-two-col-three-col",
+    "description": "2-col-3-col Cards \u2014 A card grid with 2 cards on the first row and 3 on the second. Flush-top images, padded text areas.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\TwoColThreeCol\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "two-col-three-col",
+            "block_name": "balefire/two-col-three-col",
+            "blade_component": "bma::components.two-col-three-col",
+            "owns_css": false
+        }
+    }
+}

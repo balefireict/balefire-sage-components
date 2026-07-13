@@ -1,0 +1,20 @@
+{
+    "name": "balefireict/component-support",
+    "description": "Shared support utilities for Balefire Sage components — SectionStyles token-to-class maps (surface tones, container widths, inline padding).",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\Support\\": "src/"
+        }
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "support",
+            "owns_css": false
+        }
+    }
+}

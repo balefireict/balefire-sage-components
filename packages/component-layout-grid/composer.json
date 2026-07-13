@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-layout-grid",
+    "description": "Layout Grid \u2014 Responsive grid layout with column count and gap controls.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\LayoutGrid\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "layout-grid",
+            "block_name": "balefire/layout-grid",
+            "blade_component": "bma::components.layout-grid",
+            "owns_css": false
+        }
+    }
+}

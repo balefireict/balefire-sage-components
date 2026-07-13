@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-grid-row",
+    "description": "Grid Row \u2014 A 12-column grid row. Add Grid Cell children to build fractional layouts.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\GridRow\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "grid-row",
+            "block_name": "balefire/grid-row",
+            "blade_component": "bma::components.grid-row",
+            "owns_css": false
+        }
+    }
+}

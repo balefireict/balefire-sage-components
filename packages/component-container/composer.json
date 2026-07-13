@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-container",
+    "description": "Container \u2014 Max-width constrained, centered container with horizontal padding.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\Container\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "container",
+            "block_name": "balefire/container",
+            "blade_component": "bma::components.container",
+            "owns_css": false
+        }
+    }
+}

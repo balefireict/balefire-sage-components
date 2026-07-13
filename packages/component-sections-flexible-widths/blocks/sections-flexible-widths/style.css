@@ -1,0 +1,10 @@
+/* Flexible Widths container — neutralize theme layout constraints */
+.page-content > .wp-block-balefire-sections-flexible-widths {
+    max-width: 100%;
+    margin-inline: 0;
+}
+
+.container .is-layout-constrained {
+    max-width: 100%;
+    margin-inline: 0;
+}

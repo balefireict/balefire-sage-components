@@ -1,0 +1,25 @@
+{
+    "name": "balefireict/component-auto-grid",
+    "description": "Auto Grid \u2014 Flex-wrap grid with centered last row, responsive column counts (desktop/tablet/mobile), gap control, and div/section tag.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\AutoGrid\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "auto-grid",
+            "block_name": "balefire/auto-grid",
+            "blade_component": "bma::components.auto-grid",
+            "owns_css": false
+        }
+    }
+}

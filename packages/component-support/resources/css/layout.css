@@ -1,0 +1,48 @@
+/* ---------------------------------------------------------------
+   Balefire Blocks — Layout framework
+   Plain CSS only. No Tailwind directives.
+   Adjacency flush rules for section bg-color stacking,
+   hero/footer bleed prevention, and default section spacing.
+   --------------------------------------------------------------- */
+
+/* Default section spacing */
+.bma-section {
+    width: 100%;
+    padding-block: var(--spacing-section, clamp(4rem, 7vw, 7rem));
+}
+
+/* Deprecation shim: legacy markup may still carry .bma-section--padding-*
+   modifier classes from the previous per-section padding control. They
+   are now no-ops — the global rule above wins. */
+.bma-section--padding-none,
+.bma-section--padding-3xs,
+.bma-section--padding-2xs,
+.bma-section--padding-xs,
+.bma-section--padding-sm,
+.bma-section--padding-md,
+.bma-section--padding-lg,
+.bma-section--padding-xl {
+    padding-block: var(--spacing-section, clamp(4rem, 7vw, 7rem));
+}
+
+.bma-section[data-has-bg="false"] {
+    margin-block: 0;
+}
+
+/* Flush stacking: colored section immediately after colored section */
+.bma-section[data-has-bg="true"] + .bma-section[data-has-bg="true"] {
+    margin-block-start: 0;
+}
+
+/* Hero/page-header flush into first colored section */
+.wp-block-balefire-hero-video-header + .bma-section[data-has-bg="true"],
+.wp-block-balefire-page-header + .bma-section[data-has-bg="true"],
+.wp-block-balefire-featured-image-header + .bma-section[data-has-bg="true"] {
+    margin-block-start: 0;
+}
+
+/* Footer flush: last colored section before footer */
+.bma-section[data-has-bg="true"]:has(+ footer),
+.bma-section[data-has-bg="true"]:last-of-type {
+    margin-block-end: 0;
+}
