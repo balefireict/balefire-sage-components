@@ -171,7 +171,32 @@ Clients edit it normally. The frontend renders server-side via Blade.
 
 Each package's `src/bootstrap.php` auto-registers its block via
 `register_block_type()` pointing at the package's `blocks/` directory.
-No manual block registration needed in the theme.
+No manual block registration needed in the theme. Bootstraps survive
+being autoloaded before WordPress's plugin API exists (Bedrock requires
+vendor/autoload.php from wp-config.php) by falling back to
+pre-initialized `$wp_filter` hooks.
+
+## Settings screen
+
+`component-support` ships the **Balefire Blocks** wp-admin screen
+(top-level menu), ported from the original plugin and saving to the same
+`balefire_blocks_settings` option — migrating sites keep their values:
+
+- **Per-block toggles** (dependency-aware — disabling `section` also
+  disables `container`, etc.). Package bootstraps check
+  `Settings::isBlockEnabled()` before registering anything.
+- **Global defaults** that blocks use as fallbacks for unset attributes:
+  `sectionMaxWidth` (section-heading), `buttonStyle` (cta-banner's
+  "Site default" primary style), `postsPerPage` (posts-grid).
+
+## Site wiring (mu-plugin)
+
+Consumer sites carry one mu-plugin that registers the `bma::` Blade
+namespace over every installed package's views directory, resolved
+through Composer's runtime API (`InstalledVersions`) — no hardcoded
+vendor path. See the accu-shot site's
+`web/app/mu-plugins/balefire-sage-components.php` for the reference
+implementation. Everything else self-registers from package bootstraps.
 
 ## License
 
