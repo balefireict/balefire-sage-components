@@ -12,7 +12,10 @@
 
 declare( strict_types=1 );
 
-defined( 'ABSPATH' ) || exit;
+// Not in a WordPress context (composer scripts, tooling) — do nothing.
+if ( ! defined( 'ABSPATH' ) ) {
+	return;
+}
 
 /**
  * Register the block.
@@ -44,10 +47,21 @@ $bma_simple_icon_stacked_cards_boot = static function (): void {
 	}
 };
 
-if ( did_action( 'init' ) ) {
-	$bma_simple_icon_stacked_cards_boot();
+if ( function_exists( 'add_action' ) ) {
+	if ( did_action( 'init' ) ) {
+		$bma_simple_icon_stacked_cards_boot();
+	} else {
+		add_action( 'init', $bma_simple_icon_stacked_cards_boot, 20 );
+	}
 } else {
-	add_action( 'init', $bma_simple_icon_stacked_cards_boot, 20 );
+	// Autoloaded before WordPress's plugin API exists (Bedrock requires
+	// vendor/autoload.php from wp-config.php). Pre-initialized hooks are
+	// adopted by WP_Hook::build_preinitialized_hooks() once plugin.php
+	// loads, making this equivalent to add_action( 'init', ..., 20 ).
+	$GLOBALS['wp_filter']['init'][20][] = [
+		'function'      => $bma_simple_icon_stacked_cards_boot,
+		'accepted_args' => 1,
+	];
 }
 
 unset( $bma_simple_icon_stacked_cards_boot );
