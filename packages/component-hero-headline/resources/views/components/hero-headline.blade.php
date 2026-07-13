@@ -51,13 +51,10 @@ $hasButtons = ($primaryLabel !== '' && $primaryUrl !== '') || ($secondaryLabel !
         />
     @endif
 
-    {{-- Scrim + crosshatch texture, per the comp (black/70 + 10px hatch at 40%). --}}
-    <div aria-hidden="true" class="absolute inset-0 -z-20 bg-black/70"></div>
-    <div
-        aria-hidden="true"
-        class="bma-hero-headline__texture absolute inset-0 -z-10 opacity-40"
-        style="background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 10px), repeating-linear-gradient(-45deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 10px);"
-    ></div>
+    {{-- Scrim + diagonal-line texture per the comp. The tile ships in
+         component-support's view.css (.bma-hero-headline__texture). --}}
+    <div aria-hidden="true" class="absolute inset-0 -z-20 bg-black/80"></div>
+    <div aria-hidden="true" class="bma-hero-headline__texture absolute inset-0 -z-10 opacity-40"></div>
 
     <div class="flex w-full max-w-[980px] flex-col items-start gap-8 px-6 py-16 lg:px-20">
         <div class="flex flex-col gap-5">
