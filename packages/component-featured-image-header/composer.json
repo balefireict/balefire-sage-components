@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-featured-image-header",
+    "description": "Featured Image Header \u2014 Context-aware page header that uses the featured image as background. Shows contextual titles on archive, search, 404, and singular pages. Designed to replace the PHP page-heading template.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\FeaturedImageHeader\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "featured-image-header",
+            "block_name": "balefire/featured-image-header",
+            "blade_component": "bma::components.featured-image-header",
+            "shortcode": "bma_featured_image_header",
+            "owns_css": false
+        }
+    }
+}

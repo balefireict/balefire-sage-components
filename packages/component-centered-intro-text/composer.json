@@ -1,0 +1,27 @@
+{
+    "name": "balefireict/component-centered-intro-text",
+    "description": "Centered Intro Text \u2014 A centered intro text section with full-width surface support.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\CenteredIntroText\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "centered-intro-text",
+            "block_name": "balefire/centered-intro-text",
+            "blade_component": "bma::components.centered-intro-text",
+            "shortcode": "bma_centered_intro_text",
+            "owns_css": true
+        }
+    }
+}

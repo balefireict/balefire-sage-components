@@ -1,0 +1,27 @@
+{
+    "name": "balefireict/component-section-heading",
+    "description": "Section Heading \u2014 A compact heading block with eyebrow, title, and supporting copy.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\SectionHeading\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "section-heading",
+            "block_name": "balefire/section-heading",
+            "blade_component": "bma::components.section-heading",
+            "shortcode": "bma_section_heading",
+            "owns_css": true
+        }
+    }
+}

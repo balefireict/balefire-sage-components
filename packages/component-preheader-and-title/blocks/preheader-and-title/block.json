@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/preheader-and-title",
+  "title": "Preheader & Title",
+  "category": "balefire",
+  "icon": "heading",
+  "description": "A skeleton h2 with an inline preheader span. Styling left to the theme.",
+  "keywords": [
+    "preheader",
+    "title",
+    "heading",
+    "subtitle",
+    "balefire"
+  ],
+  "textdomain": "balefire",
+  "editorScript": "balefire-preheader-and-title-editor",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {
+    "preheader": {
+      "type": "string",
+      "default": "Preheader"
+    },
+    "title": {
+      "type": "string",
+      "default": "Title"
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "align": {
+      "type": "string",
+      "default": "wide"
+    }
+  },
+  "version": "1.0.0"
+}

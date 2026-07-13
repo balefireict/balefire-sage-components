@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-hero-video-header",
+    "description": "Hero Video Header \u2014 Full-width hero with looping background video, gradient overlay, title, subtitle, and button group.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\HeroVideoHeader\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "hero-video-header",
+            "block_name": "balefire/hero-video-header",
+            "blade_component": "bma::components.hero-video-header",
+            "shortcode": "bma_hero_video_header",
+            "owns_css": false
+        }
+    }
+}

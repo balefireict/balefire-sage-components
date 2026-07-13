@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-preheader-and-title",
+    "description": "Preheader & Title \u2014 A skeleton h2 with an inline preheader span. Styling left to the theme.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\PreheaderAndTitle\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "preheader-and-title",
+            "block_name": "balefire/preheader-and-title",
+            "blade_component": "bma::components.preheader-and-title",
+            "shortcode": "bma_preheader_and_title",
+            "owns_css": false
+        }
+    }
+}

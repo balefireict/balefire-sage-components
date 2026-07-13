@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-page-header",
+    "description": "Page Header \u2014 Full-width page header with background image, gradient overlay, contextual title, subtitle, and button group.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\PageHeader\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "page-header",
+            "block_name": "balefire/page-header",
+            "blade_component": "bma::components.page-header",
+            "shortcode": "bma_page_header",
+            "owns_css": false
+        }
+    }
+}
