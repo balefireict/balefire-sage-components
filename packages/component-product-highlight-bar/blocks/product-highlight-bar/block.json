@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/product-highlight-bar",
+  "title": "Product Highlight Bar",
+  "category": "balefire",
+  "icon": "awards",
+  "description": "Row of trust-signal highlights — icon, heading, and a small link. Ships four default icons; each item can take pasted SVG instead.",
+  "keywords": [
+    "highlight",
+    "trust",
+    "usp",
+    "icons",
+    "bar",
+    "balefire"
+  ],
+  "textdomain": "balefire",
+  "version": "1.0.0",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": [
+      "full",
+      "wide"
+    ]
+  },
+  "attributes": {
+    "items": {
+      "type": "array",
+      "default": [
+        { "icon": "award", "customSvg": "", "heading": "Patented Since 2000", "linkText": "Our story", "linkUrl": "" },
+        { "icon": "tools", "customSvg": "", "heading": "Lifetime Warranty", "linkText": "If it breaks, we fix it", "linkUrl": "" },
+        { "icon": "police-car", "customSvg": "", "heading": "Trusted by Military & LE", "linkText": "NSN-listed", "linkUrl": "" },
+        { "icon": "shield-check", "customSvg": "", "heading": "Authentic Quality", "linkText": "Spot the counterfeits", "linkUrl": "" }
+      ]
+    },
+    "headingLevel": {
+      "type": "string",
+      "default": "h2"
+    },
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "editorScript": "balefire-product-highlight-bar-editor"
+}

@@ -1,0 +1,29 @@
+{
+    "name": "balefireict/component-product-highlight-bar",
+    "description": "Product Highlight Bar — row of trust-signal highlights, each an icon, heading and small link. Ships four default icons; any item can take editor-pasted SVG instead (sanitized on render). Ported from the Project B&T Figma ('Product Highlight Bar Blocks' frame, node 2010:223).",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\ProductHighlightBar\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "product-highlight-bar",
+            "block_name": "balefire/product-highlight-bar",
+            "blade_component": "bma::components.product-highlight-bar",
+            "shortcode": "bma_product_highlight_bar",
+            "owns_css": false
+        }
+    }
+}
