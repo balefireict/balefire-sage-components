@@ -1,0 +1,28 @@
+{
+    "name": "balefireict/component-numbered-features",
+    "description": "Numbered Features — 'why choose us' section: eyebrow, heading, copy and CTA above a 2-up grid of numbered points. Hovering a point swaps its number for an image and raises a card background. Ported from the Project B&T Figma ('Simple Text Blocks' frame, node 2030:1841).",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*",
+        "balefireict/component-eyebrow": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\NumberedFeatures\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "numbered-features",
+            "block_name": "balefire/numbered-features",
+            "blade_component": "bma::components.numbered-features",
+            "shortcode": "bma_numbered_features",
+            "owns_css": false
+        }
+    }
+}
