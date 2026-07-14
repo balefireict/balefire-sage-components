@@ -1,0 +1,28 @@
+{
+    "name": "balefireict/component-mission-cards",
+    "description": "Mission Cards — 'Find your fit' section: eyebrow, heading, description and a grid of cards generated from Mission taxonomy terms (image, audience, blurb, CTA). Ported from the Project B&T Figma ('Blog Category Blocks' frame, node 2013:337).",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*",
+        "balefireict/component-eyebrow": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\MissionCards\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "mission-cards",
+            "block_name": "balefire/mission-cards",
+            "blade_component": "bma::components.mission-cards",
+            "shortcode": "bma_mission_cards",
+            "owns_css": false
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/mission-cards",
+  "title": "Mission Cards",
+  "category": "balefire",
+  "icon": "grid-view",
+  "description": "Find-your-fit section: cards generated from Mission taxonomy terms.",
+  "keywords": ["mission", "cards", "use case", "category", "balefire"],
+  "textdomain": "balefire",
+  "version": "1.0.0",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": ["full", "wide"]
+  },
+  "attributes": {
+    "eyebrow": { "type": "string", "default": "Find Your Fit" },
+    "title": { "type": "string", "default": "Find the right support for your rifle" },
+    "content": { "type": "string", "default": "Start with how you shoot, or jump straight to a model family. Either path takes you to the right setup in a click or two." },
+    "termIds": { "type": "array", "default": [] },
+    "limit": { "type": "number", "default": 3 },
+    "align": { "type": "string", "default": "full" }
+  },
+  "editorScript": "balefire-mission-cards-editor"
+}
