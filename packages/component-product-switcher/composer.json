@@ -1,0 +1,28 @@
+{
+    "name": "balefireict/component-product-switcher",
+    "description": "Product Switcher — split hero: product image with pill tabs that swap between WooCommerce products, plus eyebrow, headline, copy and a shared CTA. Ported from the Project B&T Figma ('Hero Blocks' frame, node 2017:11540).",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*",
+        "balefireict/component-eyebrow": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\ProductSwitcher\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "product-switcher",
+            "block_name": "balefire/product-switcher",
+            "blade_component": "bma::components.product-switcher",
+            "shortcode": "bma_product_switcher",
+            "owns_css": false
+        }
+    }
+}

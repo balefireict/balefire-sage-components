@@ -1,0 +1,70 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/product-switcher",
+  "title": "Product Switcher",
+  "category": "balefire",
+  "icon": "images-alt2",
+  "description": "Product image with pill tabs that switch between WooCommerce products, alongside a headline, copy and a shared CTA.",
+  "keywords": [
+    "product",
+    "switcher",
+    "tabs",
+    "woocommerce",
+    "balefire"
+  ],
+  "textdomain": "balefire",
+  "version": "1.0.0",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": [
+      "full",
+      "wide"
+    ]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "Complete Your Setup"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "source": {
+      "type": "string",
+      "default": "products"
+    },
+    "categoryId": {
+      "type": "number",
+      "default": 0
+    },
+    "attribute": {
+      "type": "string",
+      "default": ""
+    },
+    "items": {
+      "type": "array",
+      "default": []
+    },
+    "ctaLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "editorScript": "balefire-product-switcher-editor"
+}
