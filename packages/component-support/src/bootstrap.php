@@ -41,6 +41,25 @@ if ( ! defined( 'BALEFIRE_SAGE_COMPONENTS_CATEGORY' ) ) {
 	$balefire_support_boot = static function (): void {
 		\BalefireInc\Sage\Support\Settings::registerSettings();
 
+		/*
+		 * Shared lightbox, available to any component as `window.balefireLightbox`.
+		 * Registered, never enqueued here: a block that needs it declares
+		 * 'balefire-lightbox' as a script dependency, so pages without one never
+		 * load it.
+		 *
+		 * Inline on an src-less handle because vendor/ may sit outside the webroot
+		 * on Bedrock, so no asset URL is ever assumed.
+		 * See https://roots.io/wordpress-plugins-that-assume-your-directory-structure/
+		 */
+		if ( function_exists( 'wp_register_script' ) ) {
+			wp_register_script( 'balefire-lightbox', false, [], null, true );
+
+			$lightbox_js = file_get_contents( __DIR__ . '/../resources/js/lightbox.js' );
+			if ( $lightbox_js !== false ) {
+				wp_add_inline_script( 'balefire-lightbox', $lightbox_js );
+			}
+		}
+
 		if ( is_admin() ) {
 			add_action( 'admin_menu', [ \BalefireInc\Sage\Support\SettingsPage::class, 'registerPage' ] );
 			add_action( 'admin_enqueue_scripts', [ \BalefireInc\Sage\Support\SettingsPage::class, 'enqueueAssets' ] );

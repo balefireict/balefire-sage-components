@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/reviews",
+  "title": "Reviews",
+  "category": "balefire",
+  "icon": "format-quote",
+  "description": "Testimonials carousel. Cards clamp to three lines; the ellipsis opens the full review in a lightbox.",
+  "keywords": ["reviews", "testimonials", "quotes", "carousel", "balefire"],
+  "textdomain": "balefire",
+  "version": "1.0.0",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": ["full", "wide"]
+  },
+  "attributes": {
+    "eyebrow": { "type": "string", "default": "Reviews From The Field" },
+    "title": { "type": "string", "default": "Trusted by Shooters, Hunters, and Professionals" },
+    "count": { "type": "number", "default": 9 },
+    "orderby": { "type": "string", "default": "date" },
+    "align": { "type": "string", "default": "full" }
+  },
+  "editorScript": "balefire-reviews-editor"
+}

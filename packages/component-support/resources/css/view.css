@@ -203,3 +203,149 @@
         will-change: auto;
     }
 }
+
+/* ---------------------------------------------------------------
+   Shared lightbox (component-support/resources/js/lightbox.js).
+
+   Native <dialog>: the browser gives us the top layer, a real ::backdrop,
+   focus trapping and Escape-to-close, so there is no library here.
+
+   `margin: auto` is load-bearing. A modal <dialog> is centred by the UA's
+   default `margin: auto`, and Tailwind's preflight (`*{margin:0}`) wipes it —
+   which pins the dialog to the top-left corner. Putting it back is what centres
+   the thing.
+   --------------------------------------------------------------- */
+.bma-lightbox {
+    margin: auto;
+
+    /* Do NOT set `position` here. The UA gives `dialog:modal` position: fixed,
+       which is what pins it to the viewport; an author `position: relative`
+       beats the UA rule and drops the open modal into normal flow at the end of
+       <body>, so the browser scrolls the page to reach it. The close button
+       below still positions against the dialog, because a fixed element is
+       already a containing block for its absolutely positioned children. */
+    width: 100%;
+    max-width: min(40rem, calc(100vw - 2rem));
+    max-height: calc(100vh - 4rem);
+    padding: 2.5rem;
+
+    border: 0;
+    border-radius: var(--radius-semi, 8px);
+    background: #fff;
+    color: var(--color-grey-800, #2e2e2e);
+    overflow: auto;
+}
+
+.bma-lightbox::backdrop {
+    background: rgb(0 0 0 / 0.7);
+}
+
+.bma-lightbox__close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+
+    border: 0;
+    border-radius: 9999px;
+    background: transparent;
+    color: var(--color-grey-400, #747474);
+    cursor: pointer;
+}
+
+.bma-lightbox__close:hover {
+    background: var(--color-grey-25, #f4f4f4);
+    color: var(--color-grey-800, #2e2e2e);
+}
+
+/* Plain-text payloads (openText) — e.g. a review that runs to 2,000 chars.
+   pre-line keeps the author's line breaks without letting markup in. */
+.bma-lightbox__text {
+    white-space: pre-line;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Review payload inside the shared lightbox (component-reviews). */
+.bma-review-full__by {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-grey-50, #e8e8e8);
+}
+
+.bma-review-full__name {
+    margin: 0;
+    font-weight: 600;
+}
+
+.bma-review-full__location {
+    margin: 0;
+    font-size: 0.875rem;
+    font-style: italic;
+    color: var(--color-grey-400, #747474);
+}
+
+/* ---------------------------------------------------------------
+   Reviews carousel (component-reviews).
+
+   Deliberately plain CSS, NOT Tailwind utilities. The scroll container is
+   load-bearing: without `overflow-x: auto` the nine 416px cards lay out
+   straight across the page and drag the document ~4000px wide. Tailwind
+   utilities only exist if the content scanner saw the class, and a stale dev
+   server silently drops them — which turned this into page-wide horizontal
+   scroll. Plain CSS in this file is compiled verbatim and cannot go missing.
+   --------------------------------------------------------------- */
+.bma-reviews {
+    /* Backstop: a carousel must never be able to scroll the page sideways.
+
+       Both axes, not just `overflow-x: clip`. Clipping a single axis while the
+       other stays `visible` did NOT stop the track's scrollable overflow from
+       propagating up and widening the document to ~4,000px — the cards were
+       clipped visually but the page still scrolled sideways into empty space.
+       Clipping both axes contains it. */
+    overflow: clip;
+}
+
+.bma-reviews__track {
+    display: flex;
+    gap: 2rem;
+
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    /* Hide the scrollbar; the dots and arrows are the affordance. */
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+}
+
+.bma-reviews__track::-webkit-scrollbar {
+    display: none;
+}
+
+.bma-reviews__card {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+
+    /* Load-bearing. Tailwind's .sr-only is `position: absolute`, and with no
+       positioned ancestor its containing block is the BODY — so it escapes both
+       this track's scroll clip and the section's overflow clip, and gets laid
+       out at its static position, up to ~4,000px into the track's scrollable
+       content. It is 1px wide and invisible, but it widens the DOCUMENT and
+       gives the whole page a horizontal scrollbar into empty space.
+       Positioning the card makes the card its containing block, so it is
+       clipped with everything else. */
+    position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bma-reviews__track {
+        scroll-behavior: auto;
+    }
+}
