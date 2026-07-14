@@ -1,245 +1,19 @@
 {
   "blocks": [
     {
-      "slug": "hero-headline",
+      "slug": "article-cards",
       "active": true,
-      "title": "Hero Headline",
-      "description": "Full-bleed image hero with eyebrow flourish, highlighted headline words, supporting text, and dual buttons. From the Project B&T homepage Figma ('Hero Blocks' frame, kit instance 'Energy').",
+      "title": "Article Cards",
+      "description": "Dark guides section: eyebrow, heading, copy and a CTA above a 3- or 4-up grid of post cards.",
       "category": "design",
-      "type": "headers",
-      "icon": "cover-image",
-      "keywords": [
-        "hero",
-        "headline",
-        "banner"
-      ]
-    },
-    {
-      "slug": "section-heading",
-      "active": true,
-      "title": "Section Heading",
-      "description": "A compact heading block with eyebrow, title, and copy.",
-      "category": "design",
-      "type": "text",
-      "icon": "heading",
-      "keywords": [
-        "heading",
-        "eyebrow",
-        "intro"
-      ]
-    },
-    {
-      "slug": "cta-banner",
-      "active": true,
-      "title": "CTA Banner",
-      "description": "A marketing call-to-action with two buttons and token-driven colors.",
-      "category": "design",
-      "type": "cta",
-      "icon": "megaphone",
-      "keywords": [
-        "cta",
-        "banner",
-        "marketing"
-      ]
-    },
-    {
-      "slug": "centered-intro-text",
-      "active": true,
-      "title": "Centered Intro Text",
-      "description": "A full-width intro section with a centered, constrained text container.",
-      "category": "design",
-      "type": "text",
-      "icon": "editor-aligncenter",
-      "keywords": [
-        "intro",
-        "centered",
-        "text"
-      ]
-    },
-    {
-      "slug": "features-section",
-      "active": true,
-      "title": "Features Section",
-      "description": "A light-theme features grid for business-focused landing pages.",
-      "category": "design",
-      "type": "content",
-      "icon": "grid-view",
-      "keywords": [
-        "features",
-        "services",
-        "grid"
-      ]
-    },
-    {
-      "slug": "image-text-rows",
-      "active": true,
-      "title": "Image Text Rows",
-      "description": "A repeatable image and text rows section with alternating layouts.",
-      "category": "design",
-      "type": "layout",
-      "icon": "columns",
-      "keywords": [
-        "image",
-        "text",
-        "rows"
-      ]
-    },
-    {
-      "slug": "image-text-row",
-      "active": true,
-      "title": "Image Text Row",
-      "description": "A single image and text row used inside Image Text Rows.",
-      "category": "design",
-      "type": "layout",
-      "icon": "align-pull-left",
-      "dependsOn": [
-        "image-text-rows"
-      ],
-      "keywords": [
-        "image",
-        "text",
-        "row"
-      ]
-    },
-    {
-      "slug": "posts-grid",
-      "active": true,
-      "title": "Posts Grid",
-      "description": "A dynamic posts grid designed to match the Balefire visual system.",
-      "category": "widgets",
       "type": "dynamic",
-      "icon": "screenoptions",
-      "keywords": [
-        "posts",
-        "grid",
-        "query"
-      ]
-    },
-    {
-      "slug": "page-header",
-      "active": true,
-      "title": "Page Header",
-      "description": "Full-width page header with background image, gradient overlay, and contextual title.",
-      "category": "design",
-      "type": "headers",
-      "icon": "heading",
-      "keywords": [
-        "header",
-        "hero",
-        "title",
-        "page"
-      ]
-    },
-    {
-      "slug": "hero-video-header",
-      "active": true,
-      "title": "Hero Video Header",
-      "description": "Full-width hero with looping background video, gradient overlay, and title.",
-      "category": "design",
-      "type": "headers",
-      "icon": "video-alt3",
-      "keywords": [
-        "hero",
-        "video",
-        "header",
-        "banner"
-      ]
-    },
-    {
-      "slug": "section",
-      "active": true,
-      "title": "Section",
-      "description": "Full-width layout section with background color and vertical padding.",
-      "category": "design",
-      "type": "layout",
-      "icon": "layout",
-      "keywords": [
-        "section",
-        "layout",
-        "background",
-        "wrapper"
-      ]
-    },
-    {
-      "slug": "container",
-      "active": true,
-      "title": "Container",
-      "description": "Max-width constrained, centered container with horizontal padding.",
-      "category": "design",
-      "type": "layout",
-      "icon": "align-wide",
-      "keywords": [
-        "container",
-        "wrapper",
-        "max-width",
-        "center"
-      ],
-      "dependsOn": [
-        "section"
-      ]
-    },
-    {
-      "slug": "featured-image-header",
-      "active": true,
-      "title": "Featured Image Header",
-      "description": "Context-aware header using the featured image as background with optional intro text. Replaces the PHP page-heading template on archive, search, 404, and singular pages.",
-      "category": "design",
-      "type": "headers",
-      "icon": "format-image",
-      "keywords": [
-        "header",
-        "hero",
-        "featured image",
-        "title",
-        "page"
-      ]
-    },
-    {
-      "slug": "card-icon-break",
-      "active": true,
-      "title": "Card Icon Break",
-      "description": "A skeleton card with an absolutely-positioned icon, title, and body text. Optional anchor wrapper.",
-      "category": "design",
-      "type": "single-block",
-      "icon": "format-image",
-      "keywords": [
-        "card",
-        "icon",
-        "feature",
-        "service"
-      ]
-    },
-    {
-      "slug": "preheader-and-title",
-      "active": true,
-      "title": "Preheader & Title",
-      "description": "A skeleton h2 with an inline preheader span. Styling left to the theme.",
-      "category": "design",
-      "type": "text",
-      "icon": "heading",
-      "keywords": [
-        "preheader",
-        "title",
-        "heading",
-        "subtitle"
-      ]
-    },
-    {
-      "slug": "layout-grid",
-      "active": true,
-      "title": "Layout Grid",
-      "description": "Responsive grid layout with column count and gap controls.",
-      "category": "design",
-      "type": "layout",
       "icon": "grid-view",
       "keywords": [
-        "grid",
-        "columns",
-        "layout",
-        "responsive"
-      ],
-      "dependsOn": [
-        "container"
+        "blog",
+        "posts",
+        "articles",
+        "guides",
+        "cards"
       ]
     },
     {
@@ -258,6 +32,21 @@
         "center",
         "responsive",
         "div"
+      ]
+    },
+    {
+      "slug": "card-icon-break",
+      "active": true,
+      "title": "Card Icon Break",
+      "description": "A skeleton card with an absolutely-positioned icon, title, and body text. Optional anchor wrapper.",
+      "category": "design",
+      "type": "single-block",
+      "icon": "format-image",
+      "keywords": [
+        "card",
+        "icon",
+        "feature",
+        "service"
       ]
     },
     {
@@ -293,115 +82,65 @@
       ]
     },
     {
-      "slug": "portrait-swiper-slides",
+      "slug": "case-study-compare",
       "active": true,
-      "title": "Portrait Swiper Slides",
-      "description": "A Swiper.js slider with portrait-oriented slides featuring images, titles, links, and overlays.",
+      "title": "Case Study Compare",
+      "description": "Before/after comparison with two cards, an arrow, body text, and CTA button.",
       "category": "design",
-      "type": "media",
-      "icon": "slides",
+      "type": "content",
+      "icon": "analytics",
       "keywords": [
-        "swiper",
-        "slider",
-        "carousel",
-        "slides",
-        "portrait"
+        "case study",
+        "compare",
+        "before",
+        "after",
+        "results"
       ]
     },
     {
-      "slug": "logo-grid-item",
+      "slug": "centered-intro-text",
       "active": true,
-      "title": "Logo Grid Item",
-      "description": "A single logo image constrained to a uniform size for logo grid layouts.",
+      "title": "Centered Intro Text",
+      "description": "A full-width intro section with a centered, constrained text container.",
       "category": "design",
-      "type": "single-block",
-      "icon": "format-image",
+      "type": "text",
+      "icon": "editor-aligncenter",
       "keywords": [
-        "logo",
-        "grid",
-        "partner",
-        "client"
+        "intro",
+        "centered",
+        "text"
       ]
     },
     {
-      "slug": "sections-flexible-widths",
+      "slug": "container",
       "active": true,
-      "title": "Section (Flexible Width)",
-      "description": "Full-width section with a Tailwind-powered max-width container inside.",
+      "title": "Container",
+      "description": "Max-width constrained, centered container with horizontal padding.",
       "category": "design",
       "type": "layout",
-      "icon": "layout",
+      "icon": "align-wide",
       "keywords": [
-        "section",
-        "flexible",
-        "width",
-        "container"
-      ]
-    },
-    {
-      "slug": "split-35-65",
-      "active": true,
-      "title": "Split 35/65",
-      "description": "A 35/65 two-column layout with text + button on the left (vertically centered) and image or video on the right.",
-      "category": "design",
-      "type": "layout",
-      "icon": "columns",
-      "keywords": [
-        "split",
-        "columns",
-        "35",
-        "65",
-        "layout",
-        "image",
-        "video"
-      ]
-    },
-    {
-      "slug": "feature-row",
-      "active": true,
-      "title": "Feature Row",
-      "description": "A 30/70 flex row with an image on the left and vertically centered text on the right.",
-      "category": "design",
-      "type": "layout",
-      "icon": "align-pull-left",
-      "keywords": [
-        "feature",
-        "image",
-        "text",
-        "row",
-        "split"
-      ]
-    },
-    {
-      "slug": "two-col-three-col",
-      "active": true,
-      "title": "2-col-3-col Cards",
-      "description": "A card grid with 2 cards on the first row and 3 on the second. Flush-top images, padded text areas.",
-      "category": "design",
-      "type": "layout",
-      "icon": "grid-view",
-      "keywords": [
-        "cards",
-        "grid",
-        "2-col",
-        "3-col",
-        "industry",
-        "bundle"
-      ]
-    },
-    {
-      "slug": "simple-card",
-      "active": true,
-      "title": "Simple Card",
-      "description": "A simple card wrapper with optional border and padding, accepting any inner blocks.",
-      "category": "design",
-      "type": "single-block",
-      "icon": "index-card",
-      "keywords": [
-        "card",
-        "simple",
+        "container",
         "wrapper",
-        "border"
+        "max-width",
+        "center"
+      ],
+      "dependsOn": [
+        "section"
+      ]
+    },
+    {
+      "slug": "cta-banner",
+      "active": true,
+      "title": "CTA Banner",
+      "description": "A marketing call-to-action with two buttons and token-driven colors.",
+      "category": "design",
+      "type": "cta",
+      "icon": "megaphone",
+      "keywords": [
+        "cta",
+        "banner",
+        "marketing"
       ]
     },
     {
@@ -421,19 +160,18 @@
       ]
     },
     {
-      "slug": "case-study-compare",
+      "slug": "eyebrow",
       "active": true,
-      "title": "Case Study Compare",
-      "description": "Before/after comparison with two cards, an arrow, body text, and CTA button.",
+      "title": "Eyebrow",
+      "description": "Brand eyebrow lockup: flanking marks around a short uppercase label. Inherits the surrounding text color. Reused by Hero Headline.",
       "category": "design",
-      "type": "content",
-      "icon": "analytics",
+      "type": "text",
+      "icon": "minus",
       "keywords": [
-        "case study",
-        "compare",
-        "before",
-        "after",
-        "results"
+        "eyebrow",
+        "preheader",
+        "kicker",
+        "label"
       ]
     },
     {
@@ -467,81 +205,49 @@
       ]
     },
     {
-      "slug": "simple-image-card",
+      "slug": "feature-row",
       "active": true,
-      "title": "Simple Image Card",
-      "description": "A card with a flush-top image, white background, rounded corners, and an h3 title. Optional anchor wrapper.",
+      "title": "Feature Row",
+      "description": "A 30/70 flex row with an image on the left and vertically centered text on the right.",
       "category": "design",
-      "type": "single-block",
+      "type": "layout",
+      "icon": "align-pull-left",
+      "keywords": [
+        "feature",
+        "image",
+        "text",
+        "row",
+        "split"
+      ]
+    },
+    {
+      "slug": "featured-image-header",
+      "active": true,
+      "title": "Featured Image Header",
+      "description": "Context-aware header using the featured image as background with optional intro text. Replaces the PHP page-heading template on archive, search, 404, and singular pages.",
+      "category": "design",
+      "type": "headers",
       "icon": "format-image",
       "keywords": [
-        "card",
-        "image",
-        "simple",
-        "photo"
+        "header",
+        "hero",
+        "featured image",
+        "title",
+        "page"
       ]
     },
     {
-      "slug": "simple-icon-stacked-cards",
+      "slug": "features-section",
       "active": true,
-      "title": "Simple Icon Stacked Cards",
-      "description": "A white card with a 40\u00d740px icon (SVG or image) aligned flex-start with an optional link, plus innerBlocks for content.",
+      "title": "Features Section",
+      "description": "A light-theme features grid for business-focused landing pages.",
       "category": "design",
-      "type": "single-block",
-      "icon": "columns",
+      "type": "content",
+      "icon": "grid-view",
       "keywords": [
-        "card",
-        "icon",
-        "stacked",
-        "feature"
-      ]
-    },
-    {
-      "slug": "simple-steps-card",
-      "active": true,
-      "title": "Simple Steps Card",
-      "description": "A centered card with a 96\u00d796px icon (SVG or image), white/20 background, 3px white border, and centered text via innerBlocks.",
-      "category": "design",
-      "type": "single-block",
-      "icon": "index-card",
-      "keywords": [
-        "card",
-        "icon",
-        "steps",
-        "centered",
-        "feature"
-      ]
-    },
-    {
-      "slug": "image-tile-cta",
-      "active": true,
-      "title": "Image Tile CTA",
-      "description": "A two-column section with text content (innerBlocks) on the left and a four-image tile gallery on the right.",
-      "category": "design",
-      "type": "layout",
-      "icon": "format-gallery",
-      "keywords": [
-        "image",
-        "gallery",
-        "cta",
-        "tile",
-        "feature"
-      ]
-    },
-    {
-      "slug": "grid-row",
-      "active": true,
-      "title": "Grid Row",
-      "description": "A 12-column grid row. Add Grid Cell children to build fractional layouts.",
-      "category": "design",
-      "type": "layout",
-      "icon": "table-row-before",
-      "keywords": [
-        "grid",
-        "row",
-        "12-column",
-        "columns",
-        "layout"
+        "features",
+        "services",
+        "grid"
       ]
     },
     {
@@ -564,6 +270,390 @@
       ]
     },
     {
+      "slug": "grid-row",
+      "active": true,
+      "title": "Grid Row",
+      "description": "A 12-column grid row. Add Grid Cell children to build fractional layouts.",
+      "category": "design",
+      "type": "layout",
+      "icon": "table-row-before",
+      "keywords": [
+        "grid",
+        "row",
+        "12-column",
+        "columns",
+        "layout"
+      ]
+    },
+    {
+      "slug": "hero-headline",
+      "active": true,
+      "title": "Hero Headline",
+      "description": "Full-bleed image hero with eyebrow flourish, highlighted headline words, supporting text, and dual buttons. From the Project B&T homepage Figma ('Hero Blocks' frame, kit instance 'Energy').",
+      "category": "design",
+      "type": "headers",
+      "icon": "cover-image",
+      "keywords": [
+        "hero",
+        "headline",
+        "banner"
+      ]
+    },
+    {
+      "slug": "hero-video-header",
+      "active": true,
+      "title": "Hero Video Header",
+      "description": "Full-width hero with looping background video, gradient overlay, and title.",
+      "category": "design",
+      "type": "headers",
+      "icon": "video-alt3",
+      "keywords": [
+        "hero",
+        "video",
+        "header",
+        "banner"
+      ]
+    },
+    {
+      "slug": "image-text-row",
+      "active": true,
+      "title": "Image Text Row",
+      "description": "A single image and text row used inside Image Text Rows.",
+      "category": "design",
+      "type": "layout",
+      "icon": "align-pull-left",
+      "dependsOn": [
+        "image-text-rows"
+      ],
+      "keywords": [
+        "image",
+        "text",
+        "row"
+      ]
+    },
+    {
+      "slug": "image-text-rows",
+      "active": true,
+      "title": "Image Text Rows",
+      "description": "A repeatable image and text rows section with alternating layouts.",
+      "category": "design",
+      "type": "layout",
+      "icon": "columns",
+      "keywords": [
+        "image",
+        "text",
+        "rows"
+      ]
+    },
+    {
+      "slug": "image-tile-cta",
+      "active": true,
+      "title": "Image Tile CTA",
+      "description": "A two-column section with text content (innerBlocks) on the left and a four-image tile gallery on the right.",
+      "category": "design",
+      "type": "layout",
+      "icon": "format-gallery",
+      "keywords": [
+        "image",
+        "gallery",
+        "cta",
+        "tile",
+        "feature"
+      ]
+    },
+    {
+      "slug": "layout-grid",
+      "active": true,
+      "title": "Layout Grid",
+      "description": "Responsive grid layout with column count and gap controls.",
+      "category": "design",
+      "type": "layout",
+      "icon": "grid-view",
+      "keywords": [
+        "grid",
+        "columns",
+        "layout",
+        "responsive"
+      ],
+      "dependsOn": [
+        "container"
+      ]
+    },
+    {
+      "slug": "logo-grid-item",
+      "active": true,
+      "title": "Logo Grid Item",
+      "description": "A single logo image constrained to a uniform size for logo grid layouts.",
+      "category": "design",
+      "type": "single-block",
+      "icon": "format-image",
+      "keywords": [
+        "logo",
+        "grid",
+        "partner",
+        "client"
+      ]
+    },
+    {
+      "slug": "mission-cards",
+      "active": true,
+      "title": "Mission Cards",
+      "description": "Find-your-fit section: eyebrow, heading and a grid of cards generated from Mission taxonomy terms.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "grid-view",
+      "keywords": [
+        "mission",
+        "cards",
+        "use case",
+        "category"
+      ]
+    },
+    {
+      "slug": "numbered-features",
+      "active": true,
+      "title": "Numbered Features",
+      "description": "Numbered points in a 2-up grid. Hovering a point swaps its number for an image and raises a card background.",
+      "category": "design",
+      "type": "content",
+      "icon": "editor-ol",
+      "keywords": [
+        "features",
+        "numbered",
+        "why",
+        "benefits"
+      ]
+    },
+    {
+      "slug": "page-header",
+      "active": true,
+      "title": "Page Header",
+      "description": "Full-width page header with background image, gradient overlay, and contextual title.",
+      "category": "design",
+      "type": "headers",
+      "icon": "heading",
+      "keywords": [
+        "header",
+        "hero",
+        "title",
+        "page"
+      ]
+    },
+    {
+      "slug": "portrait-swiper-slides",
+      "active": true,
+      "title": "Portrait Swiper Slides",
+      "description": "A Swiper.js slider with portrait-oriented slides featuring images, titles, links, and overlays.",
+      "category": "design",
+      "type": "media",
+      "icon": "slides",
+      "keywords": [
+        "swiper",
+        "slider",
+        "carousel",
+        "slides",
+        "portrait"
+      ]
+    },
+    {
+      "slug": "posts-grid",
+      "active": true,
+      "title": "Posts Grid",
+      "description": "A dynamic posts grid designed to match the Balefire visual system.",
+      "category": "widgets",
+      "type": "dynamic",
+      "icon": "screenoptions",
+      "keywords": [
+        "posts",
+        "grid",
+        "query"
+      ]
+    },
+    {
+      "slug": "preheader-and-title",
+      "active": true,
+      "title": "Preheader & Title",
+      "description": "A skeleton h2 with an inline preheader span. Styling left to the theme.",
+      "category": "design",
+      "type": "text",
+      "icon": "heading",
+      "keywords": [
+        "preheader",
+        "title",
+        "heading",
+        "subtitle"
+      ]
+    },
+    {
+      "slug": "product-highlight-bar",
+      "active": true,
+      "title": "Product Highlight Bar",
+      "description": "Row of trust-signal highlights \u2014 icon, heading and small link. Four default icons; each item can take pasted SVG instead.",
+      "category": "design",
+      "type": "content",
+      "icon": "awards",
+      "keywords": [
+        "highlight",
+        "trust",
+        "usp",
+        "icons",
+        "bar"
+      ]
+    },
+    {
+      "slug": "product-switcher",
+      "active": true,
+      "title": "Product Switcher",
+      "description": "Split hero: product image with pill tabs that switch between WooCommerce products, plus headline, copy and a shared CTA.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "images-alt2",
+      "keywords": [
+        "product",
+        "switcher",
+        "tabs",
+        "woocommerce"
+      ]
+    },
+    {
+      "slug": "reviews",
+      "active": true,
+      "title": "Reviews",
+      "description": "Testimonials carousel. Cards clamp to three lines; the ellipsis opens the full review in a lightbox.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "format-quote",
+      "keywords": [
+        "reviews",
+        "testimonials",
+        "quotes",
+        "carousel"
+      ]
+    },
+    {
+      "slug": "section",
+      "active": true,
+      "title": "Section",
+      "description": "Full-width layout section with background color and vertical padding.",
+      "category": "design",
+      "type": "layout",
+      "icon": "layout",
+      "keywords": [
+        "section",
+        "layout",
+        "background",
+        "wrapper"
+      ]
+    },
+    {
+      "slug": "section-heading",
+      "active": true,
+      "title": "Section Heading",
+      "description": "A compact heading block with eyebrow, title, and copy.",
+      "category": "design",
+      "type": "text",
+      "icon": "heading",
+      "keywords": [
+        "heading",
+        "eyebrow",
+        "intro"
+      ]
+    },
+    {
+      "slug": "sections-flexible-widths",
+      "active": true,
+      "title": "Section (Flexible Width)",
+      "description": "Full-width section with a Tailwind-powered max-width container inside.",
+      "category": "design",
+      "type": "layout",
+      "icon": "layout",
+      "keywords": [
+        "section",
+        "flexible",
+        "width",
+        "container"
+      ]
+    },
+    {
+      "slug": "simple-card",
+      "active": true,
+      "title": "Simple Card",
+      "description": "A simple card wrapper with optional border and padding, accepting any inner blocks.",
+      "category": "design",
+      "type": "single-block",
+      "icon": "index-card",
+      "keywords": [
+        "card",
+        "simple",
+        "wrapper",
+        "border"
+      ]
+    },
+    {
+      "slug": "simple-icon-stacked-cards",
+      "active": true,
+      "title": "Simple Icon Stacked Cards",
+      "description": "A white card with a 40\u00d740px icon (SVG or image) aligned flex-start with an optional link, plus innerBlocks for content.",
+      "category": "design",
+      "type": "single-block",
+      "icon": "columns",
+      "keywords": [
+        "card",
+        "icon",
+        "stacked",
+        "feature"
+      ]
+    },
+    {
+      "slug": "simple-image-card",
+      "active": true,
+      "title": "Simple Image Card",
+      "description": "A card with a flush-top image, white background, rounded corners, and an h3 title. Optional anchor wrapper.",
+      "category": "design",
+      "type": "single-block",
+      "icon": "format-image",
+      "keywords": [
+        "card",
+        "image",
+        "simple",
+        "photo"
+      ]
+    },
+    {
+      "slug": "simple-steps-card",
+      "active": true,
+      "title": "Simple Steps Card",
+      "description": "A centered card with a 96\u00d796px icon (SVG or image), white/20 background, 3px white border, and centered text via innerBlocks.",
+      "category": "design",
+      "type": "single-block",
+      "icon": "index-card",
+      "keywords": [
+        "card",
+        "icon",
+        "steps",
+        "centered",
+        "feature"
+      ]
+    },
+    {
+      "slug": "split-35-65",
+      "active": true,
+      "title": "Split 35/65",
+      "description": "A 35/65 two-column layout with text + button on the left (vertically centered) and image or video on the right.",
+      "category": "design",
+      "type": "layout",
+      "icon": "columns",
+      "keywords": [
+        "split",
+        "columns",
+        "35",
+        "65",
+        "layout",
+        "image",
+        "video"
+      ]
+    },
+    {
       "slug": "team-member-centered",
       "active": true,
       "title": "Team Member (Centered)",
@@ -577,6 +667,23 @@
         "profile",
         "person",
         "card"
+      ]
+    },
+    {
+      "slug": "two-col-three-col",
+      "active": true,
+      "title": "2-col-3-col Cards",
+      "description": "A card grid with 2 cards on the first row and 3 on the second. Flush-top images, padded text areas.",
+      "category": "design",
+      "type": "layout",
+      "icon": "grid-view",
+      "keywords": [
+        "cards",
+        "grid",
+        "2-col",
+        "3-col",
+        "industry",
+        "bundle"
       ]
     }
   ]
