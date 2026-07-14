@@ -9,8 +9,8 @@
 ])
 
 @php
-$primaryUrl = $primaryUrl !== '' ? esc_url(str_starts_with($primaryUrl, '/') ? site_url($primaryUrl) : $primaryUrl) : '';
-$secondaryUrl = $secondaryUrl !== '' ? esc_url(str_starts_with($secondaryUrl, '/') ? site_url($secondaryUrl) : $secondaryUrl) : '';
+$primaryUrl = $primaryUrl !== '' ? esc_url(str_starts_with($primaryUrl, '/') ? home_url($primaryUrl) : $primaryUrl) : '';
+$secondaryUrl = $secondaryUrl !== '' ? esc_url(str_starts_with($secondaryUrl, '/') ? home_url($secondaryUrl) : $secondaryUrl) : '';
 
 // Resolve the contextual title.
 $title = '';

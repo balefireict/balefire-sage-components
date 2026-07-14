@@ -22,7 +22,7 @@ $iconTitle = ($iconId > 0) ? get_the_title($iconId) : $iconAlt;
 // Never link-wrap in the editor context.
 $isEditor = defined('REST_REQUEST') && REST_REQUEST;
 $hasLink = ! $isEditor && $url !== '';
-$href = $hasLink ? esc_url(str_starts_with($url, '/') ? site_url($url) : $url) : '';
+$href = $hasLink ? esc_url(str_starts_with($url, '/') ? home_url($url) : $url) : '';
 $tag = $hasLink ? 'a' : 'div';
 @endphp
 

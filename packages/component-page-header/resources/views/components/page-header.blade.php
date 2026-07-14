@@ -10,8 +10,8 @@
 
 @php
 $minHeight = sanitize_key($minHeight);
-$primaryUrl = $primaryUrl !== '' ? esc_url(str_starts_with($primaryUrl, '/') ? site_url($primaryUrl) : $primaryUrl) : '';
-$secondaryUrl = $secondaryUrl !== '' ? esc_url(str_starts_with($secondaryUrl, '/') ? site_url($secondaryUrl) : $secondaryUrl) : '';
+$primaryUrl = $primaryUrl !== '' ? esc_url(str_starts_with($primaryUrl, '/') ? home_url($primaryUrl) : $primaryUrl) : '';
+$secondaryUrl = $secondaryUrl !== '' ? esc_url(str_starts_with($secondaryUrl, '/') ? home_url($secondaryUrl) : $secondaryUrl) : '';
 
 // Auto-detect background image if none set and the post has a featured image.
 if ($backgroundImage === '' && is_singular() && has_post_thumbnail()) {
