@@ -22,8 +22,8 @@ if ($imageAlt === '' && $imageId > 0) {
     $imageAlt = (string) get_post_meta($imageId, '_wp_attachment_image_alt', true);
 }
 
-$primaryUrl = $primaryUrl !== '' ? esc_url(str_starts_with($primaryUrl, '/') ? site_url($primaryUrl) : $primaryUrl) : '';
-$secondaryUrl = $secondaryUrl !== '' ? esc_url(str_starts_with($secondaryUrl, '/') ? site_url($secondaryUrl) : $secondaryUrl) : '';
+$primaryUrl = $primaryUrl !== '' ? esc_url(str_starts_with($primaryUrl, '/') ? home_url($primaryUrl) : $primaryUrl) : '';
+$secondaryUrl = $secondaryUrl !== '' ? esc_url(str_starts_with($secondaryUrl, '/') ? home_url($secondaryUrl) : $secondaryUrl) : '';
 
 // *word* in the title renders as a brand-highlighted span. Escape first,
 // then swap the markers, so only our span survives as markup.
@@ -58,20 +58,9 @@ $hasButtons = ($primaryLabel !== '' && $primaryUrl !== '') || ($secondaryLabel !
 
     <div class="flex w-full max-w-[980px] flex-col items-start gap-8 px-6 py-16 lg:px-20">
         <div class="flex flex-col gap-5">
-            @if ($eyebrow !== '')
-                <p class="flex items-center gap-2 font-heading text-base font-bold uppercase text-primary">
-                    <svg class="h-3 w-[21px] shrink-0" viewBox="0 0 21 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <rect x="0" y="5" width="12" height="2" />
-                        <path d="M14 0l7 6-7 6V0z" />
-                    </svg>
-                    <span>{{ $eyebrow }}</span>
-                    <svg class="h-3 w-[28px] shrink-0" viewBox="0 0 28 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M0 0l7 6-7 6V0z" />
-                        <path d="M10 0l7 6-7 6V0z" opacity="0.6" />
-                        <path d="M20 0l7 6-7 6V0z" opacity="0.3" />
-                    </svg>
-                </p>
-            @endif
+            {{-- Shared lockup — balefireict/component-eyebrow. The view renders
+                 nothing when the text is empty, so no @if guard is needed. --}}
+            <x-bma::eyebrow :text="$eyebrow" />
 
             @if ($title !== '')
                 <h1 class="max-w-[894px] font-heading text-4xl font-semibold uppercase leading-none text-white sm:text-5xl lg:text-[64px] lg:leading-[64px] lg:tracking-[-2px]">

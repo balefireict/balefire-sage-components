@@ -1,11 +1,12 @@
 {
     "name": "balefireict/component-hero-headline",
-    "description": "Hero Headline — full-bleed image hero with eyebrow flourish, highlighted headline words, supporting text, and dual buttons. Ported from the Project B&T homepage Figma ('Hero Blocks' frame, kit instance 'Energy').",
+    "description": "Hero Headline \u2014 full-bleed image hero with eyebrow flourish, highlighted headline words, supporting text, and dual buttons. Ported from the Project B&T homepage Figma ('Hero Blocks' frame, kit instance 'Energy').",
     "type": "library",
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "balefireict/component-support": "*"
+        "balefireict/component-support": "*",
+        "balefireict/component-eyebrow": "*"
     },
     "autoload": {
         "psr-4": {

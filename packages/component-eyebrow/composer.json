@@ -1,0 +1,27 @@
+{
+    "name": "balefireict/component-eyebrow",
+    "description": "Eyebrow — the brand eyebrow lockup: a flanking speed-lines mark, uppercase label text, and a tapered dart mark. Reusable across heroes and section headers. Ported from the Project B&T Figma.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\Eyebrow\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "eyebrow",
+            "block_name": "balefire/eyebrow",
+            "blade_component": "bma::components.eyebrow",
+            "shortcode": "bma_eyebrow",
+            "owns_css": false
+        }
+    }
+}
