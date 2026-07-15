@@ -62,7 +62,8 @@ $ctaUrl = $ctaUrl !== ''
                 @endif
             </div>
 
-            {{-- 2-up grid, cards flush with their own padding. --}}
+            {{-- 2-up grid. No gap: the hover background IS the card, so the cards
+                 sit flush and the grey panel appears under whichever one you point at. --}}
             <div class="grid grid-cols-1 lg:grid-cols-2">
                 @foreach ($items as $i => $item)
                     @php
@@ -70,28 +71,31 @@ $ctaUrl = $ctaUrl !== ''
                         $imageId = absint($item['imageId'] ?? 0);
                     @endphp
 
-                    <div class="relative flex gap-8 rounded-semi p-8">
-                        {{-- Media slot. Below lg it is just wide enough for "02";
-                             from lg up (when an image is set) it holds the comp's
-                             142px image in place of the number. --}}
+                    {{-- `group` drives the reveal, desktop only (lg:): touch
+                         screens rest on the number and stay there. focus-within
+                         mirrors hover for keyboard users. --}}
+                    <div class="group relative flex gap-8 rounded-semi p-8 transition-colors duration-300 lg:hover:bg-grey-25 lg:focus-within:bg-grey-25 motion-reduce:transition-none">
+                        {{-- Media slot. At rest it is just wide enough for "02";
+                             on hover (lg+, when an image is set) it grows to the
+                             comp's 142px and the image cross-fades in. --}}
                         <div @class([
-                            'relative flex w-10 shrink-0 items-stretch',
-                            'lg:w-[142px]' => $imageId > 0,
+                            'relative flex w-10 shrink-0 items-stretch transition-[width] duration-300 ease-out motion-reduce:transition-none',
+                            'lg:group-hover:w-[142px] lg:group-focus-within:w-[142px]' => $imageId > 0,
                         ])>
                             <span
                                 aria-hidden="true"
                                 @class([
-                                    'font-mono text-2xl font-bold leading-8 text-grey-800',
-                                    'lg:hidden' => $imageId > 0,
+                                    'font-mono text-2xl font-bold leading-8 text-grey-800 transition-opacity duration-200 motion-reduce:transition-none',
+                                    'lg:group-hover:opacity-0 lg:group-focus-within:opacity-0' => $imageId > 0,
                                 ])
                             >{{ $number }}</span>
 
                             @if ($imageId > 0)
-                                {{-- Decorative: the heading beside it already carries
-                                     the meaning. --}}
+                                {{-- Decorative: the heading beside it already carries the
+                                     meaning, and the image only exists on hover. --}}
                                 <span
                                     aria-hidden="true"
-                                    class="pointer-events-none absolute inset-0 hidden lg:block"
+                                    class="pointer-events-none absolute inset-0 scale-95 opacity-0 transition-all duration-300 ease-out lg:group-hover:scale-100 lg:group-hover:opacity-100 lg:group-focus-within:scale-100 lg:group-focus-within:opacity-100 motion-reduce:transition-none"
                                 >
                                     {!! wp_get_attachment_image($imageId, 'medium', false, [
                                         'class' => 'size-full rounded-semi object-cover',
