@@ -62,8 +62,7 @@ $ctaUrl = $ctaUrl !== ''
                 @endif
             </div>
 
-            {{-- 2-up grid. No gap: the hover background IS the card, so the cards
-                 sit flush and the grey panel appears under whichever one you point at. --}}
+            {{-- 2-up grid, cards flush with their own padding. --}}
             <div class="grid grid-cols-1 lg:grid-cols-2">
                 @foreach ($items as $i => $item)
                     @php
@@ -71,25 +70,28 @@ $ctaUrl = $ctaUrl !== ''
                         $imageId = absint($item['imageId'] ?? 0);
                     @endphp
 
-                    {{-- `group` drives the whole reveal. focus-within is deliberate:
-                         a keyboard user tabbing to a link inside the card gets the
-                         same state a mouse user gets on hover. --}}
-                    <div class="group relative flex gap-8 rounded-semi p-8 transition-colors duration-300 hover:bg-grey-25 focus-within:bg-grey-25 motion-reduce:transition-none">
-                        {{-- Media slot. Collapsed it is just wide enough for "02";
-                             on hover it grows to the comp's 142px and the image
-                             cross-fades in over the number. --}}
-                        <div class="relative flex w-10 shrink-0 items-stretch transition-[width] duration-300 ease-out group-hover:w-[142px] group-focus-within:w-[142px] motion-reduce:transition-none">
+                    <div class="relative flex gap-8 rounded-semi p-8">
+                        {{-- Media slot. Below lg it is just wide enough for "02";
+                             from lg up (when an image is set) it holds the comp's
+                             142px image in place of the number. --}}
+                        <div @class([
+                            'relative flex w-10 shrink-0 items-stretch',
+                            'lg:w-[142px]' => $imageId > 0,
+                        ])>
                             <span
                                 aria-hidden="true"
-                                class="font-mono text-2xl font-bold leading-8 text-grey-800 transition-opacity duration-200 group-hover:opacity-0 group-focus-within:opacity-0 motion-reduce:transition-none"
+                                @class([
+                                    'font-mono text-2xl font-bold leading-8 text-grey-800',
+                                    'lg:hidden' => $imageId > 0,
+                                ])
                             >{{ $number }}</span>
 
                             @if ($imageId > 0)
-                                {{-- Decorative: the heading beside it already carries the
-                                     meaning, and the image only exists on hover. --}}
+                                {{-- Decorative: the heading beside it already carries
+                                     the meaning. --}}
                                 <span
                                     aria-hidden="true"
-                                    class="pointer-events-none absolute inset-0 scale-95 opacity-0 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-100 group-focus-within:scale-100 group-focus-within:opacity-100 motion-reduce:transition-none"
+                                    class="pointer-events-none absolute inset-0 hidden lg:block"
                                 >
                                     {!! wp_get_attachment_image($imageId, 'medium', false, [
                                         'class' => 'size-full rounded-semi object-cover',

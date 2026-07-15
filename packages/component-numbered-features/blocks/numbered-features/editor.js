@@ -121,11 +121,11 @@ registerBlockType(metadata.name, {
                             variant: 'secondary',
                             onClick: open,
                         }, item.imageId
-                            ? __('Change hover image', 'balefire')
-                            : __('Set hover image', 'balefire')),
+                            ? __('Change image', 'balefire')
+                            : __('Set image', 'balefire')),
                     }),
                     el('p', { style: { fontSize: '12px', color: '#757575', marginTop: '4px' } },
-                        __('Shown in place of the number while the point is hovered. Square crops work best.', 'balefire')),
+                        __('Shown in place of the number on screens 1024px and up. Square crops work best.', 'balefire')),
                     item.imageId ? el(Button, {
                         variant: 'link',
                         isDestructive: true,
@@ -175,8 +175,8 @@ registerBlockType(metadata.name, {
                             el('div', null,
                                 el('strong', { style: { display: 'block' } }, item.title || __('Point title', 'balefire')),
                                 item.imageId
-                                    ? el('span', { style: { fontSize: '11px', color: '#747474' } }, __('hover image set', 'balefire'))
-                                    : el('span', { style: { fontSize: '11px', color: '#d72b27' } }, __('no hover image', 'balefire'))
+                                    ? el('span', { style: { fontSize: '11px', color: '#747474' } }, __('image set', 'balefire'))
+                                    : el('span', { style: { fontSize: '11px', color: '#d72b27' } }, __('no image', 'balefire'))
                             )
                         ))
                 )
