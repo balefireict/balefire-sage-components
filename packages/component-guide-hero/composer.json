@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-guide-hero",
+    "description": "Guide-page hero — dark split hero with breadcrumb trail, eyebrow, title, intro copy, dual buttons, and a right-column image. Built for the accu-shot guide/hub page system.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\GuideHero\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "guide-hero",
+            "block_name": "balefire/guide-hero",
+            "blade_component": "bma::components.guide-hero",
+            "owns_css": false
+        }
+    }
+}

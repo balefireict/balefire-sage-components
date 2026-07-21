@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-link-card-grid",
+    "description": "Link card grid — 'Related Guides' section: eyebrow, uppercase heading, and a responsive grid of arrow link cards. Built for the accu-shot guide/hub page system.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\LinkCardGrid\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "link-card-grid",
+            "block_name": "balefire/link-card-grid",
+            "blade_component": "bma::components.link-card-grid",
+            "owns_css": false
+        }
+    }
+}

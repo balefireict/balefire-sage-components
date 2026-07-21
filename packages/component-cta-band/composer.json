@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-cta-band",
+    "description": "CTA band — full-bleed primary-red closing call to action: centered uppercase heading, supporting copy, dual buttons. Built for the accu-shot guide/hub page system.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\CtaBand\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "cta-band",
+            "block_name": "balefire/cta-band",
+            "blade_component": "bma::components.cta-band",
+            "owns_css": false
+        }
+    }
+}

@@ -63,6 +63,7 @@ These are used by some components but have sensible fallbacks:
 |-----------------|-----------------|---------|-------|
 | `shadow-card` | `--shadow-card` | `0 6px 20px rgb(0 0 0 / 0.08)` | Card elevation |
 | `rounded-card` | `--radius-card` | `2rem` | Card/banner radius |
+| `max-w-content` | `--container-content` | *(none — required by the guide-page components)* | Content column of guide-hero, prose-section, link-card-grid, cta-band |
 
 ---
 

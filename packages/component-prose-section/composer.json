@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-prose-section",
+    "description": "Prose section — alternating white/grey page section with eyebrow, uppercase heading, and a constrained InnerBlocks prose body. Built for the accu-shot guide/hub page system.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\ProseSection\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "prose-section",
+            "block_name": "balefire/prose-section",
+            "blade_component": "bma::components.prose-section",
+            "owns_css": false
+        }
+    }
+}

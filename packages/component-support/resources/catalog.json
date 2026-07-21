@@ -685,6 +685,66 @@
         "industry",
         "bundle"
       ]
+    },
+    {
+      "slug": "guide-hero",
+      "active": true,
+      "title": "Guide Hero",
+      "description": "Dark split hero for guide/hub pages: breadcrumb trail, eyebrow, title, intro copy, dual buttons, right-column image.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "cover-image",
+      "keywords": [
+        "hero",
+        "guide",
+        "header",
+        "breadcrumb"
+      ]
+    },
+    {
+      "slug": "prose-section",
+      "active": true,
+      "title": "Prose Section",
+      "description": "Alternating white/grey page section with eyebrow, uppercase heading, and a constrained prose body.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "text-page",
+      "keywords": [
+        "prose",
+        "section",
+        "text",
+        "copy"
+      ]
+    },
+    {
+      "slug": "link-card-grid",
+      "active": true,
+      "title": "Link Card Grid",
+      "description": "'Related Guides' section: eyebrow, uppercase heading, and a responsive grid of arrow link cards.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "grid-view",
+      "keywords": [
+        "links",
+        "related",
+        "guides",
+        "cards"
+      ]
+    },
+    {
+      "slug": "cta-band",
+      "active": true,
+      "title": "CTA Band",
+      "description": "Full-bleed primary-red closing call to action: centered uppercase heading, supporting copy, dual buttons.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "megaphone",
+      "keywords": [
+        "cta",
+        "band",
+        "closing",
+        "conversion"
+      ]
     }
   ]
 }

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/guide-hero",
+  "title": "Guide Hero",
+  "category": "balefire",
+  "icon": "cover-image",
+  "description": "Dark split hero for guide/hub pages: breadcrumb trail, eyebrow, title, intro copy, dual buttons, and a right-column image.",
+  "keywords": ["hero", "guide", "header", "breadcrumb", "balefire"],
+  "textdomain": "balefire",
+  "version": "1.0.0",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": ["full"]
+  },
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "imageRatio": {
+      "type": "string",
+      "default": "fill"
+    },
+    "showBreadcrumb": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "editorScript": "balefire-guide-hero-editor"
+}

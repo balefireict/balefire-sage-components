@@ -205,6 +205,80 @@
 }
 
 /* ---------------------------------------------------------------
+   Prose body (balefire/prose-section — .bma-prose)
+
+   Typography for the constrained InnerBlocks body of the guide-page
+   prose section. Unlayered class selectors so they beat Tailwind's
+   preflight resets, the same approach as the consumer themes take
+   for their .entry-prose rules.
+   --------------------------------------------------------------- */
+.bma-prose > * {
+    margin-block: 0;
+}
+
+.bma-prose > * + * {
+    margin-block-start: 1.25rem;
+}
+
+.bma-prose p,
+.bma-prose li {
+    font-size: var(--text-body-m, 18px);
+    line-height: var(--text-body-m--line-height, 28px);
+    color: var(--color-grey-800, #2e2e2e);
+}
+
+.bma-prose h2,
+.bma-prose h3,
+.bma-prose h4 {
+    font-family: var(--font-heading, inherit);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-grey-900, #171717);
+    text-wrap: balance;
+}
+
+.bma-prose > * + :is(h2, h3, h4) {
+    margin-block-start: 2rem;
+}
+
+.bma-prose h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); line-height: 1.05; }
+.bma-prose h3 { font-size: 1.25rem; line-height: 1.2; }
+.bma-prose h4 { font-size: 1.05rem; line-height: 1.25; }
+
+/* Inline emphasis per the guide-page comps: bold lead-ins render in the
+   heading face. */
+.bma-prose strong {
+    font-family: var(--font-heading, inherit);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    color: var(--color-grey-900, #171717);
+}
+
+.bma-prose a {
+    color: var(--color-primary, #d72b27);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.bma-prose a:hover {
+    color: var(--color-primary-dark, #ab211e);
+}
+
+.bma-prose ul {
+    list-style: disc;
+    padding-inline-start: 1.5rem;
+}
+
+.bma-prose ol {
+    list-style: decimal;
+    padding-inline-start: 1.5rem;
+}
+
+.bma-prose li + li {
+    margin-block-start: 0.5rem;
+}
+
+/* ---------------------------------------------------------------
    Shared lightbox (component-support/resources/js/lightbox.js).
 
    Native <dialog>: the browser gives us the top layer, a real ::backdrop,

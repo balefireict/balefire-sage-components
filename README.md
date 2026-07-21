@@ -40,6 +40,11 @@ All 36 blocks from the `balefire-blocks` plugin live here as
   image-text-rows, image-tile-cta, case-study-compare
 - **CTAs & misc** — cta-banner, cta-centered-text-ra, faq-items,
   faq-no-borders, portrait-swiper-slides, posts-grid
+- **Guide pages** — guide-hero, prose-section, link-card-grid, cta-band:
+  the accu-shot guide/hub page system (dark split hero with breadcrumb,
+  alternating prose sections, related-guides link grid, full-bleed
+  closing CTA). Consumer themes must define `--container-content`
+  (the `max-w-content` column) alongside the token contract.
 
 InnerBlocks-based blocks (container, section, grids, cards that wrap
 arbitrary content) pass the rendered children through as a `content`
