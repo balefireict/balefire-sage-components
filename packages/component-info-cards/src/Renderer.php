@@ -1,22 +1,22 @@
 <?php
 /**
- * Renderer — delegates to the Blade view for the link card grid.
+ * Renderer — delegates to the Blade view for the info cards.
  *
  * Bridge between the block entry point and the Blade component. Requires a
  * Sage or Acorn-powered theme — Blade is the only render path, keeping
  * markup in a single source of truth.
  *
- * @package BalefireInc\Sage\LinkCardGrid
+ * @package BalefireInc\Sage\InfoCards
  */
 
 declare( strict_types=1 );
 
-namespace BalefireInc\Sage\LinkCardGrid;
+namespace BalefireInc\Sage\InfoCards;
 
 class Renderer {
 
 	/**
-	 * Render the link card grid from the given props.
+	 * Render the info cards from the given props.
 	 *
 	 * When called from the block render callback, $wrapper_attributes is
 	 * the get_block_wrapper_attributes() string; it becomes the view's
@@ -37,14 +37,14 @@ class Renderer {
 		}
 
 		if ( function_exists( '\Roots\view' ) ) {
-			return \Roots\view( 'bma::components.link-card-grid', $props )->render();
+			return \Roots\view( 'bma::components.info-cards', $props )->render();
 		}
 
 		if ( function_exists( '\Acorn\view' ) ) {
-			return \Acorn\view( 'bma::components.link-card-grid', $props )->render();
+			return \Acorn\view( 'bma::components.info-cards', $props )->render();
 		}
 
-		return '<!-- balefire/link-card-grid: Sage/Acorn Blade runtime not found. '
+		return '<!-- balefire/info-cards: Sage/Acorn Blade runtime not found. '
 			. 'This component requires a Sage or Acorn-powered theme. -->';
 	}
 
@@ -56,13 +56,13 @@ class Renderer {
 	 */
 	private static function defaults( array $props ): array {
 		return wp_parse_args( $props, [
-			'tone'     => 'grey',
-			'eyebrow'  => '',
-			'title'    => '',
-			'content'  => '',
-			'ctaLabel' => 'Read the guide',
-			'columns'  => 3,
-			'items'    => [],
+			'tone'    => 'white',
+			'eyebrow' => '',
+			'title'   => '',
+			'content' => '',
+			'variant' => 'check',
+			'columns' => 3,
+			'items'   => [],
 		] );
 	}
 }

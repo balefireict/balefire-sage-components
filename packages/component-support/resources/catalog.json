@@ -745,6 +745,21 @@
         "closing",
         "conversion"
       ]
+    },
+    {
+      "slug": "info-cards",
+      "active": true,
+      "title": "Info Cards",
+      "description": "Guide-page section with heading, intro, and a grid of check-icon or numbered-step cards with bold lead-ins.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "index-card",
+      "keywords": [
+        "cards",
+        "steps",
+        "checklist",
+        "grid"
+      ]
     }
   ]
 }

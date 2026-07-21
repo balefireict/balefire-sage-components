@@ -3,12 +3,12 @@
 const metadata = {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
-    "name": "balefire/link-card-grid",
-    "title": "Link Card Grid",
+    "name": "balefire/info-cards",
+    "title": "Info Cards",
     "category": "balefire",
-    "icon": "grid-view",
-    "description": "'Related Guides' section: eyebrow, uppercase heading, and a responsive grid of arrow link cards.",
-    "keywords": ["links", "related", "guides", "cards", "balefire"],
+    "icon": "index-card",
+    "description": "Guide-page section with heading, intro, and a grid of check-icon or numbered-step cards with bold lead-ins.",
+    "keywords": ["cards", "steps", "checklist", "grid", "balefire"],
     "textdomain": "balefire",
     "version": "1.0.0",
     "render": "file:./render.php",
@@ -18,16 +18,16 @@ const metadata = {
         "align": ["full"]
     },
     "attributes": {
-        "tone": { "type": "string", "default": "grey" },
         "align": { "type": "string", "default": "full" },
-        "eyebrow": { "type": "string", "default": "Keep Reading" },
-        "title": { "type": "string", "default": "Related Guides" },
+        "tone": { "type": "string", "default": "white" },
+        "eyebrow": { "type": "string", "default": "" },
+        "title": { "type": "string", "default": "" },
         "content": { "type": "string", "default": "" },
-        "ctaLabel": { "type": "string", "default": "Read the guide" },
+        "variant": { "type": "string", "default": "check" },
         "columns": { "type": "number", "default": 3 },
         "items": { "type": "array", "default": [], "items": { "type": "object" } }
     },
-    "editorScript": "balefire-link-card-grid-editor"
+    "editorScript": "balefire-info-cards-editor"
 };
 
 const { __ } = wp.i18n;
@@ -40,10 +40,10 @@ registerBlockType(metadata.name, {
     ...metadata,
     edit: ({ attributes, setAttributes }) => {
         const items = Array.isArray(attributes.items) ? attributes.items : [];
+        const numbered = attributes.variant === 'numbered';
 
         const updateItem = (index, patch) => {
-            const next = items.map((item, i) => (i === index ? { ...item, ...patch } : item));
-            setAttributes({ items: next });
+            setAttributes({ items: items.map((item, i) => (i === index ? { ...item, ...patch } : item)) });
         };
 
         const removeItem = (index) => {
@@ -59,9 +59,9 @@ registerBlockType(metadata.name, {
         };
 
         const blockProps = useBlockProps({
-            className: 'bma-editor-preview bma-link-card-grid',
+            className: 'bma-editor-preview bma-info-cards',
             style: {
-                background: attributes.tone === 'white' ? '#ffffff' : '#f4f4f4',
+                background: attributes.tone === 'grey' ? '#f4f4f4' : '#ffffff',
                 padding: '40px',
             },
         });
@@ -84,20 +84,23 @@ registerBlockType(metadata.name, {
                         value: attributes.content || '',
                         onChange: (value) => setAttributes({ content: value }),
                     }),
-                    el(TextControl, {
-                        label: __('Card CTA label', 'balefire'),
-                        help: __('Shown on rich cards (links with a description).', 'balefire'),
-                        value: attributes.ctaLabel || '',
-                        onChange: (value) => setAttributes({ ctaLabel: value }),
-                    }),
                     el(SelectControl, {
                         label: __('Tone', 'balefire'),
-                        value: attributes.tone || 'grey',
+                        value: attributes.tone || 'white',
                         options: [
-                            { label: __('Grey', 'balefire'), value: 'grey' },
                             { label: __('White', 'balefire'), value: 'white' },
+                            { label: __('Grey', 'balefire'), value: 'grey' },
                         ],
                         onChange: (value) => setAttributes({ tone: value }),
+                    }),
+                    el(SelectControl, {
+                        label: __('Card style', 'balefire'),
+                        value: attributes.variant || 'check',
+                        options: [
+                            { label: __('Check icon', 'balefire'), value: 'check' },
+                            { label: __('Numbered steps', 'balefire'), value: 'numbered' },
+                        ],
+                        onChange: (value) => setAttributes({ variant: value }),
                     }),
                     el(SelectControl, {
                         label: __('Columns (desktop)', 'balefire'),
@@ -105,30 +108,28 @@ registerBlockType(metadata.name, {
                         options: [
                             { label: '2', value: '2' },
                             { label: '3', value: '3' },
+                            { label: '4', value: '4' },
                         ],
                         onChange: (value) => setAttributes({ columns: parseInt(value, 10) || 3 }),
                     })
                 ),
-                el(PanelBody, { title: __('Links', 'balefire'), initialOpen: true },
+                el(PanelBody, { title: __('Cards', 'balefire'), initialOpen: true },
                     ...items.map((item, index) =>
                         el('div', {
                             key: index,
                             style: { border: '1px solid #ddd', borderRadius: '4px', padding: '12px', marginBottom: '12px' },
                         },
                             el(TextControl, {
-                                label: __('Label', 'balefire'),
-                                value: item.label || '',
-                                onChange: (value) => updateItem(index, { label: value }),
-                            }),
-                            el(TextControl, {
-                                label: __('URL', 'balefire'),
-                                value: item.url || '',
-                                onChange: (value) => updateItem(index, { url: value }),
+                                label: numbered
+                                    ? __('Step lead-in (optional)', 'balefire')
+                                    : __('Lead-in (optional)', 'balefire'),
+                                value: item.lead || '',
+                                onChange: (value) => updateItem(index, { lead: value }),
                             }),
                             el(TextareaControl, {
-                                label: __('Description (optional — switches to rich cards)', 'balefire'),
-                                value: item.description || '',
-                                onChange: (value) => updateItem(index, { description: value }),
+                                label: __('Text', 'balefire'),
+                                value: item.text || '',
+                                onChange: (value) => updateItem(index, { text: value }),
                             }),
                             el('div', { style: { display: 'flex', gap: '8px' } },
                                 el(Button, { size: 'small', variant: 'secondary', onClick: () => moveItem(index, -1) }, '↑'),
@@ -139,8 +140,8 @@ registerBlockType(metadata.name, {
                     ),
                     el(Button, {
                         variant: 'primary',
-                        onClick: () => setAttributes({ items: [...items, { label: '', url: '' }] }),
-                    }, __('Add Link', 'balefire'))
+                        onClick: () => setAttributes({ items: [...items, { lead: '', text: '' }] }),
+                    }, __('Add Card', 'balefire'))
                 )
             ),
             el('div', blockProps,
@@ -148,33 +149,38 @@ registerBlockType(metadata.name, {
                     style: { color: '#d72b27', textTransform: 'uppercase', fontSize: '12px', fontWeight: 700, letterSpacing: '0.16em', margin: '0 0 12px' },
                 }, attributes.eyebrow) : null,
                 attributes.title ? el('h2', {
-                    style: { textTransform: 'uppercase', fontSize: '28px', lineHeight: 1.05, margin: '0 0 20px', color: '#171717' },
+                    style: { textTransform: 'uppercase', fontSize: '28px', lineHeight: 1.05, margin: '0 0 12px', color: '#171717' },
                 }, attributes.title) : null,
+                attributes.content ? el('p', {
+                    style: { color: '#2e2e2e', margin: '0 0 20px', fontSize: '15px' },
+                }, attributes.content) : null,
                 el('div', {
                     style: {
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(' + (attributes.columns === 2 ? 2 : 3) + ', 1fr)',
+                        gridTemplateColumns: 'repeat(' + Math.min(attributes.columns || 3, 4) + ', 1fr)',
                         gap: '16px',
                     },
                 },
-                    (items.length ? items : [{ label: __('Add links in the sidebar →', 'balefire') }]).map((item, index) =>
+                    (items.length ? items : [{ text: __('Add cards in the sidebar →', 'balefire') }]).map((item, index) =>
                         el('div', {
                             key: index,
                             style: {
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                                gap: '12px',
                                 background: '#fff',
                                 border: '1px solid #e8e8e8',
                                 borderRadius: '8px',
                                 padding: '20px',
+                                boxShadow: '0 6px 20px rgba(0,0,0,0.05)',
                             },
                         },
                             el('span', {
-                                style: { textTransform: 'uppercase', fontWeight: 700, fontSize: '13px', color: '#2e2e2e' },
-                            }, item.label || __('(untitled)', 'balefire')),
-                            el('span', { style: { color: '#d72b27' } }, '→')
+                                style: numbered
+                                    ? { fontFamily: 'monospace', fontSize: '24px', fontWeight: 700, color: 'rgba(215,43,39,0.25)' }
+                                    : { color: '#d72b27' },
+                            }, numbered ? String(index + 1).padStart(2, '0') : '✓'),
+                            el('p', { style: { margin: '8px 0 0', fontSize: '13px', color: '#2e2e2e' } },
+                                item.lead ? el('strong', { style: { textTransform: 'uppercase', color: '#171717', marginRight: '4px' } }, item.lead) : null,
+                                item.text || ''
+                            )
                         )
                     )
                 )

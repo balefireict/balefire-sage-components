@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "balefire/link-card-grid",
-  "title": "Link Card Grid",
+  "name": "balefire/info-cards",
+  "title": "Info Cards",
   "category": "balefire",
-  "icon": "grid-view",
-  "description": "'Related Guides' section: eyebrow, uppercase heading, and a responsive grid of arrow link cards.",
-  "keywords": ["links", "related", "guides", "cards", "balefire"],
+  "icon": "index-card",
+  "description": "Guide-page section with heading, intro, and a grid of check-icon or numbered-step cards with bold lead-ins.",
+  "keywords": ["cards", "steps", "checklist", "grid", "balefire"],
   "textdomain": "balefire",
   "version": "1.0.0",
   "render": "file:./render.php",
@@ -16,29 +16,29 @@
     "align": ["full"]
   },
   "attributes": {
-    "tone": {
-      "type": "string",
-      "default": "grey"
-    },
     "align": {
       "type": "string",
       "default": "full"
     },
+    "tone": {
+      "type": "string",
+      "default": "white"
+    },
     "eyebrow": {
       "type": "string",
-      "default": "Keep Reading"
+      "default": ""
     },
     "title": {
       "type": "string",
-      "default": "Related Guides"
+      "default": ""
     },
     "content": {
       "type": "string",
       "default": ""
     },
-    "ctaLabel": {
+    "variant": {
       "type": "string",
-      "default": "Read the guide"
+      "default": "check"
     },
     "columns": {
       "type": "number",
@@ -52,5 +52,5 @@
       }
     }
   },
-  "editorScript": "balefire-link-card-grid-editor"
+  "editorScript": "balefire-info-cards-editor"
 }
