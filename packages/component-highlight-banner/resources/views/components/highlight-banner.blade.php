@@ -29,7 +29,7 @@ $iconClass = $variant === 'card'
 @endphp
 
 @if ($title !== '' || $content !== '')
-    <section {{ $attributes->class(['bma-highlight-banner', 'py-10 lg:py-12', $tones[$tone]]) }}>
+    <section {{ $attributes->class(['bma-highlight-banner', 'bma-band', $tones[$tone]]) }} data-bma-tone="{{ $tone }}">
         <div class="mx-auto max-w-content px-6 md:px-10 xl:px-16">
             <div class="relative overflow-hidden rounded-card border p-8 lg:p-10 {{ $bandClass }}">
                 <div class="grid items-center gap-8 lg:grid-cols-[auto_1fr_auto]">

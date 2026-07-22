@@ -15,7 +15,7 @@ $tone = array_key_exists($tone, $tones) ? $tone : 'white';
 $align = $align === 'center' ? 'center' : 'left';
 @endphp
 
-<section {{ $attributes->class(['bma-prose-section', 'py-14 lg:py-20', $tones[$tone]]) }}>
+<section {{ $attributes->class(['bma-prose-section', 'bma-band', $tones[$tone]]) }} data-bma-tone="{{ $tone }}">
     <div class="mx-auto max-w-content px-6 md:px-10 xl:px-16">
         <div class="max-w-3xl {{ $align === 'center' ? 'mx-auto' : '' }}">
             {{-- Center alignment applies to the header only: body content

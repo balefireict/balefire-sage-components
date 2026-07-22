@@ -20,7 +20,7 @@ $items = array_values(array_filter(
 @endphp
 
 @if ($items !== [])
-    <section {{ $attributes->class(['bma-video-cards', 'py-16 lg:py-24', $tones[$tone]]) }}>
+    <section {{ $attributes->class(['bma-video-cards', 'bma-band', $tones[$tone]]) }} data-bma-tone="{{ $tone }}">
         <div class="mx-auto max-w-content px-6 md:px-10 xl:px-16">
             @if ($eyebrow !== '' || $title !== '' || $content !== '')
                 <div class="max-w-3xl">

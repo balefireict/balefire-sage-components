@@ -15,8 +15,8 @@ $hasButtons = ($primaryLabel !== '' && $primaryUrl !== '') || ($secondaryLabel !
 $buttonBase = 'inline-flex items-center justify-center gap-2 rounded-semi px-7 py-3.5 font-heading text-body-m font-bold uppercase tracking-wide transition-colors';
 @endphp
 
-<section {{ $attributes->class(['bma-cta-band', 'bg-primary']) }}>
-    <div class="mx-auto max-w-content px-6 py-16 text-center md:px-10 lg:py-20 xl:px-16">
+<section {{ $attributes->class(['bma-cta-band', 'bma-band', 'bg-primary']) }} data-bma-tone="primary">
+    <div class="mx-auto max-w-content px-6 text-center md:px-10 xl:px-16">
         @if ($title !== '')
             <h2 class="mx-auto max-w-3xl font-heading text-[clamp(1.8rem,3.6vw,2.5rem)] font-bold uppercase leading-tight text-white">{{ $title }}</h2>
         @endif

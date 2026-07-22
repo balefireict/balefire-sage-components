@@ -46,7 +46,7 @@ $gridCols = $mediaType === 'content' ? 'lg:grid-cols-[0.9fr_1.1fr]' : 'lg:grid-c
 $alignment = $mediaType === 'content' ? 'items-start' : 'items-center';
 @endphp
 
-<section {{ $attributes->class(['bma-split-feature', 'py-16 lg:py-24', $tones[$tone]]) }}>
+<section {{ $attributes->class(['bma-split-feature', 'bma-band', $tones[$tone]]) }} data-bma-tone="{{ $tone }}">
     <div class="mx-auto max-w-content px-6 md:px-10 xl:px-16">
         <div class="grid gap-12 {{ $alignment }} {{ $gridCols }}">
             <div @class(['order-1 lg:order-2' => $mediaSide === 'left'])>

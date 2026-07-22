@@ -205,6 +205,45 @@
 }
 
 /* ---------------------------------------------------------------
+   Band rhythm (.bma-band + data-bma-tone)
+
+   The guide-page sections each carried their own py-* pair, which had
+   drifted to three different values (14/20, 16/24, 10/12) and made pages
+   read unevenly. They now share one scale — and specifically the same
+   --spacing-section token the Section block above uses, so a guide page
+   and a Section-built page keep the same vertical rhythm.
+
+   A separate class from .bma-section because that one belongs to the
+   Section block; this only adds the tone-aware collapsing below.
+
+   Plain CSS rather than @apply: these packages are consumed by themes
+   whose Tailwind setup we do not control, and a consumer can retune the
+   whole rhythm by overriding one variable.
+
+   Spacing is padding, never margin. These sections are full-bleed and
+   carry their own background, so margin would open a strip of page
+   background between two coloured bands instead of spacing their
+   contents.
+   --------------------------------------------------------------- */
+.bma-band {
+    padding-block: var(--spacing-section, clamp(4rem, 7vw, 7rem));
+}
+
+/* Consecutive bands sharing a background read as one continuous block, so
+   their facing padding stacks into a gap twice the intended size with no
+   visual boundary to justify it. Collapse the second one's top padding;
+   where the tone changes, the full gap is correct and stays.
+
+   Tones are matched pairwise because CSS cannot compare two attribute
+   values — there are only four, so this stays legible. */
+[data-bma-tone='white'] + .bma-band[data-bma-tone='white'],
+[data-bma-tone='grey'] + .bma-band[data-bma-tone='grey'],
+[data-bma-tone='dark'] + .bma-band[data-bma-tone='dark'],
+[data-bma-tone='primary'] + .bma-band[data-bma-tone='primary'] {
+    padding-block-start: 0;
+}
+
+/* ---------------------------------------------------------------
    Prose body (balefire/prose-section — .bma-prose)
 
    Typography for the constrained InnerBlocks body of the guide-page

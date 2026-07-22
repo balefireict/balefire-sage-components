@@ -74,7 +74,7 @@ $imageFits = [
 $imageFit = array_key_exists($imageFit, $imageFits) ? $imageFit : 'cover';
 @endphp
 
-<section {{ $attributes->class(['bma-guide-hero', 'relative overflow-hidden bg-grey-900']) }}>
+<section {{ $attributes->class(['bma-guide-hero', 'relative overflow-hidden bg-grey-900']) }} data-bma-tone="dark">
     {{-- Diagonal-line texture: the same drifting tile the homepage hero
          (bma-hero-headline) uses, at the same opacity. --}}
     <div aria-hidden="true" class="bma-hero-headline__texture pointer-events-none absolute inset-0 opacity-40"></div>

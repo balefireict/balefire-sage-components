@@ -29,7 +29,7 @@ $chooser = array_filter($items, static fn ($item): bool => trim((string) ($item[
 @endphp
 
 @if ($items !== [])
-    <section {{ $attributes->class(['bma-link-card-grid', 'py-14 lg:py-20', $tones[$tone]]) }}>
+    <section {{ $attributes->class(['bma-link-card-grid', 'bma-band', $tones[$tone]]) }} data-bma-tone="{{ $tone }}">
         <div class="mx-auto max-w-content px-6 md:px-10 xl:px-16">
             @if ($eyebrow !== '' || $title !== '' || $content !== '')
                 <div class="max-w-3xl">
