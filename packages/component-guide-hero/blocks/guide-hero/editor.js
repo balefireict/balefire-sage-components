@@ -18,6 +18,7 @@ const metadata = {
         "align": ["full"]
     },
     "attributes": {
+        "align": { "type": "string", "default": "full" },
         "eyebrow": { "type": "string", "default": "" },
         "title": { "type": "string", "default": "" },
         "content": { "type": "string", "default": "" },

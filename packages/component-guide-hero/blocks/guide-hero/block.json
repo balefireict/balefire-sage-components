@@ -16,6 +16,10 @@
     "align": ["full"]
   },
   "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
     "eyebrow": {
       "type": "string",
       "default": ""
