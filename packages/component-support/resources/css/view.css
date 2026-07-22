@@ -279,6 +279,56 @@
 }
 
 /* ---------------------------------------------------------------
+   Split feature — nested table (balefire/split-feature mediaType
+   "content" wrapping a core table, per the repair-rates comp).
+   --------------------------------------------------------------- */
+.bma-split-feature__content .wp-block-table {
+    margin: 0;
+}
+
+.bma-split-feature__content table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.bma-split-feature__content thead tr {
+    background: var(--color-grey-900, #171717);
+    color: #fff;
+}
+
+.bma-split-feature__content th {
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-heading, inherit);
+    font-size: var(--text-body-xs, 14px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    border: 0;
+}
+
+.bma-split-feature__content td {
+    padding: 1rem 1.5rem;
+    border: 0;
+    border-top: 1px solid var(--color-grey-50, #e8e8e8);
+    font-size: var(--text-body-s, 16px);
+    color: var(--color-grey-800, #2e2e2e);
+}
+
+.bma-split-feature__content th:last-child,
+.bma-split-feature__content td:last-child {
+    text-align: right;
+}
+
+.bma-split-feature__content td:last-child {
+    font-family: var(--font-mono, monospace);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-grey-900, #171717);
+    white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------
    Shared lightbox (component-support/resources/js/lightbox.js).
 
    Native <dialog>: the browser gives us the top layer, a real ::backdrop,

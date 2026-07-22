@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/video-cards",
+  "title": "Video Cards",
+  "category": "balefire",
+  "icon": "video-alt3",
+  "description": "Grid of media cards with play overlay, badge, title, and blurb.",
+  "keywords": [
+    "video",
+    "episodes",
+    "media",
+    "cards",
+    "balefire"
+  ],
+  "textdomain": "balefire",
+  "version": "1.0.0",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "tone": {
+      "type": "string",
+      "default": "white"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "items": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "editorScript": "balefire-video-cards-editor"
+}

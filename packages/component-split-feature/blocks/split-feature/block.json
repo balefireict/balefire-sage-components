@@ -1,0 +1,97 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/split-feature",
+  "title": "Split Feature",
+  "category": "balefire",
+  "icon": "align-pull-right",
+  "description": "Two-column guide-page section: eyebrow/title/copy/buttons beside an image, stat card, or nested content (tables).",
+  "keywords": [
+    "split",
+    "feature",
+    "stat",
+    "table",
+    "balefire"
+  ],
+  "textdomain": "balefire",
+  "version": "1.0.0",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "tone": {
+      "type": "string",
+      "default": "white"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "secondaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "mediaType": {
+      "type": "string",
+      "default": "content"
+    },
+    "mediaSide": {
+      "type": "string",
+      "default": "right"
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "statValue": {
+      "type": "string",
+      "default": ""
+    },
+    "statLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "statNote": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "balefire-split-feature-editor"
+}

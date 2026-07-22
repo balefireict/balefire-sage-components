@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-split-feature",
+    "description": "Split feature — two-column guide-page section: eyebrow/title/copy/buttons beside an image, stat card, or nested content (tables). Built for the accu-shot guide/hub page system.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\SplitFeature\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "split-feature",
+            "block_name": "balefire/split-feature",
+            "blade_component": "bma::components.split-feature",
+            "owns_css": false
+        }
+    }
+}

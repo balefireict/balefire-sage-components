@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-highlight-banner",
+    "description": "Highlight banner — icon + title + copy + optional CTA in a tinted or card band. Built for the accu-shot guide/hub page system.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\HighlightBanner\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "highlight-banner",
+            "block_name": "balefire/highlight-banner",
+            "blade_component": "bma::components.highlight-banner",
+            "owns_css": false
+        }
+    }
+}

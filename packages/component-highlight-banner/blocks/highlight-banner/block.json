@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/highlight-banner",
+  "title": "Highlight Banner",
+  "category": "balefire",
+  "icon": "tag",
+  "description": "Icon + title + copy + optional CTA in a tinted or card band.",
+  "keywords": [
+    "banner",
+    "highlight",
+    "callout",
+    "cta",
+    "balefire"
+  ],
+  "textdomain": "balefire",
+  "version": "1.0.0",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "tone": {
+      "type": "string",
+      "default": "white"
+    },
+    "variant": {
+      "type": "string",
+      "default": "tint"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "editorScript": "balefire-highlight-banner-editor"
+}

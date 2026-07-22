@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-compare-cards",
+    "description": "Compare cards — side-by-side A/B comparison cards (e.g. Authentic vs Counterfeit) with check/cross cells. Built for the accu-shot guide/hub page system.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\CompareCards\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "compare-cards",
+            "block_name": "balefire/compare-cards",
+            "blade_component": "bma::components.compare-cards",
+            "owns_css": false
+        }
+    }
+}

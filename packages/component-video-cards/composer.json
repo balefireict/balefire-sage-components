@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-video-cards",
+    "description": "Video cards — grid of media cards with play overlay, badge, title, and blurb. Built for the accu-shot guide/hub page system.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\VideoCards\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "video-cards",
+            "block_name": "balefire/video-cards",
+            "blade_component": "bma::components.video-cards",
+            "owns_css": false
+        }
+    }
+}

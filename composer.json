@@ -24,6 +24,7 @@
         "balefireict/component-card-stat": "dev-main",
         "balefireict/component-case-study-compare": "dev-main",
         "balefireict/component-centered-intro-text": "dev-main",
+        "balefireict/component-compare-cards": "dev-main",
         "balefireict/component-container": "dev-main",
         "balefireict/component-cta-band": "dev-main",
         "balefireict/component-cta-banner": "dev-main",
@@ -38,6 +39,7 @@
         "balefireict/component-guide-hero": "dev-main",
         "balefireict/component-hero-headline": "dev-main",
         "balefireict/component-hero-video-header": "dev-main",
+        "balefireict/component-highlight-banner": "dev-main",
         "balefireict/component-image-text-row": "dev-main",
         "balefireict/component-image-text-rows": "dev-main",
         "balefireict/component-image-tile-cta": "dev-main",
@@ -58,9 +60,11 @@
         "balefireict/component-simple-image-card": "dev-main",
         "balefireict/component-simple-steps-card": "dev-main",
         "balefireict/component-split-35-65": "dev-main",
+        "balefireict/component-split-feature": "dev-main",
         "balefireict/component-support": "dev-main",
         "balefireict/component-team-member-centered": "dev-main",
-        "balefireict/component-two-col-three-col": "dev-main"
+        "balefireict/component-two-col-three-col": "dev-main",
+        "balefireict/component-video-cards": "dev-main"
     },
     "config": {
         "allow-plugins": {

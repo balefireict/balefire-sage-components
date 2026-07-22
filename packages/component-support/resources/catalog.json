@@ -760,6 +760,66 @@
         "checklist",
         "grid"
       ]
+    },
+    {
+      "slug": "split-feature",
+      "active": true,
+      "title": "Split Feature",
+      "description": "Two-column guide-page section: eyebrow/title/copy/buttons beside an image, stat card, or nested content (tables).",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "align-pull-right",
+      "keywords": [
+        "split",
+        "feature",
+        "stat",
+        "table"
+      ]
+    },
+    {
+      "slug": "highlight-banner",
+      "active": true,
+      "title": "Highlight Banner",
+      "description": "Icon + title + copy + optional CTA in a tinted or card band.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "tag",
+      "keywords": [
+        "banner",
+        "highlight",
+        "callout",
+        "cta"
+      ]
+    },
+    {
+      "slug": "compare-cards",
+      "active": true,
+      "title": "Compare Cards",
+      "description": "Side-by-side A/B comparison cards (e.g. Authentic vs Counterfeit) with check/cross cells.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "columns",
+      "keywords": [
+        "compare",
+        "versus",
+        "authentic",
+        "counterfeit"
+      ]
+    },
+    {
+      "slug": "video-cards",
+      "active": true,
+      "title": "Video Cards",
+      "description": "Grid of media cards with play overlay, badge, title, and blurb.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "video-alt3",
+      "keywords": [
+        "video",
+        "episodes",
+        "media",
+        "cards"
+      ]
     }
   ]
 }
