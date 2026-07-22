@@ -67,6 +67,8 @@ class Renderer {
 			'imageUrl'       => '',
 			'imageAlt'       => '',
 			'imageRatio'     => 'fill',
+			'imageFrame'     => 'card',
+			'imageFit'       => 'cover',
 			'showBreadcrumb' => true,
 		] );
 	}

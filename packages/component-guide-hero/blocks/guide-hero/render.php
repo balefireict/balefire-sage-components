@@ -24,5 +24,7 @@ echo Renderer::render( [
 	'imageUrl'       => isset( $attributes['imageUrl'] ) ? esc_url( $attributes['imageUrl'] ) : '',
 	'imageAlt'       => $attributes['imageAlt'] ?? '',
 	'imageRatio'     => $attributes['imageRatio'] ?? 'fill',
+	'imageFrame'     => $attributes['imageFrame'] ?? 'card',
+	'imageFit'       => $attributes['imageFit'] ?? 'cover',
 	'showBreadcrumb' => $attributes['showBreadcrumb'] ?? true,
 ], get_block_wrapper_attributes() );

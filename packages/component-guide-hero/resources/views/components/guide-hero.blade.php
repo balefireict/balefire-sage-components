@@ -10,6 +10,8 @@
     'imageUrl' => '',
     'imageAlt' => '',
     'imageRatio' => 'fill',
+    'imageFrame' => 'card',
+    'imageFit' => 'cover',
     'showBreadcrumb' => true,
 ])
 
@@ -54,6 +56,22 @@ $imageRatios = [
     '16/9' => 'aspect-video',
 ];
 $imageRatio = array_key_exists($imageRatio, $imageRatios) ? $imageRatio : 'fill';
+
+// "card" is the framed treatment the comps use for photography. "none" drops
+// the rounding and hairline ring so a logo or cut-out graphic sits directly
+// on the hero background instead of looking like a pasted-in tile.
+$imageFrames = [
+    'card' => 'overflow-hidden rounded-card ring-1 ring-white/10',
+    'none' => '',
+];
+$imageFrame = array_key_exists($imageFrame, $imageFrames) ? $imageFrame : 'card';
+
+// Photography fills the frame; logos need the whole mark visible.
+$imageFits = [
+    'cover'   => 'object-cover',
+    'contain' => 'object-contain',
+];
+$imageFit = array_key_exists($imageFit, $imageFits) ? $imageFit : 'cover';
 @endphp
 
 <section {{ $attributes->class(['bma-guide-hero', 'relative overflow-hidden bg-grey-900']) }}>
@@ -100,8 +118,8 @@ $imageRatio = array_key_exists($imageRatio, $imageRatios) ? $imageRatio : 'fill'
         </div>
 
         @if ($imageUrl !== '')
-            <div class="relative overflow-hidden rounded-card ring-1 ring-white/10 {{ $imageRatios[$imageRatio] }}">
-                <img src="{{ esc_url($imageUrl) }}" alt="{{ $imageAlt }}" class="absolute inset-0 size-full object-cover" fetchpriority="high" decoding="async" />
+            <div class="{{ implode(' ', array_filter(['relative', $imageFrames[$imageFrame], $imageRatios[$imageRatio]])) }}">
+                <img src="{{ esc_url($imageUrl) }}" alt="{{ $imageAlt }}" class="absolute inset-0 size-full {{ $imageFits[$imageFit] }}" fetchpriority="high" decoding="async" />
             </div>
         @endif
     </div>

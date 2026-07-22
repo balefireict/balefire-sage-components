@@ -64,6 +64,14 @@
       "type": "string",
       "default": "fill"
     },
+    "imageFrame": {
+      "type": "string",
+      "default": "card"
+    },
+    "imageFit": {
+      "type": "string",
+      "default": "cover"
+    },
     "showBreadcrumb": {
       "type": "boolean",
       "default": true

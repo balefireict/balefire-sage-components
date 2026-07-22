@@ -30,6 +30,8 @@ const metadata = {
         "imageUrl": { "type": "string", "default": "" },
         "imageAlt": { "type": "string", "default": "" },
         "imageRatio": { "type": "string", "default": "fill" },
+        "imageFrame": { "type": "string", "default": "card" },
+        "imageFit": { "type": "string", "default": "cover" },
         "showBreadcrumb": { "type": "boolean", "default": true }
     },
     "editorScript": "balefire-guide-hero-editor"
@@ -115,6 +117,26 @@ registerBlockType(metadata.name, {
                             { label: '16:9', value: '16/9' },
                         ],
                         onChange: (value) => setAttributes({ imageRatio: value }),
+                    }),
+                    el(SelectControl, {
+                        label: __('Image frame', 'balefire'),
+                        help: __('None drops the rounded corners and hairline border — use it for logos and cut-out graphics.', 'balefire'),
+                        value: attributes.imageFrame || 'card',
+                        options: [
+                            { label: __('Card (rounded, bordered)', 'balefire'), value: 'card' },
+                            { label: __('None', 'balefire'), value: 'none' },
+                        ],
+                        onChange: (value) => setAttributes({ imageFrame: value }),
+                    }),
+                    el(SelectControl, {
+                        label: __('Image fit', 'balefire'),
+                        help: __('Cover fills the frame and may crop. Contain shows the whole image.', 'balefire'),
+                        value: attributes.imageFit || 'cover',
+                        options: [
+                            { label: __('Cover (fill, may crop)', 'balefire'), value: 'cover' },
+                            { label: __('Contain (show all)', 'balefire'), value: 'contain' },
+                        ],
+                        onChange: (value) => setAttributes({ imageFit: value }),
                     })
                 ),
                 el(PanelBody, { title: __('Primary Button', 'balefire'), initialOpen: false },
@@ -171,8 +193,9 @@ registerBlockType(metadata.name, {
                         width: '100%',
                         height: attributes.imageRatio === 'fill' ? '100%' : undefined,
                         aspectRatio: attributes.imageRatio === 'fill' ? undefined : (attributes.imageRatio || '5/4').replace('/', ' / '),
-                        objectFit: 'cover',
-                        borderRadius: '8px',
+                        objectFit: attributes.imageFit === 'contain' ? 'contain' : 'cover',
+                        borderRadius: attributes.imageFrame === 'none' ? undefined : '8px',
+                        boxShadow: attributes.imageFrame === 'none' ? undefined : 'inset 0 0 0 1px rgba(255,255,255,0.1)',
                     },
                 }) : null
             )
