@@ -13,6 +13,7 @@ declare( strict_types=1 );
 use BalefireInc\Sage\ImageMarquee\Renderer;
 
 echo Renderer::render( [
+	'layout' => $attributes['layout'] ?? 'band',
 	'tone' => $attributes['tone'] ?? 'dark',
 	'eyebrow' => $attributes['eyebrow'] ?? '',
 	'title' => $attributes['title'] ?? '',

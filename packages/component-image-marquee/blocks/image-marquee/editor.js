@@ -15,6 +15,7 @@ const metadata = {
     "supports": { "anchor": true, "className": true, "align": ["full"] },
     "attributes": {
         "align": { "type": "string", "default": "full" },
+        "layout": { "type": "string", "default": "band" },
         "tone": { "type": "string", "default": "dark" },
         "eyebrow": { "type": "string", "default": "" },
         "title": { "type": "string", "default": "" },
@@ -49,6 +50,15 @@ registerBlockType(metadata.name, {
         return el(Fragment, null,
             el(InspectorControls, null,
                 el(PanelBody, { title: __('Marquee', 'balefire'), initialOpen: true },
+                    el(SelectControl, {
+                        label: __('Layout', 'balefire'),
+                        value: attributes.layout,
+                        options: [
+                            { label: 'Full-width band', value: 'band' },
+                            { label: 'Split (two columns)', value: 'split' },
+                        ],
+                        onChange: (layout) => setAttributes({ layout }),
+                    }),
                     el(SelectControl, {
                         label: __('Tone', 'balefire'),
                         value: attributes.tone,

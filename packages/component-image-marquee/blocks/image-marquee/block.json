@@ -28,6 +28,10 @@
       "type": "string",
       "default": "full"
     },
+    "layout": {
+      "type": "string",
+      "default": "band"
+    },
     "tone": {
       "type": "string",
       "default": "dark"
