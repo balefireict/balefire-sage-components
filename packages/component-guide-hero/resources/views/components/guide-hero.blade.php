@@ -19,7 +19,9 @@
 $showBreadcrumb = filter_var($showBreadcrumb, FILTER_VALIDATE_BOOL);
 
 if ($title === '' && is_singular()) {
-    $title = get_the_title();
+    // get_the_title() output arrives entity-encoded ("B&#038;T"); Blade
+    // escapes on output, so decode once here to avoid a double escape.
+    $title = html_entity_decode(get_the_title(), ENT_QUOTES | ENT_HTML5, 'UTF-8');
 }
 
 $imageId = absint($imageId);
@@ -34,13 +36,20 @@ $primaryUrl = $primaryUrl !== '' ? esc_url(str_starts_with($primaryUrl, '/') ? h
 $secondaryUrl = $secondaryUrl !== '' ? esc_url(str_starts_with($secondaryUrl, '/') ? home_url($secondaryUrl) : $secondaryUrl) : '';
 $hasButtons = ($primaryLabel !== '' && $primaryUrl !== '') || ($secondaryLabel !== '' && $secondaryUrl !== '');
 
-// Breadcrumb trail: Home / [ancestors…] / current title, from the page tree.
+// Breadcrumb trail: Home / [ancestors…] / current page, from the page tree.
+// Labels come from the capitalized slug, not the title: titles run long
+// ("Shipping, Returns & Exchanges" for /about/exchanges/) and legacy ones
+// carry entity-encoding baggage; the slug reads clean in the all-caps crumb.
+$crumbLabel = fn ($postId) => ucwords(str_replace('-', ' ', (string) get_post_field('post_name', $postId)));
+
 $trail = [];
+$crumbCurrent = '';
 if ($showBreadcrumb && is_singular()) {
     $trail[] = ['label' => __('Home', 'balefire'), 'url' => home_url('/')];
     foreach (array_reverse(get_post_ancestors(get_the_ID())) as $ancestorId) {
-        $trail[] = ['label' => get_the_title($ancestorId), 'url' => (string) get_permalink($ancestorId)];
+        $trail[] = ['label' => $crumbLabel($ancestorId), 'url' => (string) get_permalink($ancestorId)];
     }
+    $crumbCurrent = $crumbLabel(get_the_ID());
 }
 
 $buttonBase = 'inline-flex items-center justify-center gap-2 rounded-semi px-7 py-3.5 font-heading text-body-m font-bold uppercase tracking-wide transition-colors';
@@ -86,7 +95,7 @@ $imageFit = array_key_exists($imageFit, $imageFits) ? $imageFit : 'cover';
                 @foreach ($trail as $crumb)
                     <a href="{{ esc_url($crumb['url']) }}" class="text-grey-300 transition-colors hover:text-white">{{ $crumb['label'] }}</a><span class="px-2 text-white/30">/</span>
                 @endforeach
-                <span class="text-white/90" aria-current="page">{{ $title }}</span>
+                <span class="text-white/90" aria-current="page">{{ $crumbCurrent }}</span>
             </nav>
         </div>
     @endif
