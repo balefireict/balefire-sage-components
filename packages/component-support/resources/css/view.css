@@ -512,3 +512,53 @@
         scroll-behavior: auto;
     }
 }
+
+/* ---------------------------------------------------------------
+   Product Highlight Bar — icon breathe
+   The 32px feature icons pulse gently, staggered left to right so
+   the bar reads as a wave rather than a synchronized blink. Only
+   the big icons animate — the arrow glyphs inside the links sit
+   deeper in the tree and are untouched.
+   --------------------------------------------------------------- */
+.bma-icon-breathe svg {
+    animation: bma-breathe 3s ease-in-out infinite;
+    transform-origin: center;
+}
+
+/* Stagger by item. The first child keeps the default 0s delay. */
+.bma-product-highlight-bar > div > :nth-child(2) .bma-icon-breathe svg {
+    animation-delay: 0.4s;
+}
+
+.bma-product-highlight-bar > div > :nth-child(3) .bma-icon-breathe svg {
+    animation-delay: 0.8s;
+}
+
+.bma-product-highlight-bar > div > :nth-child(4) .bma-icon-breathe svg {
+    animation-delay: 1.2s;
+}
+
+.bma-product-highlight-bar > div > :nth-child(5) .bma-icon-breathe svg {
+    animation-delay: 1.6s;
+}
+
+.bma-product-highlight-bar > div > :nth-child(6) .bma-icon-breathe svg {
+    animation-delay: 2s;
+}
+
+@keyframes bma-breathe {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bma-icon-breathe svg {
+        animation: none;
+    }
+}

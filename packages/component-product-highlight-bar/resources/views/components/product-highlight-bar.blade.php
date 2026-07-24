@@ -49,7 +49,7 @@ $items = array_values(array_filter(
                          then curls the quotes in the rest of the attributes and
                          the markup falls apart. Never put ">" in an attribute
                          value in block output. --}}
-                    <span class="block size-8 shrink-0 text-white [&_svg]:size-full" aria-hidden="true">
+                    <span class="bma-icon-breathe block size-8 shrink-0 text-white [&_svg]:size-full" aria-hidden="true">
                         {!! Icons::markup($item) !!}
                     </span>
 
