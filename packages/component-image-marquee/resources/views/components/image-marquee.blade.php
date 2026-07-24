@@ -31,7 +31,7 @@ if ($primaryUrl !== '' && str_starts_with($primaryUrl, '/')) {
     $primaryUrl = home_url($primaryUrl);
 }
 
-$imgClass = $isSplit ? 'h-20 w-auto max-w-none md:h-24' : 'h-24 w-auto max-w-none md:h-28';
+$imgClass = $isSplit ? 'h-[90px] w-auto max-w-none' : 'h-24 w-auto max-w-none md:h-28';
 @endphp
 
 @if ($chunks !== [])
