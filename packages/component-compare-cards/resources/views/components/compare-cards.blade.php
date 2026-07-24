@@ -42,9 +42,9 @@ $items = array_values(array_filter(
 
             <div class="mt-10 grid gap-6 lg:grid-cols-2">
                 @foreach ($items as $item)
-                    <div class="overflow-hidden rounded-card border border-grey-50 bg-white shadow-card">
+                    <div class="flex flex-col overflow-hidden rounded-card border border-grey-50 bg-white shadow-card">
                         <div class="border-b border-grey-50 p-5"><h3 class="font-heading text-lg font-bold uppercase text-grey-900">{{ $item['title'] }}</h3></div>
-                        <div class="grid grid-cols-1 divide-y divide-grey-50 sm:grid-cols-2 sm:divide-x sm:divide-y-0">
+                        <div class="grid flex-1 grid-cols-1 divide-y divide-grey-50 sm:grid-cols-2 sm:divide-x sm:divide-y-0">
                             <div class="p-5">
                                 <p class="mb-2 inline-flex items-center gap-1.5 font-mono text-label-m font-bold uppercase tracking-wide text-[#2E7D5B]"><span class="size-4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4.5 4.5L19 7"/></svg></span>{{ $leftLabel }}</p>
                                 <p class="text-body-s text-grey-800">{{ $item['left'] ?? '' }}</p>
