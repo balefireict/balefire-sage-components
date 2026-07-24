@@ -31,7 +31,7 @@ if ($primaryUrl !== '' && str_starts_with($primaryUrl, '/')) {
     $primaryUrl = home_url($primaryUrl);
 }
 
-$imgClass = $isSplit ? 'h-16 w-auto max-w-none md:h-20' : 'h-24 w-auto max-w-none md:h-28';
+$imgClass = $isSplit ? 'h-20 w-auto max-w-none md:h-24' : 'h-24 w-auto max-w-none md:h-28';
 @endphp
 
 @if ($chunks !== [])
@@ -64,7 +64,7 @@ $imgClass = $isSplit ? 'h-16 w-auto max-w-none md:h-20' : 'h-24 w-auto max-w-non
                     </div>
 
                     <div class="order-2 lg:order-1">
-                        <div class="flex flex-col gap-5 overflow-hidden rounded-card bg-white py-6 ring-1 ring-grey-50">
+                        <div class="flex flex-col gap-6 overflow-hidden rounded-card bg-white py-8 ring-1 ring-grey-50">
                             @foreach ($chunks as $i => $chunk)
                                 <div class="bma-marquee__row {{ $i % 2 === 1 ? 'bma-marquee__row--rtl' : '' }}" style="--marquee-duration: {{ $duration + $i * 9 }}s">
                                     @for ($half = 0; $half < 2; $half++)
