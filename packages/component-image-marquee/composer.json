@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-image-marquee",
+    "description": "Image marquee — infinitely scrolling image rows (alternating direction) with an optional header and CTA. Built for the accu-shot department patch collection.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\ImageMarquee\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "image-marquee",
+            "block_name": "balefire/image-marquee",
+            "blade_component": "bma::components.image-marquee",
+            "owns_css": false
+        }
+    }
+}

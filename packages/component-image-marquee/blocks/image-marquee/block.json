@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "balefire/image-marquee",
+  "title": "Image Marquee",
+  "category": "balefire",
+  "icon": "images-alt2",
+  "description": "Infinitely scrolling image rows with alternating direction, optional header and CTA.",
+  "keywords": [
+    "marquee",
+    "scroll",
+    "patches",
+    "logos",
+    "balefire"
+  ],
+  "textdomain": "balefire",
+  "version": "1.0.0",
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "tone": {
+      "type": "string",
+      "default": "dark"
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "primaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageIds": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "number"
+      }
+    },
+    "rows": {
+      "type": "number",
+      "default": 3
+    },
+    "duration": {
+      "type": "number",
+      "default": 90
+    }
+  },
+  "editorScript": "balefire-image-marquee-editor"
+}
