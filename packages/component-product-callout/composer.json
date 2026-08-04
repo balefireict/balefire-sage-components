@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-product-callout",
+    "description": "Product callout — white panel card with heading, supporting copy, and one or more live WooCommerce product mini-cards (image, title, price, Add/View). Matches the product-page mounting-panel design; products referenced by SKU or ID so price and stock stay live.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\ProductCallout\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "product-callout",
+            "block_name": "balefire/product-callout",
+            "blade_component": "bma::components.product-callout",
+            "owns_css": false
+        }
+    }
+}
