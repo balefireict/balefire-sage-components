@@ -103,7 +103,8 @@ $imageFit = array_key_exists($imageFit, $imageFits) ? $imageFit : 'cover';
     <div class="relative mx-auto grid max-w-content items-center gap-12 px-6 pb-14 pt-6 md:px-10 lg:pb-20 lg:pt-8 xl:px-16 {{ $imageUrl !== '' ? 'lg:grid-cols-[1.1fr_0.9fr]' : '' }}">
         <div class="max-w-2xl">
             @if ($eyebrow !== '')
-                <span class="mb-4 inline-flex items-center gap-3 font-mono text-label-m font-bold uppercase tracking-[0.16em] text-primary"><span class="h-px w-8 bg-primary"></span>{{ $eyebrow }}</span>
+                {{-- Shared lockup — balefireict/component-eyebrow, the home-page eyebrow style. --}}
+                <x-bma::eyebrow :text="$eyebrow" class="mb-4" />
             @endif
 
             @if ($title !== '')

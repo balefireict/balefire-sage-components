@@ -37,7 +37,8 @@ $items = array_values(array_filter(
             @if ($eyebrow !== '' || $title !== '' || $content !== '')
                 <div class="max-w-3xl">
                     @if ($eyebrow !== '')
-                        <span class="mb-4 inline-flex items-center gap-3 font-mono text-label-m font-bold uppercase tracking-[0.16em] text-primary"><span class="h-px w-8 bg-primary"></span>{{ $eyebrow }}</span>
+                        {{-- Shared lockup — balefireict/component-eyebrow, the home-page eyebrow style. --}}
+                        <x-bma::eyebrow :text="$eyebrow" class="mb-4" />
                     @endif
 
                     @if ($title !== '')

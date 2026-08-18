@@ -5,7 +5,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "balefireict/component-support": "*"
+        "balefireict/component-support": "*",
+        "balefireict/component-eyebrow": "*"
     },
     "autoload": {
         "psr-4": {

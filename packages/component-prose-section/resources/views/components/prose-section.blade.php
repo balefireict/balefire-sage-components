@@ -23,7 +23,8 @@ $align = $align === 'center' ? 'center' : 'left';
             @if ($eyebrow !== '' || $title !== '')
                 <div @class(['text-center' => $align === 'center'])>
                     @if ($eyebrow !== '')
-                        <span class="mb-4 inline-flex items-center gap-3 font-mono text-label-m font-bold uppercase tracking-[0.16em] text-primary {{ $align === 'center' ? 'justify-center' : '' }}"><span class="h-px w-8 bg-primary"></span>{{ $eyebrow }}</span>
+                        {{-- Shared lockup — balefireict/component-eyebrow, the home-page eyebrow style. --}}
+                        <x-bma::eyebrow :text="$eyebrow" @class(['mb-4', 'justify-center' => $align === 'center']) />
                     @endif
 
                     @if ($title !== '')

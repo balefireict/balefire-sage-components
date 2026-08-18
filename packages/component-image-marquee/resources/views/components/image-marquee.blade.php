@@ -45,7 +45,8 @@ $imgClass = $isSplit ? 'h-[90px] w-auto max-w-none' : 'h-24 w-auto max-w-none md
                 <div class="grid items-center gap-12 lg:grid-cols-2">
                     <div class="order-1 lg:order-2">
                         @if ($eyebrow !== '')
-                            <span class="mb-4 inline-flex items-center gap-3 font-mono text-label-m font-bold uppercase tracking-[0.16em] text-primary"><span class="h-px w-8 bg-primary"></span>{{ $eyebrow }}</span>
+                            {{-- Shared lockup — balefireict/component-eyebrow, the home-page eyebrow style. --}}
+                            <x-bma::eyebrow :text="$eyebrow" class="mb-4" />
                         @endif
 
                         @if ($title !== '')
@@ -91,7 +92,8 @@ $imgClass = $isSplit ? 'h-[90px] w-auto max-w-none' : 'h-24 w-auto max-w-none md
                 <div class="mx-auto max-w-content px-6 md:px-10 xl:px-16">
                     <div class="max-w-3xl">
                         @if ($eyebrow !== '')
-                            <span class="mb-4 inline-flex items-center gap-3 font-mono text-label-m font-bold uppercase tracking-[0.16em] text-primary"><span class="h-px w-8 bg-primary"></span>{{ $eyebrow }}</span>
+                            {{-- Shared lockup — balefireict/component-eyebrow, the home-page eyebrow style. --}}
+                            <x-bma::eyebrow :text="$eyebrow" class="mb-4" />
                         @endif
 
                         @if ($title !== '')
