@@ -32,7 +32,10 @@ const metadata = {
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls, useBlockProps, MediaUpload } = wp.blockEditor;
-const { PanelBody, TextControl, TextareaControl, Button } = wp.components;
+const { PanelBody, TextControl, TextareaControl, SelectControl, Button } = wp.components;
+
+// Injected by src/bootstrap.php from Icons::choices().
+const ICON_CHOICES = window.balefireNumberedFeatureIcons || { '': 'Number' };
 const { createElement: el, Fragment } = wp.element;
 
 const EMPTY_ITEM = { title: '', text: '', imageId: 0 };
@@ -112,6 +115,16 @@ registerBlockType(metadata.name, {
                         rows: 5,
                         value: item.text || '',
                         onChange: (value) => updateItem(index, { text: value }),
+                    }),
+                    el(SelectControl, {
+                        label: __('Marker', 'balefire'),
+                        help: __('What sits to the left of the point. Leave on Number to keep the counted 01, 02, 03.', 'balefire'),
+                        value: item.icon || '',
+                        options: Object.keys(ICON_CHOICES).map((slug) => ({
+                            label: ICON_CHOICES[slug],
+                            value: slug,
+                        })),
+                        onChange: (value) => updateItem(index, { icon: value }),
                     }),
                     el(MediaUpload, {
                         onSelect: (media) => updateItem(index, { imageId: media.id || 0 }),

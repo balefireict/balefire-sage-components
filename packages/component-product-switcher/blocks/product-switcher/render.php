@@ -24,6 +24,8 @@ echo Renderer::render( [
 	'categoryId' => $attributes['categoryId'] ?? 0,
 	'attribute'  => $attributes['attribute'] ?? '',
 	'items'    => is_array( $items ) ? $items : [],
+	'logoId'     => $attributes['logoId'] ?? 0,
+	'logoAlt'    => $attributes['logoAlt'] ?? '',
 	'ctaLabel' => $attributes['ctaLabel'] ?? '',
 	'ctaUrl'   => $attributes['ctaUrl'] ?? '',
 ], get_block_wrapper_attributes() );

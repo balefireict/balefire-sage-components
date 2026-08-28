@@ -65,6 +65,7 @@ class Renderer {
 			'imageId'        => 0,
 			'imageUrl'       => '',
 			'imageAlt'       => '',
+			'scrim'          => 'dark',
 			'primaryLabel'   => '',
 			'primaryUrl'     => '',
 			'secondaryLabel' => '',

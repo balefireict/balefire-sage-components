@@ -24,6 +24,7 @@ const metadata = {
         "imageId": { "type": "number", "default": 0 },
         "imageUrl": { "type": "string", "default": "" },
         "imageAlt": { "type": "string", "default": "" },
+        "scrim": { "type": "string", "default": "dark" },
         "primaryLabel": { "type": "string", "default": "" },
         "primaryUrl": { "type": "string", "default": "" },
         "secondaryLabel": { "type": "string", "default": "" },
@@ -36,7 +37,7 @@ const metadata = {
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { InspectorControls, useBlockProps, MediaUpload } = wp.blockEditor;
-const { PanelBody, TextControl, TextareaControl } = wp.components;
+const { PanelBody, TextControl, TextareaControl, SelectControl } = wp.components;
 const { createElement: el, Fragment } = wp.element;
 
 // Editor preview of the *word* highlight convention.
@@ -104,7 +105,18 @@ registerBlockType(metadata.name, {
                         className: 'components-button is-link is-destructive',
                         style: { marginTop: '8px' },
                         onClick: () => setAttributes({ imageId: 0, imageUrl: '', imageAlt: '' }),
-                    }, __('Remove Image', 'balefire')) : null
+                    }, __('Remove Image', 'balefire')) : null,
+                    el(SelectControl, {
+                        label: __('Overlay', 'balefire'),
+                        help: __('How much the image is darkened behind the text. Dark is the safe default; None shows the photograph at full strength and needs an image that is already dark where the headline sits.', 'balefire'),
+                        value: attributes.scrim || 'dark',
+                        options: [
+                            { label: __('Dark wash', 'balefire'), value: 'dark' },
+                            { label: __('Gradient from the left', 'balefire'), value: 'gradient' },
+                            { label: __('None', 'balefire'), value: 'none' },
+                        ],
+                        onChange: (value) => setAttributes({ scrim: value }),
+                    })
                 ),
                 el(PanelBody, { title: __('Primary Button', 'balefire'), initialOpen: false },
                     el(TextControl, {

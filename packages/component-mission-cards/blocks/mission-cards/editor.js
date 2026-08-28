@@ -23,6 +23,8 @@ const metadata = {
         "content": { "type": "string", "default": "Start with how you shoot, or jump straight to a model family. Either path takes you to the right setup in a click or two." },
         "termIds": { "type": "array", "default": [] },
         "limit": { "type": "number", "default": 3 },
+        "logoId": { "type": "number", "default": 0 },
+        "logoAlt": { "type": "string", "default": "" },
         "align": { "type": "string", "default": "full" }
     },
     "editorScript": "balefire-mission-cards-editor"
@@ -30,7 +32,7 @@ const metadata = {
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { InspectorControls, useBlockProps } = wp.blockEditor;
+const { InspectorControls, useBlockProps, MediaUpload } = wp.blockEditor;
 const { PanelBody, TextControl, TextareaControl, RangeControl, CheckboxControl, Notice } = wp.components;
 const { createElement: el, Fragment } = wp.element;
 
@@ -77,6 +79,28 @@ registerBlockType(metadata.name, {
                         value: attributes.content || '',
                         onChange: (value) => setAttributes({ content: value }),
                     })
+                ),
+
+                el(PanelBody, { title: __('Section Logo', 'balefire'), initialOpen: false },
+                    el('p', { style: { marginTop: 0 } },
+                        __('Optional brand mark, shown beside the heading on wide screens and above it once the row wraps.', 'balefire')),
+                    el(MediaUpload, {
+                        onSelect: (media) => setAttributes({
+                            logoId: media.id || 0,
+                            logoAlt: media.alt || '',
+                        }),
+                        allowedTypes: ['image'],
+                        value: attributes.logoId,
+                        render: ({ open }) => el('button', {
+                            className: 'components-button is-secondary',
+                            onClick: open,
+                        }, attributes.logoId ? __('Change Logo', 'balefire') : __('Select Logo', 'balefire')),
+                    }),
+                    attributes.logoId ? el('button', {
+                        className: 'components-button is-link is-destructive',
+                        style: { marginTop: '8px' },
+                        onClick: () => setAttributes({ logoId: 0, logoAlt: '' }),
+                    }, __('Remove Logo', 'balefire')) : null
                 ),
 
                 el(PanelBody, { title: __('Missions', 'balefire'), initialOpen: true },

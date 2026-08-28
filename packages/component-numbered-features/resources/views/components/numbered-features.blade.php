@@ -8,6 +8,8 @@
 ])
 
 @php
+use BalefireInc\Sage\NumberedFeatures\Icons;
+
 // Drop rows with nothing to say — an empty repeater row would render a bare number.
 $items = array_values(array_filter(
     is_array($items) ? $items : [],
@@ -69,6 +71,10 @@ $ctaUrl = $ctaUrl !== ''
                     @php
                         $number = sprintf('%02d', $i + 1);
                         $imageId = absint($item['imageId'] ?? 0);
+
+                        // An item with no icon keeps its numeral, so existing
+                        // content is unchanged by the picker arriving.
+                        $iconSvg = Icons::svg(trim((string) ($item['icon'] ?? '')));
                     @endphp
 
                     {{-- `group` drives the reveal, desktop only (lg:): touch
@@ -85,10 +91,12 @@ $ctaUrl = $ctaUrl !== ''
                             <span
                                 aria-hidden="true"
                                 @class([
-                                    'font-mono text-2xl font-bold leading-8 text-grey-800 transition-opacity duration-200 motion-reduce:transition-none',
+                                    'text-grey-800 transition-opacity duration-200 motion-reduce:transition-none',
+                                    'font-mono text-2xl font-bold leading-8' => $iconSvg === '',
+                                    'block size-8 shrink-0' => $iconSvg !== '',
                                     'lg:group-hover:opacity-0 lg:group-focus-within:opacity-0' => $imageId > 0,
                                 ])
-                            >{{ $number }}</span>
+                            >@if ($iconSvg !== ''){!! $iconSvg !!}@else{{ $number }}@endif</span>
 
                             @if ($imageId > 0)
                                 {{-- Decorative: the heading beside it already carries the

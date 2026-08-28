@@ -5,6 +5,7 @@
     'imageId' => 0,
     'imageUrl' => '',
     'imageAlt' => '',
+    'scrim' => 'dark',
     'primaryLabel' => '',
     'primaryUrl' => '',
     'secondaryLabel' => '',
@@ -34,6 +35,16 @@ $titleHtml = preg_replace(
 );
 
 $hasButtons = ($primaryLabel !== '' && $primaryUrl !== '') || ($secondaryLabel !== '' && $secondaryUrl !== '');
+
+// How hard the image is knocked back behind the copy. "dark" is the comp and
+// the default, so existing consumers are untouched. "gradient" keeps the
+// photograph legible on the right while still protecting the text column.
+// "none" needs an image that is already dark where the headline sits.
+$scrimClass = match ($scrim) {
+    'none' => '',
+    'gradient' => 'bg-gradient-to-r from-black/85 via-black/55 to-transparent',
+    default => 'bg-black/80',
+};
 @endphp
 
 <section {{ $attributes->class([
@@ -52,8 +63,12 @@ $hasButtons = ($primaryLabel !== '' && $primaryUrl !== '') || ($secondaryLabel !
     @endif
 
     {{-- Scrim + diagonal-line texture per the comp. The tile ships in
-         component-support's view.css (.bma-hero-headline__texture). --}}
-    <div aria-hidden="true" class="absolute inset-0 -z-20 bg-black/80"></div>
+         component-support's view.css (.bma-hero-headline__texture), and its
+         drift animation is independent of the scrim — dropping the wash keeps
+         the motion. --}}
+    @if ($scrimClass !== '')
+        <div aria-hidden="true" class="absolute inset-0 -z-20 {{ $scrimClass }}"></div>
+    @endif
     <div aria-hidden="true" class="bma-hero-headline__texture absolute inset-0 -z-10 opacity-40"></div>
 
     <div class="flex w-full max-w-[980px] flex-col items-start gap-8 px-6 py-16 lg:px-20">

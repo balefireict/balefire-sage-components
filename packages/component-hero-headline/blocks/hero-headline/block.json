@@ -63,6 +63,10 @@
       "type": "string",
       "default": ""
     },
+    "scrim": {
+      "type": "string",
+      "default": "dark"
+    },
     "align": {
       "type": "string",
       "default": "full"

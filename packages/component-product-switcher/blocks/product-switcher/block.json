@@ -61,6 +61,14 @@
       "type": "string",
       "default": ""
     },
+    "logoId": {
+      "type": "number",
+      "default": 0
+    },
+    "logoAlt": {
+      "type": "string",
+      "default": ""
+    },
     "align": {
       "type": "string",
       "default": "full"

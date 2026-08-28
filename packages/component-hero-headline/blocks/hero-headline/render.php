@@ -19,6 +19,7 @@ echo Renderer::render( [
 	'imageId'        => $attributes['imageId'] ?? 0,
 	'imageUrl'       => isset( $attributes['imageUrl'] ) ? esc_url( $attributes['imageUrl'] ) : '',
 	'imageAlt'       => $attributes['imageAlt'] ?? '',
+	'scrim'          => $attributes['scrim'] ?? 'dark',
 	'primaryLabel'   => $attributes['primaryLabel'] ?? '',
 	'primaryUrl'     => isset( $attributes['primaryUrl'] ) ? esc_url( $attributes['primaryUrl'] ) : '',
 	'secondaryLabel' => $attributes['secondaryLabel'] ?? '',

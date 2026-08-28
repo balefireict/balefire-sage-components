@@ -60,6 +60,8 @@ class Renderer {
 			'content' => '',
 			'termIds' => [],
 			'limit'   => 3,
+			'logoId'  => 0,
+			'logoAlt' => '',
 		] );
 	}
 }

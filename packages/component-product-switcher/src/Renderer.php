@@ -58,6 +58,8 @@ class Renderer {
 			'categoryId' => 0,
 			'attribute'  => '',
 			'items'    => [],
+			'logoId' => 0,
+			'logoAlt' => '',
 			'ctaLabel' => '',
 			'ctaUrl'   => '',
 		] );

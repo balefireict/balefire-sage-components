@@ -40,6 +40,14 @@ $bma_numbered_features_boot = static function (): void {
 			true
 		);
 
+		// The icon picker's options come from the PHP set, so the editor and
+		// the rendered markup can never drift apart.
+		wp_add_inline_script(
+			'balefire-numbered-features-editor',
+			'window.balefireNumberedFeatureIcons = ' . wp_json_encode( \BalefireInc\Sage\NumberedFeatures\Icons::choices() ) . ';',
+			'before'
+		);
+
 		$editor_js = file_get_contents( __DIR__ . '/../blocks/numbered-features/editor.js' );
 		if ( $editor_js !== false ) {
 			wp_add_inline_script( 'balefire-numbered-features-editor', $editor_js );

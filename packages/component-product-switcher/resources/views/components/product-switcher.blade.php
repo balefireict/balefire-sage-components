@@ -8,6 +8,10 @@
     'items' => [],
     'ctaLabel' => '',
     'ctaUrl' => '',
+    // A brand mark for the section, stacked above the eyebrow. The copy column
+    // is narrow here, so the logo sits over it rather than beside it.
+    'logoId' => 0,
+    'logoAlt' => '',
 ])
 
 @php
@@ -29,6 +33,11 @@ $ctaUrl = $ctaUrl !== ''
 // One id per block instance so several switchers can share a page without
 // their aria-controls / aria-labelledby wires crossing.
 $uid = 'bma-ps-' . wp_unique_id();
+
+$logoId = absint($logoId);
+if ($logoId > 0 && $logoAlt === '') {
+    $logoAlt = (string) get_post_meta($logoId, '_wp_attachment_image_alt', true);
+}
 @endphp
 
 @if ($panels !== [])
@@ -87,6 +96,15 @@ $uid = 'bma-ps-' . wp_unique_id();
             {{-- Copy --}}
             <div class="flex min-w-0 flex-1 flex-col items-start gap-8">
                 <div class="flex flex-col items-start gap-2.5">
+                    @if ($logoId > 0)
+                        {!! wp_get_attachment_image($logoId, 'medium', false, [
+                            'class' => 'mb-2 h-auto w-[180px] max-w-full object-contain lg:w-[220px]',
+                            'loading' => 'lazy',
+                            'decoding' => 'async',
+                            'alt' => $logoAlt,
+                        ]) !!}
+                    @endif
+
                     <x-bma::eyebrow :text="$eyebrow" />
 
                     @if ($title !== '')

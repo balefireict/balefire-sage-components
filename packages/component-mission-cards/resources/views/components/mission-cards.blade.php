@@ -4,12 +4,22 @@
     'content' => '',
     'termIds' => [],
     'limit' => 3,
+    // A brand mark for the section, set against the heading on the right where
+    // the header row has the width for it. Falls back to stacking above the
+    // eyebrow once the row wraps.
+    'logoId' => 0,
+    'logoAlt' => '',
 ])
 
 @php
 use BalefireInc\Sage\MissionCards\Missions;
 
 $cards = Missions::cards(is_array($termIds) ? $termIds : [], (int) $limit);
+
+$logoId = absint($logoId);
+if ($logoId > 0 && $logoAlt === '') {
+    $logoAlt = (string) get_post_meta($logoId, '_wp_attachment_image_alt', true);
+}
 @endphp
 
 @if ($cards !== [])
@@ -18,24 +28,42 @@ $cards = Missions::cards(is_array($termIds) ? $termIds : [], (int) $limit);
         'bg-grey-25 px-6 py-12 lg:px-20 lg:py-20',
     ]) }}>
         <div class="mx-auto flex w-full max-w-[1280px] flex-col gap-16">
-            <div class="flex flex-col gap-2.5">
-                {{-- Shared lockup — balefireict/component-eyebrow. --}}
-                <x-bma::eyebrow :text="$eyebrow" />
+            {{-- Header. With a logo the row splits: copy left, mark right. The
+                 copy keeps its own max-widths, so the logo takes the slack
+                 rather than squeezing the text. --}}
+            <div @class([
+                'flex gap-8',
+                'flex-col gap-2.5' => $logoId === 0,
+                'flex-col gap-6 lg:flex-row lg:items-center lg:justify-between' => $logoId > 0,
+            ])>
+                <div class="flex flex-col gap-2.5">
+                    {{-- Shared lockup — balefireict/component-eyebrow. --}}
+                    <x-bma::eyebrow :text="$eyebrow" />
 
-                @if ($title !== '' || $content !== '')
-                    <div class="flex flex-col gap-4">
-                        @if ($title !== '')
-                            <h2 class="max-w-[539px] font-heading text-3xl font-semibold uppercase leading-tight text-grey-800 lg:text-5xl lg:leading-[56px] lg:tracking-[-1.5px]">
-                                {{ $title }}
-                            </h2>
-                        @endif
+                    @if ($title !== '' || $content !== '')
+                        <div class="flex flex-col gap-4">
+                            @if ($title !== '')
+                                <h2 class="max-w-[539px] font-heading text-3xl font-semibold uppercase leading-tight text-grey-800 lg:text-5xl lg:leading-[56px] lg:tracking-[-1.5px]">
+                                    {{ $title }}
+                                </h2>
+                            @endif
 
-                        @if ($content !== '')
-                            <p class="max-w-[599px] text-base leading-6 text-grey-400">
-                                {{ $content }}
-                            </p>
-                        @endif
-                    </div>
+                            @if ($content !== '')
+                                <p class="max-w-[599px] text-base leading-6 text-grey-400">
+                                    {{ $content }}
+                                </p>
+                            @endif
+                        </div>
+                    @endif
+                </div>
+
+                @if ($logoId > 0)
+                    {!! wp_get_attachment_image($logoId, 'medium', false, [
+                        'class' => 'h-auto w-[180px] max-w-full shrink-0 object-contain lg:w-[240px]',
+                        'loading' => 'lazy',
+                        'decoding' => 'async',
+                        'alt' => $logoAlt,
+                    ]) !!}
                 @endif
             </div>
 

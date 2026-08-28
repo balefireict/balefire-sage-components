@@ -19,4 +19,6 @@ echo Renderer::render( [
 	'content' => $attributes['content'] ?? '',
 	'termIds' => is_array( $term_ids ) ? $term_ids : [],
 	'limit'   => $attributes['limit'] ?? 3,
+	'logoId'  => $attributes['logoId'] ?? 0,
+	'logoAlt' => $attributes['logoAlt'] ?? '',
 ], get_block_wrapper_attributes() );
