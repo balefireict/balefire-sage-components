@@ -59,6 +59,7 @@ class Renderer {
 	 */
 	private static function defaults( array $props ): array {
 		return wp_parse_args( $props, [
+			'tabs'    => [],
 
 			'content' => '',
 		] );

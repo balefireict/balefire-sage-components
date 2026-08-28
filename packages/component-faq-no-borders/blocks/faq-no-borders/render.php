@@ -13,6 +13,7 @@ declare( strict_types=1 );
 use BalefireInc\Sage\FaqNoBorders\Renderer;
 
 echo Renderer::render( [
+	'categories'    => $attributes['categories'] ?? [],
 	'question' => $attributes['question'] ?? '',
 	'answer' => $attributes['answer'] ?? '',
 	'openByDefault' => $attributes['openByDefault'] ?? false,

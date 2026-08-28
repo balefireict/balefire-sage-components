@@ -23,6 +23,11 @@
   "allowedBlocks": [
     "balefire/faq-no-borders"
   ],
-  "attributes": {},
+  "attributes": {
+    "tabs": {
+      "type": "array",
+      "default": []
+    }
+  },
   "version": "1.0.0"
 }

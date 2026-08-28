@@ -32,6 +32,10 @@
     "openByDefault": {
       "type": "boolean",
       "default": false
+    },
+    "categories": {
+      "type": "array",
+      "default": []
     }
   },
   "version": "1.0.0"
