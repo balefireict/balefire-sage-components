@@ -50,9 +50,23 @@ $items = array_values(array_filter(
                         $url = (string) ($item['url'] ?? '');
                         $url = $url !== '' ? esc_url(str_starts_with($url, '/') ? home_url($url) : $url) : '';
                         $tag = $url !== '' ? 'a' : 'div';
+
+                        // A card pointing off-site opens in a new tab. Some of
+                        // these go straight to YouTube, and sending a reader
+                        // there in the same tab loses them mid-article.
+                        // Host-compared rather than matched against a list of
+                        // video providers, so it holds for whatever a site
+                        // links to.
+                        $external = $url !== ''
+                            && ($host = wp_parse_url($url, PHP_URL_HOST))
+                            && $host !== wp_parse_url(home_url(), PHP_URL_HOST);
                     @endphp
 
-                    <{{ $tag }} @if ($url !== '') href="{{ $url }}" @endif class="group overflow-hidden rounded-card border border-grey-50 bg-white shadow-card">
+                    <{{ $tag }}
+                        @if ($url !== '') href="{{ $url }}" @endif
+                        @if ($external) target="_blank" rel="noopener noreferrer" @endif
+                        class="group overflow-hidden rounded-card border border-grey-50 bg-white shadow-card"
+                    >
                         <div class="relative">
                             <div class="relative aspect-video overflow-hidden bg-grey-900">
                                 @if ($imageUrl !== '')
@@ -65,7 +79,12 @@ $items = array_values(array_filter(
                             @endif
                         </div>
                         <div class="p-6 lg:p-7">
-                            <h3 class="font-heading text-xl font-bold uppercase text-grey-900">{{ $item['title'] }}</h3>
+                            <h3 class="font-heading text-xl font-bold uppercase text-grey-900">
+                                {{ $item['title'] }}
+                                @if ($external)
+                                    <span class="sr-only">{{ __('(opens in a new tab)', 'sage') }}</span>
+                                @endif
+                            </h3>
                             @if (($item['text'] ?? '') !== '')
                                 <p class="mt-2 text-body-s text-grey-800">{{ $item['text'] }}</p>
                             @endif
