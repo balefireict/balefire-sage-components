@@ -5,10 +5,10 @@
   "title": "Link Card Grid",
   "category": "balefire",
   "icon": "grid-view",
-  "description": "'Related Guides' section: eyebrow, uppercase heading, and a responsive grid of arrow link cards.",
-  "keywords": ["links", "related", "guides", "cards", "balefire"],
+  "description": "Eyebrow, heading, and a responsive grid of cards: arrow links, icon service cards, call cards, plain text cards, or image tiles.",
+  "keywords": ["links", "related", "guides", "cards", "services", "icons", "balefire"],
   "textdomain": "balefire",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "render": "file:./render.php",
   "supports": {
     "anchor": true,
@@ -44,6 +44,18 @@
       "type": "number",
       "default": 3
     },
+    "cardStyle": {
+      "type": "string",
+      "default": "linked"
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "iconStyle": {
+      "type": "string",
+      "default": "disc"
+    },
     "items": {
       "type": "array",
       "default": [],
@@ -52,5 +64,6 @@
       }
     }
   },
-  "editorScript": "balefire-link-card-grid-editor"
+  "editorScript": "balefire-link-card-grid-editor",
+  "style": "balefire-link-card-grid"
 }

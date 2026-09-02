@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-timeline",
+    "description": "Timeline — eyebrow, heading and intro above a vertical list of labelled entries on an accent rail with dots; optionally beside an image in a 60/40 split.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\Timeline\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "timeline",
+            "block_name": "balefire/timeline",
+            "blade_component": "bma::components.timeline",
+            "owns_css": true
+        }
+    }
+}

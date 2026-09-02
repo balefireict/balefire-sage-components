@@ -14,6 +14,8 @@ use BalefireInc\Sage\Eyebrow\Renderer;
 
 echo Renderer::render( [
 	'text'          => $attributes['text'] ?? '',
+	'variant'       => $attributes['variant'] ?? 'marks',
+	'align'         => $attributes['align'] ?? 'left',
 	'showLeftMark'  => $attributes['showLeftMark'] ?? true,
 	'showRightMark' => $attributes['showRightMark'] ?? true,
 ], get_block_wrapper_attributes() );

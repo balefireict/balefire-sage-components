@@ -1,0 +1,78 @@
+/* ---------------------------------------------------------------
+   Split Feature — package-owned styles
+   Inlined by src/bootstrap.php against the src-less "balefire-split-feature"
+   handle that block.json's "style" points at. Tokens only; the consumer
+   theme sets --color-accent / --color-primary per page.
+   --------------------------------------------------------------- */
+
+/* Checklist (.bma-checklist)
+   Checkmark-in-circle bullets: accent-filled disc, white check. Named
+   without the block prefix on purpose so other blocks can reuse it. */
+.bma-checklist {
+    list-style: none;
+    padding: 0;
+    margin-inline: 0;
+    display: grid;
+    gap: var(--bma-checklist-gap, 0.9rem);
+}
+
+.bma-checklist > li {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    font-size: var(--bma-checklist-size, 1.05rem);
+    line-height: 1.5;
+}
+
+.bma-checklist > li > svg {
+    flex: none;
+    width: 26px;
+    height: 26px;
+    margin-top: 0.05rem;
+    padding: 5px;
+    border-radius: 999px;
+    background: var(--bma-checklist-bullet, var(--color-accent));
+    color: #fff;
+}
+
+.bma-checklist > li b,
+.bma-checklist > li strong {
+    color: inherit;
+    font-weight: 700;
+}
+
+.bma-checklist--cols {
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 720px) {
+    .bma-checklist--cols {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* On dark tones the accent may be the section colour itself; a light disc
+   keeps the bullets legible. */
+[data-bma-tone="primary"] .bma-checklist > li > svg,
+[data-bma-tone="dark"] .bma-checklist > li > svg,
+[data-bma-tone="accent"] .bma-checklist > li > svg {
+    background: var(--bma-checklist-bullet-on-dark, rgba(255, 255, 255, 0.18));
+}
+
+/* Soft panel (mediaType="panel")
+   Tinted card beside the copy: icon disc, title, text, one CTA. */
+.bma-split-feature__panel {
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+[data-bma-tone="primary"] .bma-split-feature__panel,
+[data-bma-tone="dark"] .bma-split-feature__panel,
+[data-bma-tone="accent"] .bma-split-feature__panel {
+    background: color-mix(in srgb, var(--color-light, #fff) 12%, transparent);
+}
+
+.bma-split-feature__panel-icon svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+}

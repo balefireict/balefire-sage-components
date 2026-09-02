@@ -56,13 +56,16 @@ class Renderer {
 	 */
 	private static function defaults( array $props ): array {
 		return wp_parse_args( $props, [
-			'tone'     => 'grey',
-			'eyebrow'  => '',
-			'title'    => '',
-			'content'  => '',
-			'ctaLabel' => 'Read the guide',
-			'columns'  => 3,
-			'items'    => [],
+			'tone'      => 'grey',
+			'eyebrow'   => '',
+			'title'     => '',
+			'content'   => '',
+			'ctaLabel'  => 'Read the guide',
+			'columns'   => 3,
+			'cardStyle' => 'linked',
+			'textAlign' => 'left',
+			'iconStyle' => 'disc',
+			'items'     => [],
 		] );
 	}
 }

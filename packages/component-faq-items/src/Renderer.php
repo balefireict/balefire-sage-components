@@ -54,14 +54,30 @@ class Renderer {
 	/**
 	 * Merge props with defaults (mirrors the Blade @props defaults).
 	 *
+	 * `content` is the inner-blocks HTML (inner source); `intro` is the copy
+	 * under the heading (the block's `content` attribute). `items` is the
+	 * query-source list of [question, answerHtml] pairs.
+	 *
 	 * @param array $props Raw props.
 	 * @return array Resolved props.
 	 */
 	private static function defaults( array $props ): array {
 		return wp_parse_args( $props, [
-			'tabs'    => [],
-
-			'content' => '',
+			'content'        => '',
+			'tabs'           => [],
+			'eyebrow'        => '',
+			'eyebrowVariant' => '',
+			'title'          => '',
+			'intro'          => '',
+			'ctaLabel'       => '',
+			'ctaUrl'         => '',
+			'layout'         => 'stack',
+			'tone'           => '',
+			'source'         => 'inner',
+			'items'          => [],
+			'exclusive'      => false,
+			'emitSchema'     => false,
+			'schemaItems'    => [],
 		] );
 	}
 }

@@ -1,0 +1,117 @@
+/* ---------------------------------------------------------------
+   Stat Band (balefire/stat-band)
+
+   Cells are separated by hairlines drawn with a 1px grid gap over a
+   line-coloured background-image; the cells paint the band colour
+   back on top via background-color: inherit, so the hairlines are
+   always the right colour for whatever tone the band carries and no
+   colour is repeated here.
+   --------------------------------------------------------------- */
+.bma-stat-band {
+    --bma-stat-line: color-mix(in srgb, var(--color-dark, #171717) 12%, transparent);
+    --bma-stat-pad: clamp(1.75rem, 3.5vw, 2.75rem);
+    --bma-stat-icon: 42px;
+}
+[data-bma-tone="primary"] .bma-stat-band__grid,
+[data-bma-tone="dark"] .bma-stat-band__grid,
+[data-bma-tone="accent"] .bma-stat-band__grid {
+    --bma-stat-line: rgba(255, 255, 255, 0.14);
+}
+
+/* Full-bleed: the tone sits on the section, so the container and band
+   wrappers pass it down. Card mode paints the tone on the band itself
+   (a Tailwind bg-* class), which must not be overridden here. */
+.bma-stat-band--none > div,
+.bma-stat-band--none .bma-stat-band__band {
+    background-color: inherit;
+}
+.bma-stat-band__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1px;
+    background-color: inherit;
+    background-image: linear-gradient(var(--bma-stat-line), var(--bma-stat-line));
+}
+.bma-stat-band__lead,
+.bma-stat-band__cell {
+    background-color: inherit;
+    padding: var(--bma-stat-pad);
+}
+.bma-stat-band__lead {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: none;
+}
+.bma-stat-band__lead > * {
+    max-width: 70ch;
+    margin: 0;
+}
+.bma-stat-band__lead > * + * {
+    margin-top: 0.75rem;
+}
+.bma-stat-band__lead strong,
+.bma-stat-band__lead b {
+    font-weight: 600;
+    color: var(--color-dark, #171717);
+}
+[data-bma-tone="primary"] .bma-stat-band__lead strong,
+[data-bma-tone="primary"] .bma-stat-band__lead b,
+[data-bma-tone="dark"] .bma-stat-band__lead strong,
+[data-bma-tone="dark"] .bma-stat-band__lead b,
+[data-bma-tone="accent"] .bma-stat-band__lead strong,
+[data-bma-tone="accent"] .bma-stat-band__lead b {
+    color: #fff;
+}
+.bma-stat-band__cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.bma-stat-band__icon {
+    display: block;
+    width: var(--bma-stat-icon);
+    height: var(--bma-stat-icon);
+    margin-bottom: 0.9rem;
+}
+.bma-stat-band__icon svg,
+.bma-stat-band__icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.bma-stat-band__value {
+    display: block;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    line-height: 1;
+}
+.bma-stat-band__unit {
+    margin-left: 0.05em;
+}
+.bma-stat-band__label {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.98rem;
+    line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+    .bma-stat-band__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (min-width: 1024px) {
+    .bma-stat-band__grid {
+        grid-template-columns: repeat(var(--bma-stat-columns, 4), minmax(0, 1fr));
+    }
+}
+
+/* Full-bleed: the band's own section padding already frames the grid,
+   so the top and bottom hairlines are the only ones needed. */
+.bma-stat-band--none .bma-stat-band__grid {
+    border-top: 1px solid var(--bma-stat-line);
+    border-bottom: 1px solid var(--bma-stat-line);
+}

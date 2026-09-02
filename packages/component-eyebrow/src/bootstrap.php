@@ -57,6 +57,8 @@ $bma_eyebrow_boot = static function (): void {
 			$atts = shortcode_atts(
 				[
 					'text'          => '',
+					'variant'       => 'marks',
+					'align'         => 'left',
 					'showleftmark'  => true,
 					'showrightmark' => true,
 				],
@@ -67,6 +69,8 @@ $bma_eyebrow_boot = static function (): void {
 			// Render via the same Blade view the block uses.
 			return \BalefireInc\Sage\Eyebrow\Renderer::render( [
 				'text'          => $atts['text'],
+				'variant'       => $atts['variant'],
+				'align'         => $atts['align'],
 				'showLeftMark'  => $atts['showleftmark'],
 				'showRightMark' => $atts['showrightmark'],
 			] );

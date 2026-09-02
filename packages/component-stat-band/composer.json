@@ -1,0 +1,26 @@
+{
+    "name": "balefireict/component-stat-band",
+    "description": "Stat band — a toned band with a lead paragraph across the top and 2–4 cells of icon, big headline-font value with optional unit, and label. Full-bleed or wrapped in a rounded card, with an optional buttons row.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "balefireict/component-support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BalefireInc\\Sage\\StatBand\\": "src/"
+        },
+        "files": [
+            "src/bootstrap.php"
+        ]
+    },
+    "extra": {
+        "balefire-sage-component": {
+            "slug": "stat-band",
+            "block_name": "balefire/stat-band",
+            "blade_component": "bma::components.stat-band",
+            "owns_css": true
+        }
+    }
+}

@@ -10,6 +10,9 @@
  * Paths are Feather (MIT), drawn on a 24x24 grid as strokes so they inherit
  * both color and weight from the surrounding text.
  *
+ * Items may also carry their own inline SVG (`iconSvg`), which wins over the
+ * bundled slug once it passes the strict allowlist in self::sanitize().
+ *
  * @package BalefireInc\Sage\NumberedFeatures
  */
 
@@ -79,5 +82,87 @@ class Icons {
 		return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" '
 			. 'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" '
 			. 'class="size-full">' . $paths[ $slug ] . '</svg>';
+	}
+
+	/**
+	 * Allowlist for author-supplied inline SVG.
+	 *
+	 * Geometry only: no <style>, <script>, <use>, <foreignObject>, event
+	 * handlers, ids or hrefs. wp_kses matches attribute names case-insensitively,
+	 * so the lowercase `viewbox` covers `viewBox`.
+	 *
+	 * @return array<string, array<string, bool>>
+	 */
+	public static function allowlist(): array {
+		$paint = array(
+			'fill'            => true,
+			'stroke'          => true,
+			'stroke-width'    => true,
+			'stroke-linecap'  => true,
+			'stroke-linejoin' => true,
+			'fill-rule'       => true,
+			'clip-rule'       => true,
+			'opacity'         => true,
+			'transform'       => true,
+			'class'           => true,
+		);
+
+		return array(
+			'svg'      => $paint + array(
+				'xmlns'       => true,
+				'viewbox'     => true,
+				'width'       => true,
+				'height'      => true,
+				'aria-hidden' => true,
+				'focusable'   => true,
+				'role'        => true,
+			),
+			'g'        => $paint,
+			'path'     => $paint + array( 'd' => true ),
+			'circle'   => $paint + array( 'cx' => true, 'cy' => true, 'r' => true ),
+			'rect'     => $paint + array( 'x' => true, 'y' => true, 'width' => true, 'height' => true, 'rx' => true, 'ry' => true ),
+			'line'     => $paint + array( 'x1' => true, 'y1' => true, 'x2' => true, 'y2' => true ),
+			'polyline' => $paint + array( 'points' => true ),
+			'polygon'  => $paint + array( 'points' => true ),
+		);
+	}
+
+	/**
+	 * Sanitize author-supplied inline SVG, or '' when nothing usable remains.
+	 *
+	 * @param string $svg Raw markup from the editor.
+	 * @return string Sanitized <svg>…</svg>, or ''.
+	 */
+	public static function sanitize( string $svg ): string {
+		$svg = trim( $svg );
+
+		if ( $svg === '' || stripos( $svg, '<svg' ) === false ) {
+			return '';
+		}
+
+		$clean = trim( wp_kses( $svg, self::allowlist() ) );
+
+		// A stripped-down blob that no longer opens with <svg> is not an icon.
+		if ( stripos( $clean, '<svg' ) !== 0 ) {
+			return '';
+		}
+
+		return $clean;
+	}
+
+	/**
+	 * Resolve the icon for one item: custom inline SVG first, bundled slug second.
+	 *
+	 * @param array $item Item as stored in the block's `items` attribute.
+	 * @return string SVG markup, or '' when the item has no icon.
+	 */
+	public static function forItem( array $item ): string {
+		$custom = self::sanitize( (string) ( $item['iconSvg'] ?? '' ) );
+
+		if ( $custom !== '' ) {
+			return $custom;
+		}
+
+		return self::svg( trim( (string) ( $item['icon'] ?? '' ) ) );
 	}
 }

@@ -5,7 +5,7 @@
   "title": "FAQ Items",
   "category": "balefire",
   "icon": "editor-help",
-  "description": "Wrapper block that groups FAQ accordion items together.",
+  "description": "FAQ section: optional eyebrow, heading, intro and CTA above (or beside) a list of accordion items, hand-authored or pulled from a post type.",
   "keywords": [
     "faq",
     "accordion",
@@ -15,10 +15,15 @@
   ],
   "textdomain": "balefire",
   "editorScript": "balefire-faq-items-editor",
+  "style": "balefire-faq-items",
   "render": "file:./render.php",
   "supports": {
     "anchor": true,
-    "className": true
+    "className": true,
+    "align": [
+      "wide",
+      "full"
+    ]
   },
   "allowedBlocks": [
     "balefire/faq-no-borders"
@@ -27,7 +32,74 @@
     "tabs": {
       "type": "array",
       "default": []
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "eyebrowVariant": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "ctaUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "layout": {
+      "type": "string",
+      "default": "stack"
+    },
+    "tone": {
+      "type": "string",
+      "default": ""
+    },
+    "source": {
+      "type": "string",
+      "default": "inner"
+    },
+    "postType": {
+      "type": "string",
+      "default": "faq"
+    },
+    "taxonomy": {
+      "type": "string",
+      "default": "faq_topic"
+    },
+    "termIds": {
+      "type": "array",
+      "default": []
+    },
+    "limit": {
+      "type": "number",
+      "default": 8
+    },
+    "orderBy": {
+      "type": "string",
+      "default": "menu_order"
+    },
+    "exclusive": {
+      "type": "boolean",
+      "default": false
+    },
+    "emitSchema": {
+      "type": "boolean",
+      "default": false
+    },
+    "align": {
+      "type": "string"
     }
   },
-  "version": "1.0.0"
+  "version": "1.1.0"
 }

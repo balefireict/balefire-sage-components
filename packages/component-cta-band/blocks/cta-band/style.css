@@ -1,0 +1,95 @@
+/* ---------------------------------------------------------------
+   CTA Band — package-owned styles
+   Inlined by src/bootstrap.php against the src-less "balefire-cta-band"
+   handle that block.json's "style" points at. Buttons and the heading
+   come from the shared layers in component-support (.bma-btn, .bma-heading);
+   only the band-specific pieces live here.
+   --------------------------------------------------------------- */
+
+/* Dark primary button (primaryStyle="dark")
+   Reproduces the original accu-shot bg-grey-900 / hover:bg-black button
+   on top of the shared .bma-btn base. */
+.bma-btn--dark {
+    background: var(--color-grey-900, var(--color-dark));
+    border-color: var(--color-grey-900, var(--color-dark));
+    color: #fff;
+}
+
+.bma-btn--dark:hover {
+    background: black;
+    border-color: black;
+}
+
+/* Pill link (tertiaryLabel / tertiaryUrl)
+   Translucent white pill with a small icon slot; on the light "secondary"
+   tone it flips to a dark wash so it stays legible. */
+.bma-cta-band__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.bma-cta-band__chip:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+[data-bma-tone="secondary"] .bma-cta-band__chip {
+    color: var(--color-dark);
+    background: color-mix(in srgb, var(--color-dark) 8%, transparent);
+    border-color: color-mix(in srgb, var(--color-dark) 25%, transparent);
+}
+
+[data-bma-tone="secondary"] .bma-cta-band__chip:hover {
+    color: var(--color-dark);
+    background: color-mix(in srgb, var(--color-dark) 14%, transparent);
+    border-color: color-mix(in srgb, var(--color-dark) 40%, transparent);
+}
+
+.bma-cta-band__chip-icon {
+    flex: none;
+    width: 18px;
+    height: 18px;
+}
+
+.bma-cta-band__chip-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Background motif (showMotif)
+   Decorative, absolutely positioned behind the content; the section is
+   already position:relative + overflow:hidden when the motif renders. */
+.bma-cta-band__motif {
+    position: absolute;
+    left: -40px;
+    top: -30px;
+    width: 320px;
+    height: 320px;
+    color: var(--bma-cta-motif-color, white);
+    opacity: var(--bma-cta-motif-opacity, 0.06);
+    pointer-events: none;
+}
+
+[data-bma-tone="secondary"] .bma-cta-band__motif {
+    color: var(--bma-cta-motif-color, var(--color-dark));
+}
+
+@media (max-width: 640px) {
+    .bma-cta-band__motif {
+        width: 220px;
+        height: 220px;
+    }
+}

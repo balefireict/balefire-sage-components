@@ -5,16 +5,18 @@
   "title": "Split Feature",
   "category": "balefire",
   "icon": "align-pull-right",
-  "description": "Two-column guide-page section: eyebrow/title/copy/buttons beside an image, stat card, or nested content (tables).",
+  "description": "Two-column guide-page section: eyebrow/title/copy/checklist/buttons beside an image, stat card, soft panel, or nested content (tables).",
   "keywords": [
     "split",
     "feature",
     "stat",
     "table",
+    "checklist",
+    "panel",
     "balefire"
   ],
   "textdomain": "balefire",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "render": "file:./render.php",
   "supports": {
     "anchor": true,
@@ -43,6 +45,21 @@
     "content": {
       "type": "string",
       "default": ""
+    },
+    "items": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string"
+      }
+    },
+    "listColumns": {
+      "type": "number",
+      "default": 1
+    },
+    "ratio": {
+      "type": "string",
+      "default": "even"
     },
     "primaryLabel": {
       "type": "string",
@@ -91,7 +108,28 @@
     "statNote": {
       "type": "string",
       "default": ""
+    },
+    "panelIcon": {
+      "type": "string",
+      "default": ""
+    },
+    "panelTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "panelText": {
+      "type": "string",
+      "default": ""
+    },
+    "panelCtaLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "panelCtaUrl": {
+      "type": "string",
+      "default": ""
     }
   },
-  "editorScript": "balefire-split-feature-editor"
+  "editorScript": "balefire-split-feature-editor",
+  "style": "balefire-split-feature"
 }

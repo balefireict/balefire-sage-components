@@ -51,12 +51,20 @@ class Renderer {
 	 */
 	private static function defaults( array $props ): array {
 		return wp_parse_args( $props, [
-			'eyebrow'  => 'The B&T Difference',
-			'title'    => '',
-			'content'  => '',
-			'ctaLabel' => '',
-			'ctaUrl'   => '',
-			'items'    => [],
+			'eyebrow'        => 'The B&T Difference',
+			'eyebrowVariant' => 'marks',
+			'title'          => '',
+			'titleAccent'    => '',
+			'content'        => '',
+			'ctaLabel'       => '',
+			'ctaUrl'         => '',
+			'primaryLabel'   => '',
+			'primaryUrl'     => '',
+			'secondaryLabel' => '',
+			'secondaryUrl'   => '',
+			'items'          => [],
+			'layout'         => 'stack',
+			'tone'           => 'white',
 		] );
 	}
 }

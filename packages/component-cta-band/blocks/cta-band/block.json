@@ -5,10 +5,10 @@
   "title": "CTA Band",
   "category": "balefire",
   "icon": "megaphone",
-  "description": "Full-bleed primary-red closing call to action: centered uppercase heading, supporting copy, dual buttons.",
+  "description": "Full-bleed toned closing call to action: centered heading with accent clause, supporting copy, dual buttons, optional pill link and background motif.",
   "keywords": ["cta", "band", "closing", "conversion", "balefire"],
   "textdomain": "balefire",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "render": "file:./render.php",
   "supports": {
     "anchor": true,
@@ -19,6 +19,10 @@
     "align": {
       "type": "string",
       "default": "full"
+    },
+    "tone": {
+      "type": "string",
+      "default": "primary"
     },
     "title": {
       "type": "string",
@@ -36,6 +40,10 @@
       "type": "string",
       "default": ""
     },
+    "primaryStyle": {
+      "type": "string",
+      "default": "cta"
+    },
     "secondaryLabel": {
       "type": "string",
       "default": ""
@@ -43,7 +51,24 @@
     "secondaryUrl": {
       "type": "string",
       "default": ""
+    },
+    "tertiaryLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "tertiaryUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "tertiaryIconSvg": {
+      "type": "string",
+      "default": ""
+    },
+    "showMotif": {
+      "type": "boolean",
+      "default": false
     }
   },
-  "editorScript": "balefire-cta-band-editor"
+  "editorScript": "balefire-cta-band-editor",
+  "style": "balefire-cta-band"
 }

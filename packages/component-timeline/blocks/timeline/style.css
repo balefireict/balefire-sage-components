@@ -1,0 +1,103 @@
+/* ---------------------------------------------------------------
+   Timeline (balefire/timeline)
+
+   A vertical rail on the left with a dot per entry, both in the
+   accent token. The dot's ring matches the band tone so it reads
+   as punched out of the rail.
+   --------------------------------------------------------------- */
+.bma-timeline {
+    --bma-tl-accent: var(--color-accent);
+    --bma-tl-rail: color-mix(in srgb, var(--color-accent) 28%, transparent);
+    --bma-tl-ring: #fff;
+    --bma-tl-dot: 14px;
+    --bma-tl-gutter: 2rem;
+}
+.bma-timeline[data-bma-tone="primary"] {
+    --bma-tl-ring: var(--color-primary, #171717);
+}
+.bma-timeline[data-bma-tone="dark"] {
+    --bma-tl-ring: var(--color-dark, #171717);
+}
+.bma-timeline[data-bma-tone="accent"] {
+    --bma-tl-accent: #fff;
+    --bma-tl-rail: rgba(255, 255, 255, 0.35);
+    --bma-tl-ring: var(--color-accent, #171717);
+}
+.bma-timeline[data-bma-tone="secondary"] {
+    --bma-tl-ring: var(--color-secondary, #fff);
+}
+.bma-timeline[data-bma-tone="surface"] {
+    --bma-tl-ring: var(--color-surface, #fff);
+}
+.bma-timeline[data-bma-tone="surface-muted"] {
+    --bma-tl-ring: var(--color-surface-muted, #fff);
+}
+.bma-timeline[data-bma-tone="light"] {
+    --bma-tl-ring: var(--color-light, #fff);
+}
+
+.bma-timeline__list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 var(--bma-tl-gutter);
+    position: relative;
+}
+.bma-timeline__list::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--bma-tl-dot) / 2 - 1px);
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    background: var(--bma-tl-rail);
+    border-radius: 2px;
+}
+.bma-timeline__item {
+    position: relative;
+    padding-bottom: 1.8rem;
+}
+.bma-timeline__item:last-child {
+    padding-bottom: 0;
+}
+.bma-timeline__item::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * var(--bma-tl-gutter));
+    top: 0.35rem;
+    width: var(--bma-tl-dot);
+    height: var(--bma-tl-dot);
+    border-radius: 999px;
+    background: var(--bma-tl-accent);
+    border: 3px solid var(--bma-tl-ring);
+    box-shadow: 0 0 0 2px var(--bma-tl-rail);
+    box-sizing: content-box;
+    transform: translateX(-3px);
+    z-index: 1;
+}
+.bma-timeline__label {
+    display: block;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+}
+.bma-timeline__body {
+    margin-top: 0.4rem;
+    line-height: 1.6;
+    max-width: 60ch;
+}
+.bma-timeline__body > * {
+    margin: 0;
+}
+.bma-timeline__body > * + * {
+    margin-top: 0.6rem;
+}
+
+@media (min-width: 640px) {
+    .bma-timeline {
+        --bma-tl-gutter: 2.5rem;
+    }
+    .bma-timeline__label {
+        font-size: 1.2rem;
+    }
+}

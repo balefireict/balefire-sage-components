@@ -1,0 +1,178 @@
+/* ---------------------------------------------------------------
+   Process Steps (balefire/process-steps)
+
+   Numbered discs on a connector rail. Every colour is a theme token
+   with a neutral fallback; a per-item colour arrives as --item-accent
+   on the <li> and wins over the accent token.
+
+   Tone-dependent knobs (rail colour, disc ring) key off the section's
+   data-bma-tone so a dark band gets a light rail and a ring that
+   matches its own background.
+   --------------------------------------------------------------- */
+.bma-process-steps {
+    --bma-step-disc: 46px;
+    --bma-step-rail: color-mix(in srgb, var(--color-dark, #171717) 15%, transparent);
+    --bma-step-ring: #fff;
+}
+.bma-process-steps[data-bma-tone="primary"] {
+    --bma-step-rail: rgba(255, 255, 255, 0.22);
+    --bma-step-ring: var(--color-primary, #171717);
+}
+.bma-process-steps[data-bma-tone="dark"] {
+    --bma-step-rail: rgba(255, 255, 255, 0.22);
+    --bma-step-ring: var(--color-dark, #171717);
+}
+.bma-process-steps[data-bma-tone="accent"] {
+    --bma-step-rail: rgba(255, 255, 255, 0.28);
+    --bma-step-ring: var(--color-accent, #171717);
+}
+.bma-process-steps[data-bma-tone="secondary"] {
+    --bma-step-ring: var(--color-secondary, #fff);
+}
+.bma-process-steps[data-bma-tone="surface"] {
+    --bma-step-ring: var(--color-surface, #fff);
+}
+.bma-process-steps[data-bma-tone="surface-muted"] {
+    --bma-step-ring: var(--color-surface-muted, #fff);
+}
+.bma-process-steps[data-bma-tone="light"] {
+    --bma-step-ring: var(--color-light, #fff);
+}
+
+.bma-process-steps__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.bma-process-steps__step {
+    position: relative;
+}
+.bma-process-steps__body > * {
+    margin: 0;
+}
+.bma-process-steps__title + .bma-process-steps__text {
+    margin-top: 0.3rem;
+}
+
+/* Disc ------------------------------------------------------------- */
+.bma-process-steps__num {
+    width: var(--bma-step-disc);
+    height: var(--bma-step-disc);
+    border-radius: 999px;
+    background: var(--item-accent, var(--color-accent));
+    color: #fff;
+    border: 3px solid var(--bma-step-ring);
+    box-shadow: 0 6px 16px -8px var(--item-accent, var(--color-accent));
+    font-weight: 600;
+    font-size: 1.15rem;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 1;
+    flex: none;
+}
+.bma-process-steps--plain .bma-process-steps__num {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: var(--item-accent, var(--color-accent));
+    font-size: 1.75rem;
+}
+
+/* Vertical: rows on a rail --------------------------------------- */
+.bma-process-steps__list--vertical {
+    display: grid;
+    gap: 0;
+    max-width: 760px;
+}
+.bma-process-steps--stack .bma-process-steps__list--vertical {
+    margin-inline: auto;
+}
+.bma-process-steps__list--vertical .bma-process-steps__step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.15rem;
+    padding-bottom: 1.7rem;
+}
+.bma-process-steps__list--vertical .bma-process-steps__step:last-child {
+    padding-bottom: 0;
+}
+.bma-process-steps__list--vertical .bma-process-steps__step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--bma-step-disc) / 2 - 1px);
+    top: var(--bma-step-disc);
+    bottom: 0;
+    width: 2px;
+    background: var(--bma-step-rail);
+}
+.bma-process-steps--plain .bma-process-steps__list--vertical .bma-process-steps__step::before {
+    display: none;
+}
+
+/* Horizontal: bubble chain ---------------------------------------- */
+.bma-process-steps__list--horizontal {
+    --bma-step-disc: 68px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem 1rem;
+}
+.bma-process-steps__list--horizontal .bma-process-steps__step {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.65rem;
+}
+.bma-process-steps__list--horizontal .bma-process-steps__num {
+    border-width: 4px;
+    font-size: 1.4rem;
+    box-shadow: 0 8px 20px -8px var(--item-accent, var(--color-accent));
+}
+.bma-process-steps__list--horizontal .bma-process-steps__text {
+    max-width: 26ch;
+}
+.bma-process-steps__list--horizontal .bma-process-steps__title {
+    font-size: 1.1rem;
+}
+@media (min-width: 640px) {
+    .bma-process-steps__list--horizontal {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (min-width: 1024px) {
+    .bma-process-steps__list--horizontal {
+        grid-template-columns: repeat(var(--bma-steps-count, 4), minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+    /* Dashed connector behind the bubbles, inset so it starts and ends
+       under the first and last disc rather than at the grid edges. */
+    .bma-process-steps__list--horizontal::before {
+        content: "";
+        position: absolute;
+        top: calc(var(--bma-step-disc) / 2);
+        left: calc(100% / var(--bma-steps-count, 4) / 2);
+        right: calc(100% / var(--bma-steps-count, 4) / 2);
+        height: 0;
+        border-top: 2px dashed var(--bma-step-rail);
+        z-index: 0;
+    }
+    .bma-process-steps--plain .bma-process-steps__list--horizontal::before {
+        display: none;
+    }
+}
+
+/* Split layout: when the intro sits beside a horizontal chain the
+   chain has half the width, so let it wrap two-up. */
+@media (min-width: 1024px) {
+    .bma-process-steps--split .bma-process-steps__list--horizontal {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem 1rem;
+    }
+    .bma-process-steps--split .bma-process-steps__list--horizontal::before {
+        display: none;
+    }
+}

@@ -42,6 +42,18 @@ $bma_cta_band_boot = static function (): void {
 		}
 	}
 
+	// --- Block style ------------------------------------------------------
+	// Same no-URL rule as the editor script: the CSS is inlined against a
+	// src-less handle that block.json's "style" points at.
+	if ( function_exists( 'wp_register_style' ) ) {
+		wp_register_style( 'balefire-cta-band', false, [], null );
+
+		$style_css = file_get_contents( __DIR__ . '/../blocks/cta-band/style.css' );
+		if ( $style_css !== false ) {
+			wp_add_inline_style( 'balefire-cta-band', $style_css );
+		}
+	}
+
 	// --- Gutenberg block ---------------------------------------------------
 	if ( function_exists( 'register_block_type' ) ) {
 		register_block_type( __DIR__ . '/../blocks/cta-band' );

@@ -2,9 +2,9 @@
 /**
  * balefireict/component-numbered-features — bootstrap.
  *
- * Registers the Gutenberg block, the [bma_numbered_features] shortcode and the
- * editor script. The hover reveal is pure CSS (see the Blade view), so this
- * component ships no front-end JavaScript.
+ * Registers the Gutenberg block, the [bma_numbered_features] shortcode, the
+ * editor script and the block style. The hover reveal is pure CSS (see the
+ * Blade view), so this component ships no front-end JavaScript.
  *
  * Auto-loaded by Composer (autoload.files in composer.json).
  *
@@ -54,6 +54,18 @@ $bma_numbered_features_boot = static function (): void {
 		}
 	}
 
+	// --- Block style ------------------------------------------------------
+	// Same no-URL rule as the editor script: the split layout's row CSS is
+	// inlined against a src-less handle that block.json's "style" points at.
+	if ( function_exists( 'wp_register_style' ) ) {
+		wp_register_style( 'balefire-numbered-features', false, [], null );
+
+		$style_css = file_get_contents( __DIR__ . '/../blocks/numbered-features/style.css' );
+		if ( $style_css !== false ) {
+			wp_add_inline_style( 'balefire-numbered-features', $style_css );
+		}
+	}
+
 	// --- Gutenberg block ---------------------------------------------------
 	if ( function_exists( 'register_block_type' ) ) {
 		register_block_type( __DIR__ . '/../blocks/numbered-features' );
@@ -66,12 +78,20 @@ $bma_numbered_features_boot = static function (): void {
 		add_shortcode( 'bma_numbered_features', static function ( array $atts ): string {
 			$atts = shortcode_atts(
 				[
-					'eyebrow'  => 'The B&T Difference',
-					'title'    => '',
-					'content'  => '',
-					'ctalabel' => '',
-					'ctaurl'   => '',
-					'items'    => '',
+					'eyebrow'        => 'The B&T Difference',
+					'eyebrowvariant' => 'marks',
+					'title'          => '',
+					'titleaccent'    => '',
+					'content'        => '',
+					'ctalabel'       => '',
+					'ctaurl'         => '',
+					'primarylabel'   => '',
+					'primaryurl'     => '',
+					'secondarylabel' => '',
+					'secondaryurl'   => '',
+					'items'          => '',
+					'layout'         => 'stack',
+					'tone'           => 'white',
 				],
 				$atts,
 				'bma_numbered_features'
@@ -86,12 +106,20 @@ $bma_numbered_features_boot = static function (): void {
 
 			// Render via the same Blade view the block uses.
 			return \BalefireInc\Sage\NumberedFeatures\Renderer::render( [
-				'eyebrow'  => $atts['eyebrow'],
-				'title'    => $atts['title'],
-				'content'  => $atts['content'],
-				'ctaLabel' => $atts['ctalabel'],
-				'ctaUrl'   => $atts['ctaurl'],
-				'items'    => $items,
+				'eyebrow'        => $atts['eyebrow'],
+				'eyebrowVariant' => $atts['eyebrowvariant'],
+				'title'          => $atts['title'],
+				'titleAccent'    => $atts['titleaccent'],
+				'content'        => $atts['content'],
+				'ctaLabel'       => $atts['ctalabel'],
+				'ctaUrl'         => $atts['ctaurl'],
+				'primaryLabel'   => $atts['primarylabel'],
+				'primaryUrl'     => $atts['primaryurl'],
+				'secondaryLabel' => $atts['secondarylabel'],
+				'secondaryUrl'   => $atts['secondaryurl'],
+				'items'          => $items,
+				'layout'         => $atts['layout'],
+				'tone'           => $atts['tone'],
 			] );
 		} );
 	}

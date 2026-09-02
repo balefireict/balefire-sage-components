@@ -5,16 +5,18 @@
   "title": "Highlight Banner",
   "category": "balefire",
   "icon": "tag",
-  "description": "Icon + title + copy + optional CTA in a tinted or card band.",
+  "description": "Icon + title + copy + optional CTA in a tinted or card band, or as a compact inline callout (info or alert).",
   "keywords": [
     "banner",
     "highlight",
     "callout",
+    "note",
+    "alert",
     "cta",
     "balefire"
   ],
   "textdomain": "balefire",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "render": "file:./render.php",
   "supports": {
     "anchor": true,
@@ -36,6 +38,10 @@
       "type": "string",
       "default": "tint"
     },
+    "intent": {
+      "type": "string",
+      "default": "info"
+    },
     "title": {
       "type": "string",
       "default": ""
@@ -51,7 +57,16 @@
     "ctaUrl": {
       "type": "string",
       "default": ""
+    },
+    "iconSvg": {
+      "type": "string",
+      "default": ""
+    },
+    "iconId": {
+      "type": "number",
+      "default": 0
     }
   },
-  "editorScript": "balefire-highlight-banner-editor"
+  "editorScript": "balefire-highlight-banner-editor",
+  "style": "balefire-highlight-banner"
 }

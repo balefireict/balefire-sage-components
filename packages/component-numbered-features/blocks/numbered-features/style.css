@@ -1,0 +1,166 @@
+/* ---------------------------------------------------------------
+   Numbered Features — split layout
+   Intro column beside an editorial index of rows. Inlined by
+   src/bootstrap.php against the "balefire-numbered-features" handle.
+
+   Colors come from the tone map on the section (classes) and from
+   each row's --item-accent (set by the accentColor attribute),
+   falling back to the page accent token. The stack layout is
+   utility-only and needs nothing here.
+   --------------------------------------------------------------- */
+
+.bma-numbered-features--split .bma-numbered-features__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .bma-numbered-features--split .bma-numbered-features__grid {
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        gap: clamp(2rem, 5vw, 4.5rem);
+    }
+
+    .bma-numbered-features--split .bma-numbered-features__intro {
+        position: sticky;
+        top: var(--bma-sticky-top, 110px);
+    }
+}
+
+/* Rows ---------------------------------------------------------- */
+
+.bma-numbered-features__row {
+    --bma-nf-accent: var(--item-accent, var(--color-accent));
+
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    padding: 1.5rem 0.5rem 1.5rem 0;
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    transition: padding-left 0.2s ease;
+}
+
+/* Hover rail: a 3px bar in the row's accent that grows in from the left. */
+.bma-numbered-features__row::before {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    border-radius: 3px;
+    background: var(--bma-nf-accent);
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+}
+
+a.bma-numbered-features__row:hover,
+a.bma-numbered-features__row:focus-visible {
+    padding-left: 1rem;
+    text-decoration: none;
+}
+
+a.bma-numbered-features__row:hover::before,
+a.bma-numbered-features__row:focus-visible::before {
+    transform: scaleY(1);
+}
+
+.bma-numbered-features__num {
+    flex: none;
+    width: 2.2rem;
+    font-family: var(--font-headline, var(--font-heading, inherit));
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--bma-nf-accent);
+}
+
+.bma-numbered-features__icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 999px;
+    background: var(--bma-nf-accent);
+    color: #fff;
+}
+
+.bma-numbered-features__icon svg {
+    width: 27px;
+    height: 27px;
+    display: block;
+}
+
+.bma-numbered-features__body {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.bma-numbered-features__name {
+    margin: 0;
+    font-family: var(--font-headline, var(--font-heading, inherit));
+    font-weight: var(--bma-heading-weight, 600);
+    font-size: 1.3rem;
+    line-height: 1.15;
+    letter-spacing: var(--bma-heading-tracking, 0);
+}
+
+.bma-numbered-features__desc {
+    margin: 0.25rem 0 0;
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+
+.bma-numbered-features__arrow {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    color: var(--bma-nf-accent);
+    transition: transform 0.2s ease;
+}
+
+.bma-numbered-features__arrow svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+a.bma-numbered-features__row:hover .bma-numbered-features__arrow,
+a.bma-numbered-features__row:focus-visible .bma-numbered-features__arrow {
+    transform: translateX(5px);
+}
+
+/* Dark tones: the number keeps its accent; the disc keeps white glyphs. */
+[data-bma-tone="primary"] .bma-numbered-features__row,
+[data-bma-tone="dark"] .bma-numbered-features__row,
+[data-bma-tone="accent"] .bma-numbered-features__row {
+    --bma-nf-accent: var(--item-accent, #fff);
+}
+
+[data-bma-tone="primary"] .bma-numbered-features__icon,
+[data-bma-tone="dark"] .bma-numbered-features__icon,
+[data-bma-tone="accent"] .bma-numbered-features__icon {
+    color: var(--color-dark);
+}
+
+@media (max-width: 560px) {
+    .bma-numbered-features__row {
+        gap: 0.9rem;
+    }
+
+    .bma-numbered-features__icon {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bma-numbered-features__row,
+    .bma-numbered-features__row::before,
+    .bma-numbered-features__arrow {
+        transition: none;
+    }
+}

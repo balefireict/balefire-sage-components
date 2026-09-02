@@ -1,6 +1,6 @@
 {
     "name": "balefireict/component-link-card-grid",
-    "description": "Link card grid — 'Related Guides' section: eyebrow, uppercase heading, and a responsive grid of arrow link cards. Built for the accu-shot guide/hub page system.",
+    "description": "Link card grid — eyebrow, heading, and a responsive grid of cards: arrow links, icon service cards, call cards, plain text cards, or image tiles. Built for the accu-shot guide/hub page system; extended for MHASCK service/route grids.",
     "type": "library",
     "license": "MIT",
     "require": {
@@ -21,7 +21,7 @@
             "slug": "link-card-grid",
             "block_name": "balefire/link-card-grid",
             "blade_component": "bma::components.link-card-grid",
-            "owns_css": false
+            "owns_css": true
         }
     }
 }

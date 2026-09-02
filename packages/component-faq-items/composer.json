@@ -1,11 +1,13 @@
 {
     "name": "balefireict/component-faq-items",
-    "description": "FAQ Items \u2014 Wrapper block that groups FAQ accordion items together.",
+    "description": "FAQ Items — FAQ section with optional head column and hand-authored or queried accordion items.",
     "type": "library",
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "balefireict/component-support": "*"
+        "balefireict/component-support": "*",
+        "balefireict/component-eyebrow": "*",
+        "balefireict/component-faq-no-borders": "*"
     },
     "autoload": {
         "psr-4": {
@@ -20,7 +22,7 @@
             "slug": "faq-items",
             "block_name": "balefire/faq-items",
             "blade_component": "bma::components.faq-items",
-            "owns_css": false
+            "owns_css": true
         }
     }
 }

@@ -1,0 +1,104 @@
+/* ---------------------------------------------------------------
+   Highlight Banner — package-owned styles
+   Inlined by src/bootstrap.php against the src-less
+   "balefire-highlight-banner" handle that block.json's "style" points at.
+   Tokens only: --color-accent is remapped per page by the consumer theme;
+   --color-danger is optional and falls back to a neutral alert red.
+   --------------------------------------------------------------- */
+
+.bma-highlight-banner {
+    --bma-hb-color: var(--color-accent);
+}
+
+.bma-highlight-banner--alert {
+    --bma-hb-color: var(--color-danger, #c54d4c);
+}
+
+/* Inline callout (variant="inline")
+   Icon disc + bold lead + copy in one row; no section, no band padding. */
+.bma-highlight-banner--inline {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    max-width: var(--bma-hb-max-width, 760px);
+    padding: 1.15rem 1.35rem;
+    border: 1px solid color-mix(in srgb, var(--bma-hb-color) 28%, transparent);
+    border-left: 4px solid var(--bma-hb-color);
+    border-radius: var(--radius-card, 0.75rem);
+    background: color-mix(in srgb, var(--bma-hb-color) 9%, transparent);
+}
+
+.bma-highlight-banner--inline .bma-highlight-banner__icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: var(--bma-hb-color);
+    color: #fff;
+}
+
+.bma-highlight-banner--inline .bma-highlight-banner__icon svg,
+.bma-highlight-banner--inline .bma-highlight-banner__icon img {
+    width: 22px;
+    height: 22px;
+    display: block;
+    object-fit: contain;
+}
+
+.bma-highlight-banner__body {
+    min-width: 0;
+}
+
+.bma-highlight-banner__text {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--color-dark, inherit);
+}
+
+.bma-highlight-banner__lead {
+    font-weight: 700;
+    color: var(--color-dark, inherit);
+}
+
+.bma-highlight-banner__lead em {
+    font-style: italic;
+    color: var(--bma-hb-color);
+}
+
+.bma-highlight-banner--inline .bma-highlight-banner__cta {
+    margin-top: 0.85rem;
+}
+
+/* Band variants (tint | card): the icon slot fills with whatever was
+   supplied — pasted SVG, an attachment image, or the built-in glyph. */
+.bma-highlight-banner__icon svg,
+.bma-highlight-banner__icon-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Alert intent: danger colour on the disc and the band border/wash.
+   Unlayered class selectors beat the Tailwind utilities on the same
+   elements, so the tone/variant defaults do not need to be removed. */
+.bma-highlight-banner--alert .bma-highlight-banner__icon {
+    background: var(--bma-hb-color);
+    color: #fff;
+}
+
+.bma-highlight-banner--alert .bma-highlight-banner__band {
+    border-color: color-mix(in srgb, var(--bma-hb-color) 35%, transparent);
+    background: color-mix(in srgb, var(--bma-hb-color) 5%, transparent);
+}
+
+.bma-highlight-banner--alert .bma-highlight-banner__lead,
+.bma-highlight-banner--alert .bma-highlight-banner__text a:not(.bma-btn) {
+    color: var(--bma-hb-color);
+}
+
+.bma-highlight-banner--alert .bma-highlight-banner__text a:not(.bma-btn) {
+    font-weight: 700;
+}

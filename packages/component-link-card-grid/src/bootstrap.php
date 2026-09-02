@@ -42,6 +42,19 @@ $bma_link_card_grid_boot = static function (): void {
 		}
 	}
 
+	// --- Block style ------------------------------------------------------
+	// Same no-URL rule as the editor script: the CSS is inlined against a
+	// src-less handle that block.json's "style" points at, so it only prints
+	// on pages where the block renders.
+	if ( function_exists( 'wp_register_style' ) ) {
+		wp_register_style( 'balefire-link-card-grid', false, [], null );
+
+		$style_css = file_get_contents( __DIR__ . '/../blocks/link-card-grid/style.css' );
+		if ( $style_css !== false ) {
+			wp_add_inline_style( 'balefire-link-card-grid', $style_css );
+		}
+	}
+
 	// --- Gutenberg block ---------------------------------------------------
 	if ( function_exists( 'register_block_type' ) ) {
 		register_block_type( __DIR__ . '/../blocks/link-card-grid' );

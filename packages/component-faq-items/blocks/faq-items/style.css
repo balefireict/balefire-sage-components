@@ -1,0 +1,286 @@
+/* ---------------------------------------------------------------
+   FAQ Items — section shell, head column, accordion skin.
+
+   Inlined by the bootstrap against the `balefire-faq-items` style
+   handle, so it only prints on pages where the block renders.
+
+   Two layers, both opt-in:
+   - `.bma-faq-items__*` hooks exist only when the block has a title,
+     eyebrow, intro, CTA, a tone, or the split layout. A block with the
+     original attributes renders the original markup and none of this
+     applies.
+   - The accordion skin keys off `[data-bma-tone]`. With no tone set the
+     legacy `.faq-section-*` selectors stay the consumer theme's to style
+     (accu-shot ships its own), so nothing here can restyle them.
+
+   Every color is a theme token; the only literals are fallbacks.
+   --------------------------------------------------------------- */
+
+/* ---- Section shell ------------------------------------------- */
+.bma-faq-items[data-bma-tone] {
+    padding-block: var(--bma-faq-padding-block, var(--spacing-section, clamp(3.5rem, 7vw, 6rem)));
+}
+
+.bma-faq-items__inner {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--bma-faq-max-width, var(--container-content, 1200px));
+    margin-inline: auto;
+    padding-inline: var(--bma-faq-padding-inline, var(--spacing-gutter, 1.5rem));
+}
+
+/* Stack: head centered above the list. */
+.bma-faq-items--stack .bma-faq-items__head {
+    max-width: 60ch;
+    margin-inline: auto;
+    margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+    text-align: center;
+}
+
+.bma-faq-items--stack .bma-faq-items__eyebrow .bma-eyebrow {
+    justify-content: center;
+}
+
+/* Split: head column left (5/12), list right (7/12); the head sticks so
+   it stays in view while a long list scrolls. */
+.bma-faq-items--split .bma-faq-items__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .bma-faq-items--split .bma-faq-items__inner {
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+
+    .bma-faq-items--split .bma-faq-items__head {
+        position: sticky;
+        top: var(--bma-faq-sticky-top, 110px);
+    }
+}
+
+/* ---- Head ------------------------------------------------------ */
+/* The eyebrow lockup carries its own text color; the wrapper's tone
+   class wins here so the eyebrow follows the section tone. */
+.bma-faq-items__eyebrow .bma-eyebrow {
+    margin: 0;
+    color: inherit;
+}
+
+.bma-faq-items__title {
+    margin: 0;
+    font-size: var(--bma-faq-title-size, clamp(1.9rem, 3.4vw, 2.75rem));
+}
+
+.bma-faq-items__eyebrow + .bma-faq-items__title {
+    margin-top: 0.9rem;
+}
+
+.bma-faq-items__intro {
+    max-width: 60ch;
+    margin-top: 1rem;
+    font-size: var(--text-body-m, 1.0625rem);
+    line-height: 1.6;
+}
+
+.bma-faq-items--stack .bma-faq-items__intro {
+    margin-inline: auto;
+}
+
+.bma-faq-items__intro > :first-child {
+    margin-top: 0;
+}
+
+.bma-faq-items__intro > :last-child {
+    margin-bottom: 0;
+}
+
+.bma-faq-items__intro p + p {
+    margin-top: 0.75em;
+}
+
+.bma-faq-items__cta {
+    margin: 1.5rem 0 0;
+}
+
+/* ---- Accordion skin (toned blocks only) ------------------------ */
+.bma-faq-items[data-bma-tone] .faq-section-item {
+    margin: 0 0 0.85rem;
+    overflow: hidden;
+    border: 1px solid var(--bma-faq-line, color-mix(in srgb, var(--color-dark) 15%, transparent));
+    border-radius: var(--radius-card, 18px);
+    background: var(--bma-faq-item-bg, var(--color-white, #fff));
+    color: var(--color-dark);
+    transition: box-shadow 0.2s ease;
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-item:last-child {
+    margin-bottom: 0;
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-item[open] {
+    box-shadow: var(--bma-faq-open-shadow, 0 2px 10px color-mix(in srgb, var(--color-dark) 8%, transparent));
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-question {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 3.75rem 1.25rem 1.4rem;
+    cursor: pointer;
+    list-style: none;
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-question::-webkit-details-marker {
+    display: none;
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-question:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -2px;
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-question-title {
+    margin: 0;
+    font-family: var(--font-headline, var(--font-heading, inherit));
+    font-size: 1.1rem;
+    font-weight: var(--bma-heading-weight, 600);
+    line-height: 1.35;
+    color: inherit;
+}
+
+/* Plus badge. The circle is ::before and the glyph is ::after so both
+   are painted with tokens (a data-URI SVG cannot read a CSS variable);
+   the glyph rotates into an "x" when the item is open. */
+.bma-faq-items[data-bma-tone] .faq-section-question::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 1.4rem;
+    width: 26px;
+    height: 26px;
+    margin-top: -13px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+    transition: background-color 0.2s ease;
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-question::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: calc(1.4rem + 5px);
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    background: var(--color-accent);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 4h2v16h-2z'/%3E%3Cpath d='M4 11h16v2H4z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 4h2v16h-2z'/%3E%3Cpath d='M4 11h16v2H4z'/%3E%3C/svg%3E") center / contain no-repeat;
+    transition: transform 0.25s ease, background-color 0.2s ease;
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-item[open] > .faq-section-question::before {
+    background: var(--color-accent);
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-item[open] > .faq-section-question::after {
+    background: var(--color-white, #fff);
+    transform: rotate(45deg);
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-answer {
+    max-width: 70ch;
+    padding: 0 1.4rem 1.3rem;
+    line-height: 1.6;
+    color: var(--color-muted, color-mix(in srgb, var(--color-dark) 70%, transparent));
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-answer > :first-child {
+    margin-top: 0;
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-answer > :last-child {
+    margin-bottom: 0;
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-answer p + p,
+.bma-faq-items[data-bma-tone] .faq-section-answer p + ul,
+.bma-faq-items[data-bma-tone] .faq-section-answer p + ol {
+    margin-top: 0.75em;
+}
+
+.bma-faq-items[data-bma-tone] .faq-section-answer a {
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+/* Dark tones: translucent cards, light text, inverted badge. */
+.bma-faq-items[data-bma-tone="primary"] .faq-section-item,
+.bma-faq-items[data-bma-tone="dark"] .faq-section-item,
+.bma-faq-items[data-bma-tone="accent"] .faq-section-item {
+    border-color: color-mix(in srgb, var(--color-light, #fff) 18%, transparent);
+    background: color-mix(in srgb, var(--color-light, #fff) 8%, transparent);
+    color: var(--color-light, #fff);
+}
+
+.bma-faq-items[data-bma-tone="primary"] .faq-section-item[open],
+.bma-faq-items[data-bma-tone="dark"] .faq-section-item[open],
+.bma-faq-items[data-bma-tone="accent"] .faq-section-item[open] {
+    box-shadow: none;
+    background: color-mix(in srgb, var(--color-light, #fff) 12%, transparent);
+}
+
+.bma-faq-items[data-bma-tone="primary"] .faq-section-answer,
+.bma-faq-items[data-bma-tone="dark"] .faq-section-answer,
+.bma-faq-items[data-bma-tone="accent"] .faq-section-answer {
+    color: color-mix(in srgb, var(--color-light, #fff) 78%, transparent);
+}
+
+.bma-faq-items[data-bma-tone="primary"] .faq-section-answer a,
+.bma-faq-items[data-bma-tone="dark"] .faq-section-answer a,
+.bma-faq-items[data-bma-tone="accent"] .faq-section-answer a {
+    color: var(--color-light, #fff);
+}
+
+.bma-faq-items[data-bma-tone="primary"] .faq-section-question::before,
+.bma-faq-items[data-bma-tone="dark"] .faq-section-question::before,
+.bma-faq-items[data-bma-tone="accent"] .faq-section-question::before {
+    background: color-mix(in srgb, var(--color-light, #fff) 14%, transparent);
+}
+
+.bma-faq-items[data-bma-tone="primary"] .faq-section-question::after,
+.bma-faq-items[data-bma-tone="dark"] .faq-section-question::after,
+.bma-faq-items[data-bma-tone="accent"] .faq-section-question::after {
+    background: var(--color-light, #fff);
+}
+
+.bma-faq-items[data-bma-tone="primary"] .faq-section-item[open] > .faq-section-question::before,
+.bma-faq-items[data-bma-tone="dark"] .faq-section-item[open] > .faq-section-question::before,
+.bma-faq-items[data-bma-tone="accent"] .faq-section-item[open] > .faq-section-question::before {
+    background: var(--color-light, #fff);
+}
+
+.bma-faq-items[data-bma-tone="primary"] .faq-section-item[open] > .faq-section-question::after,
+.bma-faq-items[data-bma-tone="dark"] .faq-section-item[open] > .faq-section-question::after,
+.bma-faq-items[data-bma-tone="accent"] .faq-section-item[open] > .faq-section-question::after {
+    background: var(--color-dark);
+}
+
+.bma-faq-items[data-bma-tone="primary"] .faq-section-question:focus-visible,
+.bma-faq-items[data-bma-tone="dark"] .faq-section-question:focus-visible,
+.bma-faq-items[data-bma-tone="accent"] .faq-section-question:focus-visible {
+    outline-color: var(--color-light, #fff);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bma-faq-items[data-bma-tone] .faq-section-item,
+    .bma-faq-items[data-bma-tone] .faq-section-question::before,
+    .bma-faq-items[data-bma-tone] .faq-section-question::after {
+        transition: none;
+    }
+}

@@ -60,6 +60,9 @@ class Renderer {
 	private static function defaults( array $props ): array {
 		return wp_parse_args( $props, [
 			'text'          => '',
+			'variant'       => 'marks',
+			'align'         => 'left',
+			'color'         => 'text-primary',
 			'showLeftMark'  => true,
 			'showRightMark' => true,
 		] );
