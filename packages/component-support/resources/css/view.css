@@ -562,3 +562,117 @@
         animation: none;
     }
 }
+
+/* ---------------------------------------------------------------
+   Shared button layer
+   Blocks render <a class="bma-btn bma-btn--primary"> instead of
+   carrying their own utility strings. Every knob is a theme token
+   with a neutral fallback, so a theme restyles buttons once.
+   --------------------------------------------------------------- */
+.bma-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: var(--bma-btn-padding, 0.85rem 1.4rem);
+    border-radius: var(--radius-semi, 0.5rem);
+    border: 2px solid transparent;
+    font-family: var(--bma-btn-font, var(--font-primary, inherit));
+    font-weight: var(--bma-btn-weight, 700);
+    font-size: var(--bma-btn-size, 1rem);
+    line-height: 1.2;
+    letter-spacing: var(--bma-btn-tracking, 0);
+    text-transform: var(--bma-btn-transform, none);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.bma-btn:hover { transform: translateY(-2px); }
+.bma-btn--primary {
+    background: var(--color-cta, var(--color-primary));
+    border-color: var(--color-cta, var(--color-primary));
+    color: var(--color-cta-text, #fff);
+}
+.bma-btn--primary:hover {
+    background: var(--color-cta-dark, var(--color-primary-dark, var(--color-primary)));
+    border-color: var(--color-cta-dark, var(--color-primary-dark, var(--color-primary)));
+}
+.bma-btn--secondary {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+}
+.bma-btn--secondary:hover {
+    background: var(--color-primary-dark, var(--color-primary));
+    border-color: var(--color-primary-dark, var(--color-primary));
+}
+.bma-btn--accent {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #fff;
+}
+.bma-btn--accent:hover {
+    background: var(--color-accent-dark, var(--color-accent));
+    border-color: var(--color-accent-dark, var(--color-accent));
+}
+.bma-btn--outline {
+    background: transparent;
+    border-color: currentColor;
+    color: inherit;
+}
+.bma-btn--outline:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
+.bma-btn--ghost {
+    background: transparent;
+    border-color: transparent;
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+.bma-btn .bma-btn__icon { width: 1.125em; height: 1.125em; flex: none; }
+.bma-btn .bma-btn__icon svg { width: 100%; height: 100%; display: block; }
+[data-bma-tone="primary"] .bma-btn--outline,
+[data-bma-tone="dark"] .bma-btn--outline,
+[data-bma-tone="accent"] .bma-btn--outline { color: #fff; border-color: rgba(255, 255, 255, 0.4); }
+[data-bma-tone="primary"] .bma-btn--outline:hover,
+[data-bma-tone="dark"] .bma-btn--outline:hover,
+[data-bma-tone="accent"] .bma-btn--outline:hover { background: #fff; color: var(--color-dark); border-color: #fff; }
+@media (prefers-reduced-motion: reduce) { .bma-btn { transition: none; } .bma-btn:hover { transform: none; } }
+
+/* ---------------------------------------------------------------
+   Shared heading layer
+   Headline font with theme-controlled transform, weight, tracking.
+   Defaults reproduce the original uppercase bold look; a theme
+   that wants sentence-case serif headings sets the three tokens.
+   An <em> inside is the accent clause (italic, accent color).
+   --------------------------------------------------------------- */
+.bma-heading {
+    font-family: var(--font-headline, var(--font-heading, inherit));
+    font-weight: var(--bma-heading-weight, 700);
+    text-transform: var(--bma-heading-transform, uppercase);
+    letter-spacing: var(--bma-heading-tracking, 0);
+    line-height: 1.15;
+}
+.bma-heading em {
+    font-style: var(--bma-heading-em-style, italic);
+    font-weight: var(--bma-heading-em-weight, 500);
+    color: var(--color-accent);
+}
+[data-bma-tone="primary"] .bma-heading em,
+[data-bma-tone="dark"] .bma-heading em,
+[data-bma-tone="accent"] .bma-heading em { color: var(--bma-heading-em-on-dark, #fff); }
+
+/* ---------------------------------------------------------------
+   Eyebrow bar variant (component-eyebrow variant="bar")
+   A short rule before the label, in currentColor.
+   --------------------------------------------------------------- */
+.bma-eyebrow--bar { display: inline-flex; align-items: center; gap: 0.6rem; }
+.bma-eyebrow--bar::before {
+    content: "";
+    width: var(--bma-eyebrow-bar-width, 26px);
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    flex: none;
+}
+.bma-eyebrow--center { justify-content: center; width: 100%; }

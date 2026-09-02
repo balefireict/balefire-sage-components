@@ -145,3 +145,54 @@ reference. Tailwind v4 resolves the `var()` chain at runtime.
 
 The 30-second rebrand: change 6 hex values in theme.css, rebuild.
 
+
+---
+
+## Shared layers (buttons, headings, eyebrow bar)
+
+`component-support/resources/css/view.css` ships three plain-CSS layers
+that blocks render instead of carrying their own utility strings. All of
+them read theme tokens with fallbacks that reproduce the original look, so
+an existing consumer changes nothing.
+
+| Class | Tokens read | Default |
+|-------|-------------|---------|
+| `.bma-btn.bma-btn--primary` | `--color-cta`, `--color-cta-text`, `--color-cta-dark`, `--radius-semi`, `--bma-btn-*` | primary color, white text, `--radius-semi` |
+| `.bma-btn--secondary` / `--accent` / `--outline` / `--ghost` | `--color-primary(-dark)`, `--color-accent(-dark)` | |
+| `.bma-heading` | `--font-headline`, `--bma-heading-weight`, `--bma-heading-transform`, `--bma-heading-tracking` | bold uppercase headline font |
+| `.bma-heading em` | `--color-accent`, `--bma-heading-em-style`, `--bma-heading-em-weight`, `--bma-heading-em-on-dark` | italic accent clause |
+| `.bma-eyebrow--bar` | `--bma-eyebrow-bar-width` | 26px rule in currentColor |
+
+Headings in blocks accept `<em>` inside the title attribute: that is the
+accent clause. Blocks sanitize titles with `wp_kses` allowing `em`, `br`
+and `span`.
+
+### Tones
+
+`SectionStyles::tones()` lists the tones every block may offer:
+`white`, `light`, `surface`, `surface-muted`, `primary`, `secondary`,
+`accent`, `dark`. `surface` and `surface-muted` are the "paper" and "sand"
+bands of a warm palette; map `--color-surface-muted` in `@theme` (falls
+back to nothing, so define it). Each tone map also carries a `highlight`
+key: the utility for accent-colored text on that tone (`text-accent` on
+light tones, `text-white` on dark ones).
+
+### Optional tokens (additions)
+
+| @theme variable | Default | Usage |
+|-----------------|---------|-------|
+| `--color-cta`, `--color-cta-text`, `--color-cta-dark` | primary / white / primary-dark | The one button color a site wants everywhere, when it differs from primary |
+| `--color-surface-muted` | *(none)* | second light band tone |
+| `--color-light` | white | light text on dark tones (used by the tone maps) |
+| `--bma-heading-transform` / `-weight` / `-tracking` | uppercase / 700 / 0 | heading layer |
+| `--radius-semi` | 0.5rem | buttons, pills |
+
+### Tokens the plain CSS already consumes
+
+`view.css` and `layout.css` also read these; document them in the consumer
+`@theme` or accept the fallbacks:
+
+`--color-grey-25`, `--color-grey-50`, `--color-grey-400`,
+`--color-grey-800`, `--color-grey-900`, `--font-heading`, `--font-primary`,
+`--font-mono`, `--radius-semi`, `--spacing-section`, `--text-body-m` (+
+`--line-height`), `--text-body-s`, `--text-body-xs`, `--auto-grid-gap`.

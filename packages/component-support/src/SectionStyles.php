@@ -57,6 +57,26 @@ final class SectionStyles
         };
     }
 
+    /**
+     * Tones every block may offer. Editor SelectControls read the same list
+     * so a new tone lands in every block at once.
+     *
+     * @return array<string,string> value => label
+     */
+    public static function tones(): array
+    {
+        return [
+            'white' => 'White',
+            'light' => 'Light',
+            'surface' => 'Surface',
+            'surface-muted' => 'Surface (muted)',
+            'primary' => 'Primary',
+            'secondary' => 'Secondary',
+            'accent' => 'Accent',
+            'dark' => 'Dark',
+        ];
+    }
+
     public static function surface(string $tone): array
     {
         $darkMuted = 'text-[color-mix(in srgb,var(--color-dark)_65%,transparent)]';
@@ -82,6 +102,7 @@ final class SectionStyles
                 'ring' => 'ring-[color-mix(in srgb,var(--color-dark)_10%,transparent)]',
                 'border' => 'border-[color-mix(in srgb,var(--color-dark)_15%,transparent)]',
                 'eyebrow' => 'text-primary',
+                'highlight' => 'text-accent',
             ],
             'light' => [
                 'section' => 'bg-light',
@@ -98,6 +119,7 @@ final class SectionStyles
                 'ring' => 'ring-[color-mix(in srgb,var(--color-dark)_10%,transparent)]',
                 'border' => 'border-[color-mix(in srgb,var(--color-dark)_15%,transparent)]',
                 'eyebrow' => 'text-primary',
+                'highlight' => 'text-accent',
             ],
             'primary' => [
                 'section' => 'bg-primary',
@@ -114,6 +136,7 @@ final class SectionStyles
                 'ring' => 'ring-[color-mix(in srgb,var(--color-light)_15%,transparent)]',
                 'border' => 'border-[color-mix(in srgb,var(--color-light)_18%,transparent)]',
                 'eyebrow' => 'text-[color-mix(in srgb,var(--color-light)_88%,transparent)]',
+                'highlight' => 'text-white',
             ],
             'secondary' => [
                 'section' => 'bg-secondary',
@@ -130,6 +153,7 @@ final class SectionStyles
                 'ring' => 'ring-[color-mix(in srgb,var(--color-dark)_12%,transparent)]',
                 'border' => 'border-[color-mix(in srgb,var(--color-dark)_15%,transparent)]',
                 'eyebrow' => 'text-dark',
+                'highlight' => 'text-accent',
             ],
             'dark' => [
                 'section' => 'bg-dark',
@@ -146,6 +170,58 @@ final class SectionStyles
                 'ring' => 'ring-[color-mix(in srgb,var(--color-light)_15%,transparent)]',
                 'border' => 'border-[color-mix(in srgb,var(--color-light)_18%,transparent)]',
                 'eyebrow' => 'text-[color-mix(in srgb,var(--color-light)_88%,transparent)]',
+                'highlight' => 'text-white',
+            ],
+            'surface' => [
+                'section' => 'bg-surface',
+                'heading' => 'text-dark',
+                'body' => $darkMuted,
+                'bodyStrong' => 'text-[color-mix(in srgb,var(--color-dark)_80%,transparent)]',
+                'meta' => $darkSubtle,
+                'metaSoft' => $darkSoft,
+                'badge' => 'bg-[color-mix(in srgb,var(--color-accent)_12%,transparent)]',
+                'accent' => 'text-primary',
+                'chipBg' => 'bg-[color-mix(in srgb,var(--color-dark)_6%,transparent)]',
+                'chipBgHover' => 'hover:bg-[color-mix(in srgb,var(--color-dark)_10%,transparent)]',
+                'chipText' => 'text-[color-mix(in srgb,var(--color-dark)_75%,transparent)]',
+                'ring' => 'ring-[color-mix(in srgb,var(--color-dark)_10%,transparent)]',
+                'border' => 'border-[color-mix(in srgb,var(--color-dark)_15%,transparent)]',
+                'eyebrow' => 'text-accent',
+                'highlight' => 'text-accent',
+            ],
+            'surface-muted' => [
+                'section' => 'bg-surface-muted',
+                'heading' => 'text-dark',
+                'body' => $darkMuted,
+                'bodyStrong' => 'text-[color-mix(in srgb,var(--color-dark)_80%,transparent)]',
+                'meta' => $darkSubtle,
+                'metaSoft' => $darkSoft,
+                'badge' => 'bg-[color-mix(in srgb,var(--color-accent)_12%,transparent)]',
+                'accent' => 'text-primary',
+                'chipBg' => 'bg-[color-mix(in srgb,var(--color-dark)_6%,transparent)]',
+                'chipBgHover' => 'hover:bg-[color-mix(in srgb,var(--color-dark)_10%,transparent)]',
+                'chipText' => 'text-[color-mix(in srgb,var(--color-dark)_75%,transparent)]',
+                'ring' => 'ring-[color-mix(in srgb,var(--color-dark)_10%,transparent)]',
+                'border' => 'border-[color-mix(in srgb,var(--color-dark)_15%,transparent)]',
+                'eyebrow' => 'text-accent',
+                'highlight' => 'text-accent',
+            ],
+            'accent' => [
+                'section' => 'bg-accent',
+                'heading' => 'text-white',
+                'body' => $lightMuted,
+                'bodyStrong' => 'text-[color-mix(in srgb,var(--color-light)_88%,transparent)]',
+                'meta' => $lightSubtle,
+                'metaSoft' => $lightSoft,
+                'badge' => 'bg-[color-mix(in srgb,var(--color-light)_12%,transparent)]',
+                'accent' => 'text-white',
+                'chipBg' => 'bg-[color-mix(in srgb,var(--color-light)_12%,transparent)]',
+                'chipBgHover' => 'hover:bg-[color-mix(in srgb,var(--color-light)_18%,transparent)]',
+                'chipText' => 'text-[color-mix(in srgb,var(--color-light)_92%,transparent)]',
+                'ring' => 'ring-[color-mix(in srgb,var(--color-light)_15%,transparent)]',
+                'border' => 'border-[color-mix(in srgb,var(--color-light)_18%,transparent)]',
+                'eyebrow' => 'text-[color-mix(in srgb,var(--color-light)_88%,transparent)]',
+                'highlight' => 'text-white',
             ],
             default => [
                 'section' => 'bg-transparent',
@@ -162,6 +238,7 @@ final class SectionStyles
                 'ring' => 'ring-[color-mix(in srgb,var(--color-dark)_10%,transparent)]',
                 'border' => 'border-[color-mix(in srgb,var(--color-dark)_15%,transparent)]',
                 'eyebrow' => 'text-primary',
+                'highlight' => 'text-accent',
             ],
         };
     }

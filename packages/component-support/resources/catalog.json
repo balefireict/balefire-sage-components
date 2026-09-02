@@ -112,6 +112,21 @@
       ]
     },
     {
+      "slug": "compare-cards",
+      "active": true,
+      "title": "Compare Cards",
+      "description": "Side-by-side A/B comparison cards (e.g. Authentic vs Counterfeit) with check/cross cells.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "columns",
+      "keywords": [
+        "compare",
+        "versus",
+        "authentic",
+        "counterfeit"
+      ]
+    },
+    {
       "slug": "container",
       "active": true,
       "title": "Container",
@@ -127,6 +142,21 @@
       ],
       "dependsOn": [
         "section"
+      ]
+    },
+    {
+      "slug": "cta-band",
+      "active": true,
+      "title": "CTA Band",
+      "description": "Full-bleed primary-red closing call to action: centered uppercase heading, supporting copy, dual buttons.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "megaphone",
+      "keywords": [
+        "cta",
+        "band",
+        "closing",
+        "conversion"
       ]
     },
     {
@@ -286,6 +316,21 @@
       ]
     },
     {
+      "slug": "guide-hero",
+      "active": true,
+      "title": "Guide Hero",
+      "description": "Dark split hero for guide/hub pages: breadcrumb trail, eyebrow, title, intro copy, dual buttons, right-column image.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "cover-image",
+      "keywords": [
+        "hero",
+        "guide",
+        "header",
+        "breadcrumb"
+      ]
+    },
+    {
       "slug": "hero-headline",
       "active": true,
       "title": "Hero Headline",
@@ -312,6 +357,21 @@
         "video",
         "header",
         "banner"
+      ]
+    },
+    {
+      "slug": "highlight-banner",
+      "active": true,
+      "title": "Highlight Banner",
+      "description": "Icon + title + copy + optional CTA in a tinted or card band.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "tag",
+      "keywords": [
+        "banner",
+        "highlight",
+        "callout",
+        "cta"
       ]
     },
     {
@@ -362,6 +422,21 @@
       ]
     },
     {
+      "slug": "info-cards",
+      "active": true,
+      "title": "Info Cards",
+      "description": "Guide-page section with heading, intro, and a grid of check-icon or numbered-step cards with bold lead-ins.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "index-card",
+      "keywords": [
+        "cards",
+        "steps",
+        "checklist",
+        "grid"
+      ]
+    },
+    {
       "slug": "layout-grid",
       "active": true,
       "title": "Layout Grid",
@@ -377,6 +452,21 @@
       ],
       "dependsOn": [
         "container"
+      ]
+    },
+    {
+      "slug": "link-card-grid",
+      "active": true,
+      "title": "Link Card Grid",
+      "description": "'Related Guides' section: eyebrow, uppercase heading, and a responsive grid of arrow link cards.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "grid-view",
+      "keywords": [
+        "links",
+        "related",
+        "guides",
+        "cards"
       ]
     },
     {
@@ -485,6 +575,22 @@
       ]
     },
     {
+      "slug": "process-steps",
+      "active": true,
+      "title": "Process Steps",
+      "description": "Numbered steps with a connector: vertical list or horizontal chain, optional intro column with eyebrow, heading, copy, buttons and inner blocks.",
+      "category": "design",
+      "type": "content",
+      "icon": "editor-ol",
+      "keywords": [
+        "steps",
+        "process",
+        "how it works",
+        "numbered",
+        "timeline"
+      ]
+    },
+    {
       "slug": "product-highlight-bar",
       "active": true,
       "title": "Product Highlight Bar",
@@ -513,6 +619,21 @@
         "switcher",
         "tabs",
         "woocommerce"
+      ]
+    },
+    {
+      "slug": "prose-section",
+      "active": true,
+      "title": "Prose Section",
+      "description": "Alternating white/grey page section with eyebrow, uppercase heading, and a constrained prose body.",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "text-page",
+      "keywords": [
+        "prose",
+        "section",
+        "text",
+        "copy"
       ]
     },
     {
@@ -654,6 +775,37 @@
       ]
     },
     {
+      "slug": "split-feature",
+      "active": true,
+      "title": "Split Feature",
+      "description": "Two-column guide-page section: eyebrow/title/copy/buttons beside an image, stat card, or nested content (tables).",
+      "category": "design",
+      "type": "dynamic",
+      "icon": "align-pull-right",
+      "keywords": [
+        "split",
+        "feature",
+        "stat",
+        "table"
+      ]
+    },
+    {
+      "slug": "stat-band",
+      "active": true,
+      "title": "Stat Band",
+      "description": "Full-width band with a lead paragraph and 2 to 4 stat cells (value, unit, label, icon).",
+      "category": "design",
+      "type": "content",
+      "icon": "chart-bar",
+      "keywords": [
+        "stats",
+        "numbers",
+        "impact",
+        "band",
+        "trust"
+      ]
+    },
+    {
       "slug": "team-member-centered",
       "active": true,
       "title": "Team Member (Centered)",
@@ -667,6 +819,21 @@
         "profile",
         "person",
         "card"
+      ]
+    },
+    {
+      "slug": "timeline",
+      "active": true,
+      "title": "Timeline",
+      "description": "Vertical timeline of labeled entries (year or milestone plus text) with an optional side image.",
+      "category": "design",
+      "type": "content",
+      "icon": "backup",
+      "keywords": [
+        "timeline",
+        "history",
+        "milestones",
+        "years"
       ]
     },
     {
@@ -684,126 +851,6 @@
         "3-col",
         "industry",
         "bundle"
-      ]
-    },
-    {
-      "slug": "guide-hero",
-      "active": true,
-      "title": "Guide Hero",
-      "description": "Dark split hero for guide/hub pages: breadcrumb trail, eyebrow, title, intro copy, dual buttons, right-column image.",
-      "category": "design",
-      "type": "dynamic",
-      "icon": "cover-image",
-      "keywords": [
-        "hero",
-        "guide",
-        "header",
-        "breadcrumb"
-      ]
-    },
-    {
-      "slug": "prose-section",
-      "active": true,
-      "title": "Prose Section",
-      "description": "Alternating white/grey page section with eyebrow, uppercase heading, and a constrained prose body.",
-      "category": "design",
-      "type": "dynamic",
-      "icon": "text-page",
-      "keywords": [
-        "prose",
-        "section",
-        "text",
-        "copy"
-      ]
-    },
-    {
-      "slug": "link-card-grid",
-      "active": true,
-      "title": "Link Card Grid",
-      "description": "'Related Guides' section: eyebrow, uppercase heading, and a responsive grid of arrow link cards.",
-      "category": "design",
-      "type": "dynamic",
-      "icon": "grid-view",
-      "keywords": [
-        "links",
-        "related",
-        "guides",
-        "cards"
-      ]
-    },
-    {
-      "slug": "cta-band",
-      "active": true,
-      "title": "CTA Band",
-      "description": "Full-bleed primary-red closing call to action: centered uppercase heading, supporting copy, dual buttons.",
-      "category": "design",
-      "type": "dynamic",
-      "icon": "megaphone",
-      "keywords": [
-        "cta",
-        "band",
-        "closing",
-        "conversion"
-      ]
-    },
-    {
-      "slug": "info-cards",
-      "active": true,
-      "title": "Info Cards",
-      "description": "Guide-page section with heading, intro, and a grid of check-icon or numbered-step cards with bold lead-ins.",
-      "category": "design",
-      "type": "dynamic",
-      "icon": "index-card",
-      "keywords": [
-        "cards",
-        "steps",
-        "checklist",
-        "grid"
-      ]
-    },
-    {
-      "slug": "split-feature",
-      "active": true,
-      "title": "Split Feature",
-      "description": "Two-column guide-page section: eyebrow/title/copy/buttons beside an image, stat card, or nested content (tables).",
-      "category": "design",
-      "type": "dynamic",
-      "icon": "align-pull-right",
-      "keywords": [
-        "split",
-        "feature",
-        "stat",
-        "table"
-      ]
-    },
-    {
-      "slug": "highlight-banner",
-      "active": true,
-      "title": "Highlight Banner",
-      "description": "Icon + title + copy + optional CTA in a tinted or card band.",
-      "category": "design",
-      "type": "dynamic",
-      "icon": "tag",
-      "keywords": [
-        "banner",
-        "highlight",
-        "callout",
-        "cta"
-      ]
-    },
-    {
-      "slug": "compare-cards",
-      "active": true,
-      "title": "Compare Cards",
-      "description": "Side-by-side A/B comparison cards (e.g. Authentic vs Counterfeit) with check/cross cells.",
-      "category": "design",
-      "type": "dynamic",
-      "icon": "columns",
-      "keywords": [
-        "compare",
-        "versus",
-        "authentic",
-        "counterfeit"
       ]
     },
     {
