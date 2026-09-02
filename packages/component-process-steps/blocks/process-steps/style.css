@@ -176,3 +176,8 @@
         display: none;
     }
 }
+
+/* Inner blocks slot in the intro column. A plain rule rather than a Tailwind
+   arbitrary variant: a ">" inside a class attribute trips wptexturize, which
+   runs on block output and breaks the tag. */
+.bma-process-steps__inner > :first-child { margin-top: 0; }

@@ -97,7 +97,7 @@ $headingSize = $layout === 'split'
 
                         @if ($innerContent !== '')
                             {{-- InnerBlocks slot: a callout dropped into the intro column. --}}
-                            <div class="bma-process-steps__inner mt-6 [&>*:first-child]:mt-0">
+                            <div class="bma-process-steps__inner mt-6">
                                 {!! $innerContent !!}
                             </div>
                         @endif
