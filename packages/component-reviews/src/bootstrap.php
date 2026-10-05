@@ -73,6 +73,7 @@ $bma_product_switcher_boot = static function (): void {
 					'title'   => '',
 					'count'   => 9,
 					'orderby' => 'date',
+					'layout'  => 'carousel',
 				],
 				$atts,
 				'bma_reviews'
@@ -88,6 +89,7 @@ $bma_product_switcher_boot = static function (): void {
 				'title'   => $atts['title'],
 				'count'   => (int) $atts['count'],
 				'orderby' => $atts['orderby'],
+				'layout'  => $atts['layout'],
 			] );
 		} );
 	}

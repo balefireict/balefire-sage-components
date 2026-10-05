@@ -19,4 +19,5 @@ echo Renderer::render( [
 	'title'   => $attributes['title'] ?? '',
 	'count'   => $attributes['count'] ?? 9,
 	'orderby' => $attributes['orderby'] ?? 'date',
+	'layout'  => $attributes['layout'] ?? 'carousel',
 ], get_block_wrapper_attributes() );

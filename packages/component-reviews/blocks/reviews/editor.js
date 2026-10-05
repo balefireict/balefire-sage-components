@@ -22,6 +22,7 @@ const metadata = {
         "title": { "type": "string", "default": "Trusted by Shooters, Hunters, and Professionals" },
         "count": { "type": "number", "default": 9 },
         "orderby": { "type": "string", "default": "date" },
+        "layout": { "type": "string", "default": "carousel" },
         "align": { "type": "string", "default": "full" }
     },
     "editorScript": "balefire-reviews-editor"
@@ -36,6 +37,11 @@ const { createElement: el, Fragment } = wp.element;
 const ORDER_OPTIONS = [
     { label: __('Newest first', 'balefire'), value: 'date' },
     { label: __('Random', 'balefire'), value: 'rand' },
+];
+
+const LAYOUT_OPTIONS = [
+    { label: __('Carousel', 'balefire'), value: 'carousel' },
+    { label: __('Masonry grid, paginated', 'balefire'), value: 'grid' },
 ];
 
 registerBlockType(metadata.name, {
@@ -61,15 +67,25 @@ registerBlockType(metadata.name, {
                     })
                 ),
                 el(PanelBody, { title: __('Reviews', 'balefire'), initialOpen: true },
+                    el(SelectControl, {
+                        label: __('Layout', 'balefire'),
+                        value: attributes.layout || 'carousel',
+                        options: LAYOUT_OPTIONS,
+                        onChange: (value) => setAttributes({ layout: value }),
+                    }),
                     el(RangeControl, {
-                        label: __('How many', 'balefire'),
-                        help: __('Pulled from Reviews. Three show at a time; the rest are reachable with the arrows.', 'balefire'),
+                        label: attributes.layout === 'grid' ? __('Per page', 'balefire') : __('How many', 'balefire'),
+                        help: attributes.layout === 'grid'
+                            ? __('Pulled from Reviews. Every review is shown, this many per page.', 'balefire')
+                            : __('Pulled from Reviews. Three show at a time; the rest are reachable with the arrows.', 'balefire'),
                         value: Number(attributes.count) || 9,
                         min: 1,
                         max: 24,
                         onChange: (value) => setAttributes({ count: value }),
                     }),
-                    el(SelectControl, {
+                    // Random order cannot be paginated (each page would draw a
+                    // fresh shuffle), so the grid always runs newest first.
+                    attributes.layout !== 'grid' && el(SelectControl, {
                         label: __('Order', 'balefire'),
                         value: attributes.orderby || 'date',
                         options: ORDER_OPTIONS,

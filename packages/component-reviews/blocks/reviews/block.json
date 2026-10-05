@@ -20,6 +20,7 @@
     "title": { "type": "string", "default": "Trusted by Shooters, Hunters, and Professionals" },
     "count": { "type": "number", "default": 9 },
     "orderby": { "type": "string", "default": "date" },
+    "layout": { "type": "string", "default": "carousel" },
     "align": { "type": "string", "default": "full" }
   },
   "editorScript": "balefire-reviews-editor"

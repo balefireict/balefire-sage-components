@@ -3,12 +3,31 @@
     'title' => '',
     'count' => 9,
     'orderby' => 'date',
+    'layout' => 'carousel',
 ])
 
 @php
 use BalefireInc\Sage\Reviews\Reviews;
 
-$cards = Reviews::cards((int) $count, (string) $orderby);
+// 'grid' is opt-in: a masonry wall of every review, `count` per page, with
+// real /page/N/ links. Anything else keeps the original carousel.
+$grid = $layout === 'grid';
+
+if ($grid) {
+    $result = Reviews::page((int) $count, Reviews::currentPage());
+    $cards = $result['cards'];
+    $pagination = $result['pages'] > 1
+        ? paginate_links([
+            'type' => 'array',
+            'total' => $result['pages'],
+            'current' => $result['current'],
+            'prev_text' => __('Previous', 'balefire'),
+            'next_text' => __('Next', 'balefire'),
+        ])
+        : null;
+} else {
+    $cards = Reviews::cards((int) $count, (string) $orderby);
+}
 
 $uid = 'bma-reviews-' . wp_unique_id();
 @endphp
@@ -38,12 +57,22 @@ $uid = 'bma-reviews-' . wp_unique_id();
                      component-support's view.css. NOT Tailwind utilities: the scroll
                      container is load-bearing, and a utility that the content scanner
                      misses silently turns this into page-wide horizontal scroll. --}}
+                @if ($grid)
+                    {{-- Masonry via CSS columns: cards keep their natural height
+                         and pack down each column. No JS, so nothing to re-lay
+                         out when the read-more check or the fonts change heights. --}}
+                    <ul
+                        class="columns-1 gap-8 sm:columns-2 lg:columns-3 xl:columns-4"
+                        aria-label="{{ __('Customer reviews', 'balefire') }}"
+                    >
+                @else
                 <ul
                     data-track
                     class="bma-reviews__track"
                     tabindex="0"
                     aria-label="{{ __('Customer reviews', 'balefire') }}"
                 >
+                @endif
                     @foreach ($cards as $card)
                         <li
                             data-review
@@ -56,7 +85,11 @@ $uid = 'bma-reviews-' . wp_unique_id();
                                  so the third card always overhung the track by 32px and
                                  had its rounded corners clipped. (100% - 2 gaps) / 3
                                  makes three cards + gaps fill the track exactly. --}}
-                            class="bma-reviews__card flex w-[calc(100%-1rem)] flex-col gap-8 rounded-semi bg-white p-8 sm:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)]"
+                            @class([
+                                'bma-reviews__card flex flex-col gap-8 rounded-semi bg-white p-8',
+                                'mb-8 break-inside-avoid' => $grid,
+                                'w-[calc(100%-1rem)] sm:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)]' => ! $grid,
+                            ])
                         >
                             {{-- Quote mark --}}
                             <span class="block size-[30px] shrink-0 text-primary [&_svg]:size-full" aria-hidden="true">
@@ -66,7 +99,13 @@ $uid = 'bma-reviews-' . wp_unique_id();
                             </span>
 
                             <div class="flex flex-1 flex-col gap-2">
-                                <p data-review-body class="line-clamp-3 text-base leading-6 text-grey-800">
+                                {{-- The grid has room for most reviews whole (median 47
+                                     words); only the long tail gets read-more. --}}
+                                <p data-review-body @class([
+                                    'text-base leading-6 text-grey-800',
+                                    'line-clamp-10' => $grid,
+                                    'line-clamp-3' => ! $grid,
+                                ])>
                                     {{ $card['body'] }}
                                 </p>
 
@@ -115,7 +154,13 @@ $uid = 'bma-reviews-' . wp_unique_id();
 
                 {{-- Dots + arrows. One dot per page; view.js hides the surplus once
                      it knows how many cards actually fit. --}}
-                @if (count($cards) > 1)
+                @if ($grid && $pagination)
+                    <nav class="bma-pagination flex flex-wrap items-center justify-center gap-2" aria-label="{{ __('Reviews pages', 'balefire') }}">
+                        @foreach ($pagination as $link)
+                            {!! $link !!}
+                        @endforeach
+                    </nav>
+                @elseif (! $grid && count($cards) > 1)
                     <div class="flex items-center justify-between gap-4">
                         <div class="flex items-center gap-2">
                             @foreach ($cards as $i => $card)

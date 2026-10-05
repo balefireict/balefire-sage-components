@@ -43,6 +43,48 @@ class Reviews {
 	}
 
 	/**
+	 * One page of every review, newest first, for the grid layout.
+	 *
+	 * Always date order: a random order would reshuffle on every page, so
+	 * reviews would repeat and others never appear.
+	 *
+	 * @param int $per_page Reviews per page.
+	 * @param int $paged    1-based page number.
+	 * @return array{cards: array<int, array<string, mixed>>, pages: int, current: int}
+	 */
+	public static function page( int $per_page, int $paged ): array {
+		if ( ! post_type_exists( self::POST_TYPE ) ) {
+			return [ 'cards' => [], 'pages' => 0, 'current' => 1 ];
+		}
+
+		$paged = max( 1, $paged );
+		$query = new \WP_Query( [
+			'post_type'           => self::POST_TYPE,
+			'post_status'         => 'publish',
+			'posts_per_page'      => max( 1, $per_page ),
+			'paged'               => $paged,
+			'orderby'             => [ 'date' => 'DESC', 'ID' => 'DESC' ],
+			'ignore_sticky_posts' => true,
+		] );
+
+		return [
+			'cards'   => array_map( [ self::class, 'card' ], $query->posts ),
+			'pages'   => (int) $query->max_num_pages,
+			'current' => $paged,
+		];
+	}
+
+	/**
+	 * The page number the current request asks for.
+	 *
+	 * A singular page carries /page/N/ in `paged`; a static front page
+	 * carries it in `page` instead.
+	 */
+	public static function currentPage(): int {
+		return max( 1, (int) get_query_var( 'paged' ), (int) get_query_var( 'page' ) );
+	}
+
+	/**
 	 * Map one review to card data.
 	 *
 	 * @param \WP_Post $post Review.
